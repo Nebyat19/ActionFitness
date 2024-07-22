@@ -50,28 +50,11 @@
   </footer>
 </template>
 <script setup>
-import { ACTION_FITNESS_IMAGE } from '@/data/constants'
+import { ACTION_FITNESS_IMAGE, gymInformation } from '@/data/constants'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import LinkedinIcon from '@/components/icons/LinkedinIcon.vue'
 import TiktokIcon from '@/components/icons/TiktokIcon.vue'
 
-const socialLinks = {
-  facebook: 'https://www.facebook.com',
-  instagram: 'https://www.instagram.com',
-  linkedin: 'https://www.linkedin.com',
-  tiktok: 'https://www.tiktok.com'
-}
-const gymInformation = {
-  location: 'Addis Ababa, Ethiopia',
-  openingHours: 'Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00',
-  links: [
-    { name: 'Home', path: '/home' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact Us', path: '/contact-us' }
-  ],
-  email: 'info@actionfitness.com',
-  phone: '+251911111111/+2519885588',
-  info: 'Action Fitness is a gym that offers personalized training programs to help you achieve your fitness goals.'
-}
+const socialLinks = gymInformation.socialMedia
 </script>

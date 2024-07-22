@@ -34,7 +34,11 @@
         v-show="showMenu"
         class="py-5 left-0 top-16 bg-black flex flex-col absolute gap-5 text-md w-full justify-center items-center text-primary-green"
       >
-        <li class="hover:text-primary-red" v-for="navlink in navigationLinks" :key="navlink.name">
+        <li
+          class="hover:text-primary-red uppercase"
+          v-for="navlink in navigationLinks"
+          :key="navlink.name"
+        >
           <router-link :to="navlink.path">{{ navlink.name }}</router-link>
         </li>
       </ul>
@@ -58,7 +62,11 @@
     </nav>
     <nav class="hidden md:flex">
       <ul class="flex gap-5 text-sm text-primary-red">
-        <li class="hover:text-primary-green" v-for="navlink in navigationLinks" :key="navlink.name">
+        <li
+          class="hover:text-primary-green uppercase"
+          v-for="navlink in navigationLinks"
+          :key="navlink.name"
+        >
           <router-link :to="navlink.path">{{ navlink.name }}</router-link>
         </li>
       </ul>
@@ -66,6 +74,7 @@
   </header>
 </template>
 <script setup>
+import { gymInformation } from '@/data/constants'
 import { ref } from 'vue'
 const showMenu = ref(false)
 const navigationLinks = [
@@ -74,15 +83,9 @@ const navigationLinks = [
   { name: 'Services', path: '/services' },
   { name: 'Classes', path: '/classes' },
   { name: 'Trainers', path: '/trainers' },
-  { name: 'Membership', path: '/membership' },
-
   { name: 'Blog', path: '/blog' },
   { name: 'Contact', path: '/contact' }
 ]
 
-const gymInfo = {
-  location: 'Addis Ababa, Ethiopia',
-  phone: '+251911111111',
-  name: 'Action Fitness'
-}
+const gymInfo = gymInformation 
 </script>
