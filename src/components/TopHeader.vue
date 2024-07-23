@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black flex justify-end py-2 border-b px-3 md:px-16 text-primary-green">
+  <div class="bg-black  flex justify-end py-2 border-b px-3 md:px-16 text-primary-green">
     <span class="flex gap-2 items-center"
       ><svg
         class="h-5 w-5 text-white"
@@ -26,7 +26,7 @@
     </span>
   </div>
   <header
-    class="transition-all z-10 relative border-red-500 flex justify-between h-16 bg-white px-3 py-4 items-center md:mx-16"
+    class="transition-all z-10 relative border-red-500 flex justify-between h-16 bg-white px-3 py-4 items-center md:px-16"
   >
     <img class="h-14 w-auto" src="/src/assets/images/logos/logoBgRemoved.png" alt="" />
     <nav class="md:hidden">

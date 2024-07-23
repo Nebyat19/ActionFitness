@@ -33,12 +33,10 @@
           <li>
             <a :href="socialLinks.instagram"> <InstagramIcon /> </a>
           </li>
-          <li>
-            <a :href="socialLinks.linkedin"> <LinkedinIcon /></a>
-          </li>
+         
         </ul>
         <h1 class="text-lg font-bebas mt-5">Contact Us</h1>
-        <p>{{ gymInformation.phone }}</p>
+        <p v-for="phone in gymInformation.phones" :key="phone">{{ phone }}</p>
         <p>{{ gymInformation.email }}</p>
       </div>
     </div>
