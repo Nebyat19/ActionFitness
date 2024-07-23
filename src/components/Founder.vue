@@ -4,7 +4,7 @@
        
        <div class="w-96 h-96 relative  border-2">
         <img class=" absolute inset-0 w-full h-full object-cover object-top" :src="founderInfo.image" alt="">
-        <h1 class=" absolute -bottom-20 pb-5 border-b-2  w-full text-center  z-10 font-bebas text-3xl md:text-4xl text-primary-green">{{ founderInfo.title }}</h1>
+        <h1 class=" absolute -bottom-10 md:-bottom-20 pmd:b-5 border-b-2  w-full text-center  z-10 font-bebas text-3xl md:text-4xl text-primary-green">{{ founderInfo.title }}</h1>
        </div> 
 
      <div class="flex flex-col ">

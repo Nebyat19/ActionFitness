@@ -22,7 +22,7 @@
           stroke-linejoin="round"
         ></path>
       </svg>
-      <span class="text-sm">{{ gymInfo.location }} | {{ gymInfo.phone }}</span>
+      <span class="text-sm">Addis Ababa, Ethiopia | {{ gymInfo.phone }}</span>
     </span>
   </div>
   <header

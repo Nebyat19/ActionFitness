@@ -6,8 +6,8 @@ export { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE }
 
 const gymInformation = {
   name: 'Action Fitness',
-  location: 'Addis Ababa, Ethiopia',
-  openingHours: 'Mo-Fr 06:00-22:00, Sa-Su 08:00-20:00',
+  location: 'Ayat Tafo Road, 500m past the cobblestone road near St. Gabriel Church, next to St. Gabriel Church',
+  openingHours: 'Mo-Sa 05:00 AM - 9:00 Pm, Su 05:00 AM - 12:00 AM',  
 
   links: [
     { name: 'Home', path: '/home' },
