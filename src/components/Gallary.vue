@@ -26,7 +26,9 @@
           :alt="image.title"
          
         />
-        <span class=" font-bebas text-3xl text-center text-gray-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{{ image.title }}</span>
+        <span class=" grid place-content-center  font-bebas text-3xl text-center text-gray-200 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">{{ image.title }}
+            <button class="px-3 py-1 text-sm mt-5 bg-primary-green rounded-full block">see more</button>
+        </span>
     </div>  
       </div>
     </div>

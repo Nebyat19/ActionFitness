@@ -17,12 +17,15 @@
     </div>
     <div class="w-full bg-primary-red h-16 z-0 flex  gap-3 justify-center items-center  text-white text-md font-bebas">Focused training programs tailored to your needs. <span class=" font-bold text-black"> Start now!</span></div>
   </main>
+
   <AboutUs />
   <WhyUs />
   <Services />
+  <Founder />
   <ContactUs />
   <FollowUs />
   <Gallary />
+
   
 </template>
 
@@ -34,5 +37,6 @@ import WhyUs from '@/components/WhyUs.vue';
 import FollowUs from '@/components/FollowUs.vue';
 import ContactUs from '@/components/ContactUs.vue';
 import Gallary from '@/components/Gallary.vue';
+import Founder from '@/components/Founder.vue';
 </script>
 

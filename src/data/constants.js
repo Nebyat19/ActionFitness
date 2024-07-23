@@ -69,12 +69,12 @@ import GALLERY_IMAGE_9 from '@/assets/images/gallery/gymGallary-9.jpg'
 
 const galleryImages = [
   GALLERY_IMAGE_1,
- // GALLERY_IMAGE_2,
- // GALLERY_IMAGE_3,
-//  GALLERY_IMAGE_4,
+  // GALLERY_IMAGE_2,
+  // GALLERY_IMAGE_3,
+  //  GALLERY_IMAGE_4,
   GALLERY_IMAGE_5,
   GALLERY_IMAGE_6,
-//  GALLERY_IMAGE_7,
+  //  GALLERY_IMAGE_7,
   GALLERY_IMAGE_9
 ]
 
@@ -90,12 +90,55 @@ import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jp
 import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
 
 const otherGalleryImages = [
-  {image: Other_GALLERY_IMAGE_1, title: 'After school Training programs'},
-  {image: Other_GALLERY_IMAGE_2, title: 'CrossFit Membership Course Bangkok Thailand 2019'},
-  {image: Other_GALLERY_IMAGE_3, title: 'International Instructor Course'},
-  {image: Other_GALLERY_IMAGE_4, title: 'MuayThai - Thai boxing Course Bagkok Thailand 2019'},
-  {image: Other_GALLERY_IMAGE_5, title: 'Taekwondo club After school'},
-  {image: Other_GALLERY_IMAGE_6, title: 'WT PARTNERSHIP Taekwondo program 2018'}
+  { image: Other_GALLERY_IMAGE_1, title: 'After school Training programs' },
+  { image: Other_GALLERY_IMAGE_2, title: 'CrossFit Membership Course Bangkok Thailand 2019' },
+  { image: Other_GALLERY_IMAGE_3, title: 'International Instructor Course' },
+  { image: Other_GALLERY_IMAGE_4, title: 'MuayThai - Thai boxing Course Bagkok Thailand 2019' },
+  { image: Other_GALLERY_IMAGE_5, title: 'Taekwondo club After school' },
+  { image: Other_GALLERY_IMAGE_6, title: 'WT PARTNERSHIP Taekwondo program 2018' }
 ]
 
 export { otherGalleryImages }
+
+//founder
+
+import FOUNDER_IMAGE from '@/assets/images/gallery/founder.jpg'
+
+const founderInfo = {
+  sub:'Master',
+  name: 'Eskender Worku',
+  title: 'CEO and Head Coach',
+  image: [FOUNDER_IMAGE],
+  Certifications: [
+    '5th Degree Black Belt (DAN) - Certified Master from South Korea World Taekwondo Headquarters (HQ Kukkiwon)',
+    'Global Taekwondo Master Course from Muju, South Korea',
+    'Fitness Instructor Certificate from London New Skills Academy',
+    'Diploma in Sports Nutrition from USA California FAB Academy',
+    'Diploma in Physical Fitness from Alison, Ireland',
+    'CrossFit Workout Programming Course from USA CF Education',
+    'Certified Personal Trainer Certificate from FIT Thailand',
+    'Muaythai Thai Boxing Course from Bangkok, Thailand',
+    'Health and Fitness Trainer (First and Second Level) from Addis Ababa Sport Commission',
+    'Instructor and Monitoring Fitness Program from Platinum Health and Fitness',
+    'Body Building and Weight Lifting Coach from Addis Ababa Sport Commission',
+    'Zumba Instructor Course from ZIN',
+    'Tabata, TRX, and Functional Training Course from Udemy'
+  ],
+  phone: '0910531281',
+  email: 'eskender@gmail.com', 
+  address: 'Addis Ababa, Ethiopia',
+  info: 'Master Eskender Worku is the founder of Action Fitness. He has been in the fitness industry for over 10 years and has helped hundreds of people achieve their fitness goals.',
+  workExperience: [
+    'Founder of Master Eskinder Taekwondo Club and Action Body Building and Fitness Center',
+    'Instructor at Turkish Schools / Intellectual Schools for over five years',
+    'Instructor at Flipper International Schools for over 6 years (till now)',
+    'Instructor at German Embassy Schools',
+    'Instructor at Addis International Academy',
+    'Instructor at Head to Toe Early Learning Center',
+    'Instructor at Enat Alem Children Care Organization',
+    'Instructor at Iqra Academy / Elysian Academy',
+    'Personal one-to-one home coaching'
+  ]
+}
+
+export { founderInfo }
