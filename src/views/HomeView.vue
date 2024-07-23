@@ -8,7 +8,7 @@
           <div class="text-white text-center   z-0 flex justify-between items-center flex-col  ">
            <div class="flex font-cursive flex-col md:flex-row gap-2 items-center justify-start text-primary-green text-[60px] md:text-[100px] font-bold  tracking-tighter"> <div class=" text-primary-green p-3 bg-white rounded-[30px]"><img class="h-24 w-auto" :src="ACTION_IMAGE" alt=""></div> FITNESS   </div>
             <p class="text-sm md:text-lg">Join Action Fitness for top-notch gym facilities, personal training, and wellness programs </p>
-            <button class="bg-primary-green text-sm hover:bg-primary-red text-white px-10 py-2 rounded-lg mt-4">Get Started</button>
+            <button class="bg-primary-green text-sm hover:bg-primary-red text-white px-10 py-2 rounded-lg mt-4"><a href="#services">Get Started</a></button>
           </div>
           </div>
           

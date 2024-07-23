@@ -15,14 +15,33 @@ const router = createRouter({
           component: HomeView
         },
         {
-          path:'/trainers',
-          component:import("@/views/TrainersView.vue")
+          path: '/trainers',
+          name: 'trainers',
+          component: import('@/views/TrainersView.vue')
         },
         {
-          path:'/about-us',
-          component: import ("@/views/AboutView.vue")
+          path: '/about-us',
+          name: 'about',
+          component: import('@/views/AboutView.vue')
+        },
+
+        {
+          path: '/gallery',
+          name: 'gallery',
+          component: () => import('@/views/GalleryListView.vue')
+        },
+        {
+          path: '/gallery/:name',
+          name: 'gallery-detail',
+          component: () => import('@/views/GalleryDetailView.vue'),
+          props: true
         }
       ]
+    }, //error page
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      redirect: '/'
     }
   ]
 })

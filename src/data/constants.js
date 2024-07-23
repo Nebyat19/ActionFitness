@@ -81,7 +81,14 @@ const galleryImages = [
   GALLERY_IMAGE_9
 ]
 
-export { galleryImages }
+const gymGallary = [
+  ...galleryImages,
+  GALLERY_IMAGE_2,
+  GALLERY_IMAGE_3,
+  GALLERY_IMAGE_4,
+  GALLERY_IMAGE_7
+]
+export { galleryImages, gymGallary }
 
 //other Galley
 
@@ -92,9 +99,21 @@ import Other_GALLERY_IMAGE_4 from '@/assets/images/gallery/MuayThai.jpg'
 import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jpg'
 import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
 
+/* 'gymGallery',
+  'afterSchoolGallery',
+  'boxingGallery',
+  'TaekwondoClubGallery',
+  'WTPARTNERSHIPGallery'
+  */
 const otherGalleryImages = [
-  { image: Other_GALLERY_IMAGE_1, title: 'After school Training programs' },
-  { image: Other_GALLERY_IMAGE_2, title: 'CrossFit Membership Course Bangkok Thailand 2019' },
+  {
+    image: Other_GALLERY_IMAGE_1,
+    path: '/gallery/afterSchoolGallery',
+    title: 'After school Training programs'
+  },
+  { image: Other_GALLERY_IMAGE_2, 
+    path: '/gallery/crossFitMembership',
+    title: 'CrossFit Membership Course Bangkok Thailand 2019' },
   { image: Other_GALLERY_IMAGE_3, title: 'International Instructor Course' },
   { image: Other_GALLERY_IMAGE_4, title: 'MuayThai - Thai boxing Course Bagkok Thailand 2019' },
   { image: Other_GALLERY_IMAGE_5, title: 'Taekwondo club After school' },
@@ -151,11 +170,9 @@ export { founderInfo }
 import trainerOne from '@/assets/images/trainers/trainer-1.jpg'
 import trainerTwo from '@/assets/images/trainers/trainer-2.jpg'
 
-const trainesInfo=[
-
-  {name:"Abel Getahun", image:trainerOne, title:"Trainer"},
-  {name: "Surafel Matiyos", image:trainerTwo,  title:"Trainer"}
-
+const trainesInfo = [
+  { name: 'Abel Getahun', image: trainerOne, title: 'Trainer' },
+  { name: 'Surafel Matiyos', image: trainerTwo, title: 'Trainer' }
 ]
 
-export {trainesInfo};
+export { trainesInfo }

@@ -25,7 +25,7 @@
       <span class="text-sm">Addis Ababa, Ethiopia | {{ gymInfo.phone }}</span>
     </span>
   </div>
-  <header
+  <header ref="navBar"
     class="transition-all z-10 h-16 relative border-red-500 flex justify-between  bg-white px-3 py-4 items-center md:px-16"
   >
     <img class="h-14 w-auto" src="/src/assets/images/logos/logoBgRemoved.png" alt="" />
@@ -76,7 +76,14 @@
 <script setup>
 import { gymInformation } from '@/data/constants'
 import { ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 const showMenu = ref(false)
+
+
+
+const navBar = ref(null)
+
+onClickOutside(navBar, () => {showMenu.value = false})
 const navigationLinks = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
