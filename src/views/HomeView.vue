@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main id="home">
     <div class=" w-full h-[100vh] relative grid place-items-center">
       <img :src="HERO_IMAGE" class="w-full h-full  absolute object-cover" alt="">
       <div class=" w-full h-full absolute bg-primary-red opacity-50"></div>
@@ -20,6 +20,8 @@
   <AboutUs />
   <WhyUs />
   <Services />
+  <ContactUs />
+  <FollowUs />
   
 </template>
 
@@ -28,4 +30,7 @@ import { HERO_IMAGE,ACTION_IMAGE } from '@/data/constants'
 import AboutUs from '@/components/AboutUs.vue'
 import Services from '@/components/Services.vue';
 import WhyUs from '@/components/WhyUs.vue';
+import FollowUs from '@/components/FollowUs.vue';
+import ContactUs from '@/components/ContactUs.vue';
 </script>
+

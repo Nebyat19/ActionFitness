@@ -9,7 +9,7 @@
         range of services designed to meet your individual needs and help you achieve your personal
         fitness goals.
       </p>
-      <div class="flex flex-col md:flow-row justify-between gap-10 mt-5">
+      <div class="flex flex-col md:flex-row justify-between gap-10 mt-5">
         <div class="shadow-2xl border-2 border-gray-50 relative  w-full md:w-1/2 h-64">
           <video
             class="absolute inset-0 h-full w-full object-cover"

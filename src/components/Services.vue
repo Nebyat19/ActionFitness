@@ -1,5 +1,5 @@
 <template>
-  <section id="services " class="bg-black p-10 md:p-24 grid place-items-center">
+  <section id="services" class="bg-black p-10 md:p-24 grid place-items-center">
     <div>
       <h1 class="text-3xl font-bold text-primary-red font-bebas mb-10 grid place-items-center">
         What We Offer
