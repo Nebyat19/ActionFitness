@@ -69,13 +69,33 @@ import GALLERY_IMAGE_9 from '@/assets/images/gallery/gymGallary-9.jpg'
 
 const galleryImages = [
   GALLERY_IMAGE_1,
-  GALLERY_IMAGE_2,
-  GALLERY_IMAGE_3,
-  GALLERY_IMAGE_4,
+ // GALLERY_IMAGE_2,
+ // GALLERY_IMAGE_3,
+//  GALLERY_IMAGE_4,
   GALLERY_IMAGE_5,
   GALLERY_IMAGE_6,
-  GALLERY_IMAGE_7,
+//  GALLERY_IMAGE_7,
   GALLERY_IMAGE_9
 ]
 
 export { galleryImages }
+
+//other Galley
+
+import Other_GALLERY_IMAGE_1 from '@/assets/images/gallery/afterschoolGallary-1.jpg'
+import Other_GALLERY_IMAGE_2 from '@/assets/images/gallery/CrossFitMembership.jpg'
+import Other_GALLERY_IMAGE_3 from '@/assets/images/gallery/InternationalInstructorcourse.jpg'
+import Other_GALLERY_IMAGE_4 from '@/assets/images/gallery/MuayThai.jpg'
+import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jpg'
+import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
+
+const otherGalleryImages = [
+  {image: Other_GALLERY_IMAGE_1, title: 'After school Training programs'},
+  {image: Other_GALLERY_IMAGE_2, title: 'CrossFit Membership Course Bangkok Thailand 2019'},
+  {image: Other_GALLERY_IMAGE_3, title: 'International Instructor Course'},
+  {image: Other_GALLERY_IMAGE_4, title: 'MuayThai - Thai boxing Course Bagkok Thailand 2019'},
+  {image: Other_GALLERY_IMAGE_5, title: 'Taekwondo club After school'},
+  {image: Other_GALLERY_IMAGE_6, title: 'WT PARTNERSHIP Taekwondo program 2018'}
+]
+
+export { otherGalleryImages }
