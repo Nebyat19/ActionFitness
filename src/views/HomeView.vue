@@ -22,6 +22,7 @@
   <Services />
   <ContactUs />
   <FollowUs />
+  <Gallary />
   
 </template>
 
@@ -32,5 +33,6 @@ import Services from '@/components/Services.vue';
 import WhyUs from '@/components/WhyUs.vue';
 import FollowUs from '@/components/FollowUs.vue';
 import ContactUs from '@/components/ContactUs.vue';
+import Gallary from '@/components/Gallary.vue';
 </script>
 

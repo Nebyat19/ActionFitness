@@ -55,3 +55,27 @@ export {
   taekwondo_2,
   sampleVideo_2
 }
+
+//gallery
+
+import GALLERY_IMAGE_1 from '@/assets/images/gallery/gymGallary-1.jpg'
+import GALLERY_IMAGE_2 from '@/assets/images/gallery/gymGallary-2.jpg'
+import GALLERY_IMAGE_3 from '@/assets/images/gallery/gymGallary-3.jpg'
+import GALLERY_IMAGE_4 from '@/assets/images/gallery/gymGallary-4.jpg'
+import GALLERY_IMAGE_5 from '@/assets/images/gallery/gymGallary-5.jpg'
+import GALLERY_IMAGE_6 from '@/assets/images/gallery/gymGallary-6.jpg'
+import GALLERY_IMAGE_7 from '@/assets/images/gallery/gymGallary-7.jpg'
+import GALLERY_IMAGE_9 from '@/assets/images/gallery/gymGallary-9.jpg'
+
+const galleryImages = [
+  GALLERY_IMAGE_1,
+  GALLERY_IMAGE_2,
+  GALLERY_IMAGE_3,
+  GALLERY_IMAGE_4,
+  GALLERY_IMAGE_5,
+  GALLERY_IMAGE_6,
+  GALLERY_IMAGE_7,
+  GALLERY_IMAGE_9
+]
+
+export { galleryImages }
