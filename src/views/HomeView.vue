@@ -2,7 +2,7 @@
   <main id="home">
     <div class=" w-full h-[100vh] relative grid place-items-center">
       <img :src="HERO_IMAGE" class="w-full h-full  absolute object-cover" alt="">
-      <div class=" w-full h-full absolute bg-primary-red opacity-50"></div>
+      <div class=" w-full h-full absolute bg-black opacity-50"></div>
       <div>
         <div class=" container mx-auto flex flex-col  items-center text-center justify-center h-full">
           <div class="text-white text-center   z-0 flex justify-between items-center flex-col  ">

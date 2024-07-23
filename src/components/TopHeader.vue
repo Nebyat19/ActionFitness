@@ -26,7 +26,7 @@
     </span>
   </div>
   <header
-    class="transition-all z-10 relative border-red-500 flex justify-between h-16 bg-white px-3 py-4 items-center md:px-16"
+    class="transition-all z-10 h-16 relative border-red-500 flex justify-between  bg-white px-3 py-4 items-center md:px-16"
   >
     <img class="h-14 w-auto" src="/src/assets/images/logos/logoBgRemoved.png" alt="" />
     <nav class="md:hidden">
@@ -61,7 +61,7 @@
       ></span>
     </nav>
     <nav class="hidden md:flex">
-      <ul class="flex gap-5 text-sm text-primary-red">
+      <ul class="flex gap-5 text-sm font-poppins text-primary-red">
         <li
           class="hover:text-primary-green uppercase"
           v-for="navlink in navigationLinks"
