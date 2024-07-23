@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black  flex justify-end py-2 border-b px-3 md:px-16 text-primary-green">
+  <div class="bg-black flex justify-end py-2 border-b px-3 md:px-16 text-primary-green">
     <span class="flex gap-2 items-center"
       ><svg
         class="h-5 w-5 text-white"
@@ -25,8 +25,9 @@
       <span class="text-sm">Addis Ababa, Ethiopia | {{ gymInfo.phone }}</span>
     </span>
   </div>
-  <header ref="navBar"
-    class="transition-all z-10 h-16 relative border-red-500 flex justify-between  bg-white px-3 py-4 items-center md:px-16"
+  <header
+    ref="navBar"
+    class="transition-all z-10 h-16 relative border-red-500 flex justify-between bg-white px-3 py-4 items-center md:px-16"
   >
     <img class="h-14 w-auto" src="/src/assets/images/logos/logoBgRemoved.png" alt="" />
     <nav class="md:hidden">
@@ -67,7 +68,7 @@
           v-for="navlink in navigationLinks"
           :key="navlink.name"
         >
-        <router-link :to="navlink.path">{{ navlink.name }}</router-link>
+          <router-link :to="navlink.path">{{ navlink.name }}</router-link>
         </li>
       </ul>
     </nav>
@@ -79,20 +80,21 @@ import { ref } from 'vue'
 import { onClickOutside } from '@vueuse/core'
 const showMenu = ref(false)
 
-
-
 const navBar = ref(null)
 
-onClickOutside(navBar, () => {showMenu.value = false})
+onClickOutside(navBar, () => {
+  showMenu.value = false
+})
 const navigationLinks = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
   { name: 'Services', path: '/services' },
   { name: 'Classes', path: '/classes' },
+  { name: 'Founder', path: '/founder' },
   { name: 'Trainers', path: '/trainers' },
   { name: 'Contact', path: '/contact' },
-  {name: 'Gallery', path: '/gallery'}
+  { name: 'Gallery', path: '/gallery' }
 ]
 
-const gymInfo = gymInformation 
+const gymInfo = gymInformation
 </script>
