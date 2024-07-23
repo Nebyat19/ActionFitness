@@ -1,5 +1,5 @@
 <template>
-  <section id="gallary" class="bg-black p-5 md:p-16">
+  <section id="gallary" class="bg-black pt-10 border-t p-5 md:p-16">
     <div class="flex flex-col justify-center place-items-center text-white">
       <h1 class="font-bebas tracking-wide text-6xl grid place-items-center mb-5">GYM Gallery</h1>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-2">

@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="bg-black p-1 md:p-16 grid place-items-center">
+  <section id="services" class="bg-black pt-5 p-1 md:p-16 grid place-items-center">
     <div>
       <h1 class="text-3xl font-bold text-primary-red font-bebas mb-10 grid place-items-center">
         What We Offer
@@ -25,17 +25,16 @@
           alt=""
           class="w-1/2 h-auto object-cover rounded-sm"
         />
-       <div   v-show="!service.image" class="grid place-items-center  h-auto bg-black w-1/2"> <img
-        
-          class="w-24 h-auto"
-          :src="ACTION_FITNESS_IMAGE"
-          alt=""
-        /></div>
+        <div v-show="!service.image" class="grid place-items-center h-auto bg-black w-1/2">
+          <img class="w-24 h-auto" :src="ACTION_FITNESS_IMAGE" alt="" />
+        </div>
 
         <div class="w-1/2 p-5 flex flex-col gap-3 justify-center items-center">
           <h1 class="text-black font-bebas text-xl">{{ service.name }}</h1>
           <p class="">{{ service.description }}</p>
-          <button class="mt-5 bg-primary-red text-white text-sm px-3 py-1 rounded-lg">read more</button>
+          <button class="mt-5 bg-primary-red text-white text-sm px-3 py-1 rounded-lg">
+            read more
+          </button>
         </div>
       </div>
     </div>
@@ -50,9 +49,22 @@ import {
   nutritionalConsultant,
   ACTION_FITNESS_IMAGE,
   taekwondo,
-  BodyBuilding
+  BodyBuilding,
+  groupFitness,
+  HERO_IMAGE
 } from '@/data/constants'
 const services = [
+  {
+    service: 'body-building',
+    name: 'Body Building',
+    description: 'Build muscle and strength with our body building training programs.',
+    image: HERO_IMAGE
+  },
+  {
+    service: 'boxing',
+    name: 'Boxing',
+    description: 'Improve your boxing skills with our professional boxing classes.'
+  },
   {
     service: 'nutritional-consultant',
     name: 'Nutritional Consultant',
@@ -73,13 +85,6 @@ const services = [
   },
 
   {
-    service: 'after-school-taekwondo-training',
-    name: 'After School Taekwondo Training',
-    description: 'Learn Taekwondo after school with our expert trainers.',
-    image: AFTER_SCHOOL_TAEKWONDO
-  },
-
-  {
     service: 'personal-training',
     name: 'Personal Training',
     description: 'Achieve your fitness goals with one-on-one personal training sessions.'
@@ -90,34 +95,30 @@ const services = [
     description: 'Join our specialized programs focused on fat loss and weight management.'
   },
   {
-    service: 'body-building',
-    name: 'Body Building',
-    description: 'Build muscle and strength with our body building training programs.',
-   image: BodyBuilding
+    service: 'thai-boxing-and-kick-boxing',
+    name: 'Thai Boxing and Kick Boxing',
+    description:
+      'Get trained in Thai boxing  kick boxing techniques to enhance your self-defense skills.',
+    image: THAIBOXING
   },
   {
-    service: 'boxing',
-    name: 'Boxing',
-    description: 'Improve your boxing skills with our professional boxing classes.'
-  },
+    service :'group-training',
+    name: "Group Fitness Training ",
+    description:"Group Fitness Training ",
+    image:groupFitness
 
+  },
+  {
+    service: 'after-school-taekwondo-training',
+    name: 'After School Taekwondo Training',
+    description: 'Learn Taekwondo after school with our expert trainers.',
+    image: AFTER_SCHOOL_TAEKWONDO
+  },
   {
     service: 'taekwondo',
     name: 'Taekwondo',
     description: 'Master the art of Taekwondo with our experienced instructors.',
     image: taekwondo
-  },
-
-  {
-    service: 'kick-boxing',
-    name: 'Kick Boxing',
-    description: 'Learn kick boxing techniques and improve your fitness level.'
-  },
-  {
-    service: 'thai-boxing',
-    name: 'Thai Boxing',
-    description: 'Get trained in Thai boxing and enhance your self-defense skills.',
-    image:THAIBOXING
   }
 ]
 </script>

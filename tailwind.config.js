@@ -25,6 +25,7 @@ export default {
     fontFamily:{
     bebas: ["Bebas Neue", "sans-serif"],
     poppins: ["Poppins", "sans-serif"],
+    cursive: ["Edu AU VIC WA NT Hand", 'cursive']
     
     }
   },

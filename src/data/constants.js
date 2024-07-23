@@ -1,4 +1,4 @@
-import HERO_IMAGE from '@/assets/images/heroImage-2.jpg'
+import HERO_IMAGE from '@/assets/images/heroImage-3.jpg'
 import ACTION_IMAGE from '@/assets/images/logos/actionBgRemoved.png'
 import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
 
@@ -6,8 +6,9 @@ export { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE }
 
 const gymInformation = {
   name: 'Action Fitness',
-  location: 'Ayat Tafo Road, 500m past the cobblestone road near St. Gabriel Church, next to St. Gabriel Church',
-  openingHours: 'Mo-Sa 05:00 AM - 9:00 Pm, Su 05:00 AM - 12:00 AM',  
+  location:
+    'Ayat Tafo Road, 500m past the cobblestone road near St. Gabriel Church, next to St. Gabriel Church',
+  openingHours: 'Mo-Sa 05:00 AM - 9:00 Pm, Su 05:00 AM - 12:00 AM',
 
   links: [
     { name: 'Home', path: '/home' },
@@ -42,6 +43,7 @@ import taekwondo from '@/assets/images/services/taekwondo.jpg'
 import BodyBuilding from '@/assets/images/services/BodyBuilding.jpg'
 import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'
 import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
+import groupFitness from '@/assets/images/services/groupfitness.png'
 
 export {
   AFTER_SCHOOL_IMAGE_1,
@@ -53,7 +55,8 @@ export {
   taekwondo,
   BodyBuilding,
   taekwondo_2,
-  sampleVideo_2
+  sampleVideo_2,
+  groupFitness
 }
 
 //gallery
@@ -105,7 +108,7 @@ export { otherGalleryImages }
 import FOUNDER_IMAGE from '@/assets/images/gallery/founder.jpg'
 
 const founderInfo = {
-  sub:'Master',
+  sub: 'Master',
   name: 'Eskender Worku',
   title: 'CEO and Head Coach',
   image: [FOUNDER_IMAGE],
@@ -125,7 +128,7 @@ const founderInfo = {
     'Tabata, TRX, and Functional Training Course from Udemy'
   ],
   phone: '0910531281',
-  email: 'eskender@gmail.com', 
+  email: 'eskender@gmail.com',
   address: 'Addis Ababa, Ethiopia',
   info: 'Master Eskender Worku is the founder of Action Fitness. He has been in the fitness industry for over 10 years and has helped hundreds of people achieve their fitness goals.',
   workExperience: [
@@ -142,3 +145,17 @@ const founderInfo = {
 }
 
 export { founderInfo }
+
+//traines
+
+import trainerOne from '@/assets/images/trainers/trainer-1.jpg'
+import trainerTwo from '@/assets/images/trainers/trainer-2.jpg'
+
+const trainesInfo=[
+
+  {name:"Abel Getahun", image:trainerOne, title:"Trainer"},
+  {name: "Surafel Matiyos", image:trainerTwo,  title:"Trainer"}
+
+]
+
+export {trainesInfo};

@@ -39,7 +39,7 @@
           v-for="navlink in navigationLinks"
           :key="navlink.name"
         >
-          <a :ref="navlink.path">{{ navlink.name }}</a>
+          <router-link :to="navlink.path">{{ navlink.name }}</router-link>
         </li>
       </ul>
       <span class="lg:hidden cursor-pointer" @click="showMenu = !showMenu"
@@ -67,7 +67,7 @@
           v-for="navlink in navigationLinks"
           :key="navlink.name"
         >
-          <a :href="navlink.path">{{ navlink.name }}</a>
+        <router-link :to="navlink.path">{{ navlink.name }}</router-link>
         </li>
       </ul>
     </nav>
@@ -78,9 +78,9 @@ import { gymInformation } from '@/data/constants'
 import { ref } from 'vue'
 const showMenu = ref(false)
 const navigationLinks = [
-  { name: 'Home', path: '#home' },
-  { name: 'About Us', path: '#about-us' },
-  { name: 'Services', path: '#services' },
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about-us' },
+  { name: 'Services', path: '/services' },
   { name: 'Classes', path: '/classes' },
   { name: 'Trainers', path: '/trainers' },
   { name: 'Contact', path: '/contact' },
