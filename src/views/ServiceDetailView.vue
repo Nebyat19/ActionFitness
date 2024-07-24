@@ -52,12 +52,53 @@ import { useRouter, useRoute } from 'vue-router'
 import { BodyBuilding, homeTraining,AFTER_SCHOOL_IMAGE_1, ACTION_FITNESS_IMAGE,THAIBOXING ,nutritionalConsultant} from '@/data/constants'
 
 const service = ref({})
-const ServiceList = ['BodyBuilding','ThaiBoxingAndKickBoxing', 'AfterSchoolTrainingPrograms','HomeToHomePrivateTraining','Boxing', 'NutritionalConsultant']
+const ServiceList = ['BodyBuilding', 'GroupFitnessTraining','FatLossTraining','PersonalTraining','ThaiBoxingAndKickBoxing', 'AfterSchoolTrainingPrograms','HomeToHomePrivateTraining','Boxing', 'NutritionalConsultant']
 defineProps({
   name: String
 })
 const ServiceInfo = {
-    
+    GroupFitnessTraining: {
+    title: 'Group Fitness Training',
+    sub: 'Dynamic Group Workouts',
+    benefits: [
+      'Motivating group environment',
+      'Varied workout routines',
+      'Cost-effective fitness solution',
+      'Increased social interaction',
+      'Fun and engaging classes'
+    ],
+    description:
+      "Experience the energy and motivation of working out in a group with our Group Fitness Training sessions. Our dynamic group workouts are designed to provide a fun and engaging environment while helping you achieve your fitness goals. Enjoy varied workout routines, increase your social interaction, and benefit from a cost-effective fitness solution that keeps you motivated and on track.",
+    image: null // Make sure to import the correct image path
+  },
+    FatLossTraining: {
+    title: 'Fat Loss Training',
+    sub: 'Specialized Fat Loss Programs',
+    benefits: [
+      'Effective fat reduction',
+      'Improved metabolic rate',
+      'Enhanced body composition',
+      'Personalized nutrition and exercise plans',
+      'Supportive and motivating environment'
+    ],
+    description:
+      "Join our specialized programs focused on fat loss and weight management. Our Fat Loss Training service offers tailored exercise routines and nutrition guidance to help you achieve your fat loss goals. With a focus on effective fat reduction and improved metabolic rate, you'll receive personalized plans and support to enhance your body composition and reach your fitness objectives.",
+    image: null // Make sure to import the correct image path
+  },
+    PersonalTraining: {
+    title: 'Personal Training',
+    sub: 'One-on-One Personal Training',
+    benefits: [
+      'Customized workout plans',
+      'Individualized attention',
+      'Enhanced motivation and accountability',
+      'Expert guidance and support',
+      'Faster achievement of fitness goals'
+    ],
+    description:
+      "Achieve your fitness goals with one-on-one personal training sessions. Our personal training service offers customized workout plans tailored to your specific needs and goals. With individualized attention and expert guidance, you'll receive the motivation and support needed to maximize your results and reach your fitness objectives more efficiently.",
+    image: null // Make sure to import the correct image path
+  },
     AfterSchoolTrainingPrograms: {
     title: 'After School Training Programs',
     sub: 'Student Training Programs',
