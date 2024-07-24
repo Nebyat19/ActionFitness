@@ -32,9 +32,12 @@
         <div class="w-1/2 p-5 flex flex-col gap-3 justify-center items-center">
           <h1 class="text-black font-bebas text-xl">{{ service.name }}</h1>
           <p class="">{{ service.description }}</p>
-          <button class="mt-5 bg-primary-red text-white text-sm px-3 py-1 rounded-lg">
-            read more
-          </button>
+          <router-link
+            class="mt-5 px-3 py-1 bg-primary-red text-white text-sm bg-opacity-50 rounded-lg"
+            :to="service.path"
+          >
+            Learn More
+          </router-link>
         </div>
       </div>
     </div>
@@ -59,67 +62,78 @@ const services = [
     service: 'body-building',
     name: 'Body Building',
     description: 'Build muscle and strength with our body building training programs.',
-    image: HERO_IMAGE
+    image: HERO_IMAGE,
+    path:'/services/BodyBuilding'
   },
   {
     service: 'boxing',
     name: 'Boxing',
-    description: 'Improve your boxing skills with our professional boxing classes.'
+    description: 'Improve your boxing skills with our professional boxing classes.',
+    path:'/services/Boxing'
   },
   {
     service: 'nutritional-consultant',
     name: 'Nutritional Consultant',
     description: 'Get personalized nutrition advice to help you achieve your fitness goals.',
-    image: nutritionalConsultant
+    image: nutritionalConsultant,
+     path:'/services/NutritionalConsultant'
   },
   {
     service: 'home-to-home-private-training',
     name: 'Home to Home Private Training',
     description: 'Enjoy private training sessions at the convenience of your home.',
-    image: homeTraining
+    image: homeTraining,
+    path:'/services/HomeToHomePrivateTraining'
   },
   {
     service: 'after-school-training-programs',
     name: 'After School Training Programs',
     description: 'Enroll in our comprehensive training programs designed for students.',
-    image: AFTER_SCHOOL_IMAGE_1
+    image: AFTER_SCHOOL_IMAGE_1,
+    path:'/services/AfterSchoolTrainingPrograms'
   },
 
   {
     service: 'personal-training',
     name: 'Personal Training',
-    description: 'Achieve your fitness goals with one-on-one personal training sessions.'
+    description: 'Achieve your fitness goals with one-on-one personal training sessions.',
+    path:'/services/PersonalTraining'
   },
   {
     service: 'fat-loss-training',
     name: 'Fat Loss Training',
-    description: 'Join our specialized programs focused on fat loss and weight management.'
+    description: 'Join our specialized programs focused on fat loss and weight management.',
+    path:'/services/FatLossTraining'
   },
   {
     service: 'thai-boxing-and-kick-boxing',
     name: 'Thai Boxing and Kick Boxing',
     description:
       'Get trained in Thai boxing  kick boxing techniques to enhance your self-defense skills.',
-    image: THAIBOXING
+    image: THAIBOXING,
+    path:'/services/ThaiBoxingAndKickBoxing'
+
   },
   {
-    service :'group-training',
-    name: "Group Fitness Training ",
-    description:"Group Fitness Training ",
-    image:groupFitness
-
+    service: 'group-training',
+    name: 'Group Fitness Training ',
+    description: 'Group Fitness Training ',
+    image: groupFitness,
+    path:'/services/GroupFitnessTraining'
   },
   {
     service: 'after-school-taekwondo-training',
     name: 'After School Taekwondo Training',
     description: 'Learn Taekwondo after school with our expert trainers.',
-    image: AFTER_SCHOOL_TAEKWONDO
+    image: AFTER_SCHOOL_TAEKWONDO,
+    path:'/services/AfterSchoolTaekwondoTraining'
   },
   {
     service: 'taekwondo',
     name: 'Taekwondo',
     description: 'Master the art of Taekwondo with our experienced instructors.',
-    image: taekwondo
+    image: taekwondo,
+    path:'/services/Taekwondo'
   }
 ]
 </script>
