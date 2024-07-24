@@ -35,9 +35,9 @@
           </li>
          
         </ul>
-        <h1 class="text-lg font-bebas mt-5">Contact Us</h1>
-        <p v-for="phone in gymInformation.phones" :key="phone">{{ phone }}</p>
-        <p>{{ gymInformation.email }}</p>
+        <h1 class="text-lg font-bebas mt-5 flex flex-col">Contact Us</h1>
+        <a  class="block" :href="'tel:'+phone" v-for="phone in gymInformation.phones" :key="phone">{{ phone }}</a>
+        <p> <a :href="'mailto:'+gymInformation.email">{{ gymInformation.email }}</a></p>
       </div>
     </div>
     <div

@@ -22,7 +22,7 @@
           stroke-linejoin="round"
         ></path>
       </svg>
-      <span class="text-sm">Addis Ababa, Ethiopia | {{ gymInfo.phone }}</span>
+      <span class="text-sm flex gap-2">Addis Ababa, Ethiopia |  <a  class="block" :href="'tel:'+gymInfo.phone"> {{ gymInfo.phone }}</a></span>
     </span>
   </div>
   <header
@@ -89,11 +89,10 @@ const navigationLinks = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about-us' },
   { name: 'Services', path: '/services' },
-  { name: 'Classes', path: '/classes' },
-  { name: 'Founder', path: '/founder' },
   { name: 'Trainers', path: '/trainers' },
+  { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
-  { name: 'Gallery', path: '/gallery' }
+
 ]
 
 const gymInfo = gymInformation

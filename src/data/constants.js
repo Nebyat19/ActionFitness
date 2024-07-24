@@ -44,8 +44,8 @@ import BodyBuilding from '@/assets/images/services/BodyBuilding.jpg'
 import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'
 import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
 import groupFitness from '@/assets/images/services/groupfitness.png'
-import homeTraining from  "@/assets/images/services/homeTraines.jpg"
-export { 
+import homeTraining from '@/assets/images/services/homeTraines.jpg'
+export {
   AFTER_SCHOOL_IMAGE_1,
   AFTER_SCHOOL_IMAGE_2,
   AFTER_SCHOOL_TAEKWONDO,
@@ -71,16 +71,7 @@ import GALLERY_IMAGE_6 from '@/assets/images/gallery/gymGallary-6.jpg'
 import GALLERY_IMAGE_7 from '@/assets/images/gallery/gymGallary-7.jpg'
 import GALLERY_IMAGE_9 from '@/assets/images/gallery/gymGallary-9.jpg'
 
-const galleryImages = [
-  GALLERY_IMAGE_1,
-  // GALLERY_IMAGE_2,
-  // GALLERY_IMAGE_3,
-  //  GALLERY_IMAGE_4,
-  GALLERY_IMAGE_5,
-  GALLERY_IMAGE_6,
-  //  GALLERY_IMAGE_7,
-  GALLERY_IMAGE_9
-]
+const galleryImages = [GALLERY_IMAGE_1, GALLERY_IMAGE_5, GALLERY_IMAGE_6, GALLERY_IMAGE_9]
 
 const gymGallary = [
   ...galleryImages,
@@ -97,8 +88,35 @@ import Other_GALLERY_IMAGE_1 from '@/assets/images/gallery/afterschoolGallary-1.
 import Other_GALLERY_IMAGE_2 from '@/assets/images/gallery/CrossFitMembership.jpg'
 import Other_GALLERY_IMAGE_3 from '@/assets/images/gallery/InternationalInstructorcourse.jpg'
 import Other_GALLERY_IMAGE_4 from '@/assets/images/gallery/MuayThai.jpg'
-import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jpg'
+// import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jpg'
 import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
+
+const otherGalleryImages = [
+  {
+    image: Other_GALLERY_IMAGE_1,
+    path: '/gallery/afterSchoolGallery',
+    title: 'After school Training programs'
+  },
+  {
+    image: Other_GALLERY_IMAGE_2,
+    path: '/gallery/crossFitMembership',
+    title: 'CrossFit Membership Course Bangkok Thailand 2019'
+  },
+  {
+    image: Other_GALLERY_IMAGE_3,
+    path: '/gallery/WTPARTNERSHIPGallery',
+    title: 'International Instructor Course'
+  },
+  {
+    image: Other_GALLERY_IMAGE_4,
+    title: 'MuayThai - Thai boxing Course Bagkok Thailand 2019',
+    path: '/gallery/boxingGallery'
+  },
+  { image: homeTraining, title: 'Personal Training at Home', path: '/gallery/PersonalTrainingGallery' },
+  { image: Other_GALLERY_IMAGE_6, path: '/gallery/WTPARTNERSHIPGallery', title: 'WT PARTNERSHIP Taekwondo program 2018' }
+]
+
+export { otherGalleryImages }
 
 /* 'gymGallery',
   'afterSchoolGallery',
@@ -106,23 +124,69 @@ import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
   'TaekwondoClubGallery',
   'WTPARTNERSHIPGallery'
   */
-const otherGalleryImages = [
-  {
-    image: Other_GALLERY_IMAGE_1,
-    path: '/gallery/afterSchoolGallery',
-    title: 'After school Training programs'
-  },
-  { image: Other_GALLERY_IMAGE_2, 
-    path: '/gallery/crossFitMembership',
-    title: 'CrossFit Membership Course Bangkok Thailand 2019' },
-  { image: Other_GALLERY_IMAGE_3, title: 'International Instructor Course' },
-  { image: Other_GALLERY_IMAGE_4, title: 'MuayThai - Thai boxing Course Bagkok Thailand 2019' },
-  { image: Other_GALLERY_IMAGE_5, title: 'Taekwondo club After school' },
-  { image: Other_GALLERY_IMAGE_6, title: 'WT PARTNERSHIP Taekwondo program 2018' }
+import PersonalTraining1 from '@/assets/images/gallery/PersonalTraining1.jpg'
+import PersonalTraining2 from '@/assets/images/gallery/PersonalTraining2.jpg'
+import PersonalTraining3 from '@/assets/images/gallery/PersonalTraining3.jpg'
+import PersonalTraining4 from '@/assets/images/gallery/PersonalTraining4.jpg'
+import PersonalTraining5 from '@/assets/images/gallery/PersonalTraining5.jpg'
+
+const PersonalTrainingGallery = [PersonalTraining1,PersonalTraining2,PersonalTraining3,PersonalTraining4, PersonalTraining5]
+export { PersonalTrainingGallery }
+
+import WTPARTNERSHIPGallery1 from '@/assets/images/gallery/WTPARTNERSHIPGallery1.jpg'
+import WTPARTNERSHIPGallery2 from '@/assets/images/gallery/WTPARTNERSHIPGallery2.jpg'
+import WTPARTNERSHIPGallery3 from '@/assets/images/gallery/WTPARTNERSHIPGallery3.jpg'
+import WTPARTNERSHIPGallery4 from '@/assets/images/gallery/WTPARTNERSHIPGallery4.jpg'
+import WTPARTNERSHIPGallery5 from '@/assets/images/gallery/WTPARTNERSHIPGallery5.jpg'
+
+const WTPARTNERSHIPGallery = [
+  WTPARTNERSHIPGallery1,
+  WTPARTNERSHIPGallery2,
+  WTPARTNERSHIPGallery3,
+  WTPARTNERSHIPGallery4,
+  WTPARTNERSHIPGallery5
+]
+export { WTPARTNERSHIPGallery }
+import MuayThai1 from '@/assets/images/gallery/MuayThai1.jpg'
+import MuayThai2 from '@/assets/images/gallery/MuayThai2.jpg'
+import MuayThai3 from '@/assets/images/gallery/MuayThai3.jpg'
+import MuayThai4 from '@/assets/images/gallery/MuayThai4.jpg'
+
+const boxingGallery = [MuayThai1, MuayThai2, MuayThai3, MuayThai4]
+export { boxingGallery }
+
+import CrossFitMembership1 from '@/assets/images/gallery/CrossFitMembership-1.jpg'
+import CrossFitMembership2 from '@/assets/images/gallery/CrossFitMembership-2.jpg'
+import CrossFitMembership3 from '@/assets/images/gallery/CrossFitMembership-3.jpg'
+
+const crossFitMembershipGallary = [CrossFitMembership1, CrossFitMembership2, CrossFitMembership3]
+export { crossFitMembershipGallary }
+
+import afterschoolGallary1 from '@/assets/images/gallery/afterschoolGallary-1.jpg'
+import afterschoolGallary2 from '@/assets/images/gallery/afterSchoolGallery-2.jpg'
+import afterschoolGallary3 from '@/assets/images/gallery/afterSchoolGallery-3.jpg'
+import afterschoolGallary4 from '@/assets/images/gallery/afterSchoolGallery-4.jpg'
+import afterschoolGallary5 from '@/assets/images/gallery/afterSchoolGallery-5.jpg'
+import afterschoolGallary6 from '@/assets/images/gallery/afterSchoolGallery-6.jpg'
+import afterschoolGallary7 from '@/assets/images/gallery/afterSchoolGallery-7.jpg'
+import afterschoolGallary8 from '@/assets/images/gallery/afterSchoolGallery-8.jpg'
+import afterschoolGallary9 from '@/assets/images/gallery/afterSchoolGallery-9.jpg'
+import afterschoolGallary10 from '@/assets/images/gallery/afterSchoolGallery-10.jpg'
+
+const afterschoolGallary = [
+  afterschoolGallary1,
+  afterschoolGallary2,
+  afterschoolGallary3,
+  afterschoolGallary4,
+  afterschoolGallary5,
+  afterschoolGallary6,
+  afterschoolGallary7,
+  afterschoolGallary8,
+  afterschoolGallary9,
+  afterschoolGallary10
 ]
 
-export { otherGalleryImages }
-
+export { afterschoolGallary }
 //founder
 
 import FOUNDER_IMAGE from '@/assets/images/gallery/founder.jpg'
