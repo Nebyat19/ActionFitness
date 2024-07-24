@@ -40,7 +40,7 @@
           v-for="navlink in navigationLinks"
           :key="navlink.name"
         >
-          <router-link :to="navlink.path">{{ navlink.name }}</router-link>
+          <router-link  @click="showMenu=!showMenu" :to="navlink.path">{{ navlink.name }}</router-link>
         </li>
       </ul>
       <span class="lg:hidden cursor-pointer" @click="showMenu = !showMenu"

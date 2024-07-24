@@ -7,7 +7,7 @@ import GalleryDetailView from '@/views/GalleryDetailView.vue'
 
 import ServiceListView from '@/views/ServiceListView.vue'
 import ServiceDetailView from '@/views/ServiceDetailView.vue'
-
+import AboutView from '@/views/AboutView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -28,7 +28,7 @@ const router = createRouter({
         {
           path: '/about-us',
           name: 'about',
-          component: import('@/views/AboutView.vue')
+          component: AboutView 
         },
 
         {
