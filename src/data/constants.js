@@ -32,7 +32,7 @@ export { gymInformation }
 
 //services
 
-import AFTER_SCHOOL_IMAGE_1 from '@/assets/images/services/afterSchool.jpg'
+import AFTER_SCHOOL_IMAGE_1 from '@/assets/images/services/afterSchoolnew1.jpg'
 import AFTER_SCHOOL_IMAGE_2 from '@/assets/images/services/afterSchool-1.jpg'
 
 import AFTER_SCHOOL_TAEKWONDO from '@/assets/images/services/TaekwondoclubAfterschool .jpg'

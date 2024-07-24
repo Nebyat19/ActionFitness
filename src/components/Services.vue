@@ -116,7 +116,7 @@ const services = [
  
   {
     service: 'after-school-training-programs',
-    name: 'After School Training Programs',
+    name: 'After School Taekwondo Training Programs',
     description: 'Enroll in our comprehensive training programs designed for students.',
     image: AFTER_SCHOOL_IMAGE_1,
     path: '/services/AfterSchoolTrainingPrograms'
@@ -131,13 +131,13 @@ const services = [
   },
  
  
-  {
-    service: 'after-school-taekwondo-training',
-    name: 'After School Taekwondo Training',
-    description: 'Learn Taekwondo after school with our expert trainers.',
-    image: AFTER_SCHOOL_TAEKWONDO,
-    path: '/services/AfterSchoolTaekwondoTraining'
-  },
+  // {
+  //   service: 'after-school-taekwondo-training',
+  //   name: 'After School Taekwondo Training',
+  //   description: 'Learn Taekwondo after school with our expert trainers.',
+  //   image: AFTER_SCHOOL_TAEKWONDO,
+  //   path: '/services/AfterSchoolTaekwondoTraining'
+  // },
   {
     service: 'taekwondo',
     name: 'Taekwondo',
