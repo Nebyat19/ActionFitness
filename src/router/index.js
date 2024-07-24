@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import defaultLayout from '../layouts/defaultLayout.vue'
+import TrainesView from '@/views/TrainersView.vue'
+import GalleryListView from '@/views/GalleryListView.vue'
+import GalleryDetailView from '@/views/GalleryDetailView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,7 +20,7 @@ const router = createRouter({
         {
           path: '/trainers',
           name: 'trainers',
-          component: import('@/views/TrainersView.vue')
+          component: TrainesView
         },
         {
           path: '/about-us',
@@ -28,12 +31,12 @@ const router = createRouter({
         {
           path: '/gallery',
           name: 'gallery',
-          component: () => import('@/views/GalleryListView.vue')
+          component: GalleryListView
         },
         {
           path: '/gallery/:name',
           name: 'gallery-detail',
-          component: () => import('@/views/GalleryDetailView.vue'),
+          component: GalleryDetailView,
           props: true
         }
       ]
