@@ -59,6 +59,8 @@ import {
   BodybuildingBlack,
   homeTraining
 } from '@/data/constants'
+
+
 const services = [
   {
     service: 'body-building',
@@ -66,6 +68,26 @@ const services = [
     description: 'Build muscle and strength with our body building training programs.',
     image: BodybuildingBlack,
     path: '/services/BodyBuilding'
+  },
+  {
+    service: 'group-training',
+    name: 'Group Fitness Training ',
+    description: 'Group Fitness Training ',
+    image: groupFitness,
+    path: '/services/GroupFitnessTraining'
+  },
+  {
+    service: 'personal-training',
+    name: 'Personal Training',
+    description: 'Achieve your fitness goals with one-on-one personal training sessions.',
+    path: '/services/PersonalTraining'
+  },
+  {
+    service: 'home-to-home-private-training',
+    name: 'Home to Home Private Training',
+    description: 'Enjoy private training sessions at the convenience of your home.',
+    image: homeTraining,
+    path: '/services/HomeToHomePrivateTraining'
   },
   {
     service: 'boxing',
@@ -76,19 +98,22 @@ const services = [
 
   },
   {
+    service: 'thai-boxing-and-kick-boxing',
+    name: 'Thai Boxing and Kick Boxing',
+    description:
+      'Get trained in Thai boxing  kick boxing techniques to enhance your self-defense skills.',
+    image: THAIBOXING,
+    path: '/services/ThaiBoxingAndKickBoxing'
+  },
+
+  {
     service: 'nutritional-consultant',
     name: 'Nutritional Consultant',
     description: 'Get personalized nutrition advice to help you achieve your fitness goals.',
     image: nutritionalConsultant,
     path: '/services/NutritionalConsultant'
   },
-  {
-    service: 'home-to-home-private-training',
-    name: 'Home to Home Private Training',
-    description: 'Enjoy private training sessions at the convenience of your home.',
-    image: homeTraining,
-    path: '/services/HomeToHomePrivateTraining'
-  },
+ 
   {
     service: 'after-school-training-programs',
     name: 'After School Training Programs',
@@ -97,33 +122,15 @@ const services = [
     path: '/services/AfterSchoolTrainingPrograms'
   },
 
-  {
-    service: 'personal-training',
-    name: 'Personal Training',
-    description: 'Achieve your fitness goals with one-on-one personal training sessions.',
-    path: '/services/PersonalTraining'
-  },
+
   {
     service: 'fat-loss-training',
     name: 'Fat Loss Training',
     description: 'Join our specialized programs focused on fat loss and weight management.',
     path: '/services/FatLossTraining'
   },
-  {
-    service: 'thai-boxing-and-kick-boxing',
-    name: 'Thai Boxing and Kick Boxing',
-    description:
-      'Get trained in Thai boxing  kick boxing techniques to enhance your self-defense skills.',
-    image: THAIBOXING,
-    path: '/services/ThaiBoxingAndKickBoxing'
-  },
-  {
-    service: 'group-training',
-    name: 'Group Fitness Training ',
-    description: 'Group Fitness Training ',
-    image: groupFitness,
-    path: '/services/GroupFitnessTraining'
-  },
+ 
+ 
   {
     service: 'after-school-taekwondo-training',
     name: 'After School Taekwondo Training',
