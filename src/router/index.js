@@ -5,6 +5,9 @@ import TrainesView from '@/views/TrainersView.vue'
 import GalleryListView from '@/views/GalleryListView.vue'
 import GalleryDetailView from '@/views/GalleryDetailView.vue'
 
+import ServiceListView from '@/views/ServiceListView.vue'
+import ServiceDetailView from '@/views/ServiceDetailView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -38,6 +41,17 @@ const router = createRouter({
           name: 'gallery-detail',
           component: GalleryDetailView,
           props: true
+        },
+        {
+          path:'/services',
+          name:'services',
+          component:ServiceListView
+        },
+        {
+          path:'/services/:name',
+          name:'service-detail',
+          component:ServiceDetailView,
+          props:true
         }
       ]
     }, //error page
