@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-100 py-12 px-6 pt-36">
     <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-      <img :src="service.image" alt="Body Building Service" class="w-full bg-black h-64 object-cover" />
+      <img :src="service.image" alt="Body Building Service" class="w-full bg-black h-64 object-cover " />
       <div class="p-6">
         <h1 class="text-3xl text-center font-cursive font-bold text-gray-800 mb-4">
           {{ service.title }}
@@ -49,14 +49,43 @@
 <script setup>
 import { onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { BodyBuilding, ACTION_FITNESS_IMAGE,THAIBOXING ,nutritionalConsultant} from '@/data/constants'
+import { BodyBuilding, homeTraining,AFTER_SCHOOL_IMAGE_1, ACTION_FITNESS_IMAGE,THAIBOXING ,nutritionalConsultant} from '@/data/constants'
 
 const service = ref({})
-const ServiceList = ['BodyBuilding','ThaiBoxingAndKickBoxing', 'Boxing', 'NutritionalConsultant']
+const ServiceList = ['BodyBuilding','ThaiBoxingAndKickBoxing', 'AfterSchoolTrainingPrograms','HomeToHomePrivateTraining','Boxing', 'NutritionalConsultant']
 defineProps({
   name: String
 })
 const ServiceInfo = {
+    
+    AfterSchoolTrainingPrograms: {
+    title: 'After School Training Programs',
+    sub: 'Student Training Programs',
+    benefits: [
+      'Structured training schedule',
+      'Development of athletic skills',
+      'Improved physical fitness',
+      'Supportive learning environment',
+      'Enhanced teamwork and discipline'
+    ],
+    description:
+      "Enroll in our comprehensive training programs designed for students. Our After School Training Programs offer a structured schedule that focuses on developing athletic skills, improving physical fitness, and fostering teamwork. Designed to fit into the school routine, these programs provide a supportive environment where students can enhance their abilities and stay active after school.",
+    image: AFTER_SCHOOL_IMAGE_1 
+  },
+    HomeToHomePrivateTraining: {
+    title: 'Home to Home Private Training',
+    sub: 'Private Home Training',
+    benefits: [
+      'Convenient training at your home',
+      'Personalized workout plans',
+      'Flexible scheduling',
+      'One-on-one attention from trainers',
+      'Comfortable and private training environment'
+    ],
+    description:
+      "Enjoy private training sessions at the convenience of your home. Our Home to Home Private Training service offers personalized workout plans tailored to your fitness goals, all within the comfort of your own space. Experience flexible scheduling and dedicated attention from our expert trainers, designed to fit your lifestyle and preferences.",
+    image: homeTraining // Make sure to import the correct image path
+  },
     NutritionalConsultant: {
     title: 'Nutritional Consultant',
     sub: 'Nutrition Advice',
