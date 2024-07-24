@@ -44,8 +44,8 @@ import BodyBuilding from '@/assets/images/services/BodyBuilding.jpg'
 import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'
 import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
 import groupFitness from '@/assets/images/services/groupfitness.png'
-
-export {
+import homeTraining from  "@/assets/images/services/homeTraines.jpg"
+export { 
   AFTER_SCHOOL_IMAGE_1,
   AFTER_SCHOOL_IMAGE_2,
   AFTER_SCHOOL_TAEKWONDO,
@@ -56,7 +56,8 @@ export {
   BodyBuilding,
   taekwondo_2,
   sampleVideo_2,
-  groupFitness
+  groupFitness,
+  homeTraining
 }
 
 //gallery

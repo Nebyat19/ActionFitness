@@ -51,7 +51,8 @@ import {
   taekwondo,
   BodyBuilding,
   groupFitness,
-  HERO_IMAGE
+  HERO_IMAGE,
+  homeTraining
 } from '@/data/constants'
 const services = [
   {
@@ -75,7 +76,7 @@ const services = [
     service: 'home-to-home-private-training',
     name: 'Home to Home Private Training',
     description: 'Enjoy private training sessions at the convenience of your home.',
-    image: null
+    image: homeTraining
   },
   {
     service: 'after-school-training-programs',

@@ -31,7 +31,9 @@ const gallaryNames = [
   'TaekwondoClubGallery',
   'WTPARTNERSHIPGallery'
 ]
-const gallary = {
+
+/** title, description **/
+const gallary = {  
   gymGallery: gymGallary
 }
 
