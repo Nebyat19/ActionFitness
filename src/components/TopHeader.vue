@@ -22,7 +22,7 @@
           stroke-linejoin="round"
         ></path>
       </svg>
-      <span class="text-sm flex gap-2">Addis Ababa, Ethiopia |  <a  class="block" :href="'tel:'+gymInfo.phone"> {{ gymInfo.phone }}</a></span>
+      <span class="text-sm flex gap-2">Addis Ababa, Ethiopia |  <a :href="'tel:'+gymInfo.phone"> {{ gymInfo.phone }}</a></span>
     </span>
   </div>
   <header

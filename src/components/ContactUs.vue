@@ -11,11 +11,11 @@
       </div>
       <div>
         <h1 class="text-2xl font-bebas mb-3 ">Email</h1>
-        <p class="text-gray-800">{{ gymInformation.email }}</p>
+          <p class="text-gray-800">  <a :href="'mailto:'+gymInformation.email">{{ gymInformation.email }}</a></p>
       </div>
       <div>
         <h1 class="text-2xl font-bebas  mb-3">Phone Number</h1>
-        <p  class="text-gray-800" v-for="phone in gymInformation.phones" :key="phone">{{ phone }}</p>
+        <p  class="text-gray-800" v-for="phone in gymInformation.phones" :key="phone"> <a :href="'tel:'+phone">{{ phone }}</a></p>
       </div>
     </div>
      </div>
