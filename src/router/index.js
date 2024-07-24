@@ -8,6 +8,7 @@ import GalleryDetailView from '@/views/GalleryDetailView.vue'
 import ServiceListView from '@/views/ServiceListView.vue'
 import ServiceDetailView from '@/views/ServiceDetailView.vue'
 import AboutView from '@/views/AboutView.vue'
+import ConatctusView from '@/views/ContactusView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -52,6 +53,11 @@ const router = createRouter({
           name:'service-detail',
           component:ServiceDetailView,
           props:true
+        },
+        {
+          path: '/contact',
+          name: 'contact-us',
+          component: ConatctusView
         }
       ]
     }, //error page
