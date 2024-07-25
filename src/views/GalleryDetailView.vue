@@ -8,15 +8,24 @@
         >
           {{ gallery.head }}
         </h1>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+        <div  ref="imageModal" class="grid grid-cols-2 md:grid-cols-4 gap-2">
           <img
             class="md:h-80 bg-black border-gray-600 p-3 w-full object-cover border-2"
             v-for="image in gallery.images"
             :src="image"
-            alt=""
+            :alt="image"
             :key="image"
+            @click="openModal(image)"
           />
         </div>
+
+        <FullScreenImageModal
+         
+          v-if="isModalOpen"
+          :isOpen="isModalOpen"
+          :imageSrc="selectedImage"
+          @close="isModalOpen = false"
+        />
       </div>
       <div class="text-white mx-5 flex flex-col" v-show="gallery.desc">
         <p>
@@ -24,7 +33,7 @@
         </p>
       </div>
       <button
-        @click="router.push('/gallery')"
+        @click="router.back()"
         class="mx-16 px-5 mt-10 py-2 bg-primary-green text-white rounded-xl"
       >
         Go Back
@@ -36,6 +45,8 @@
 <script setup>
 import { onBeforeMount, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import FullScreenImageModal from '@/components/FullScreenImageModal.vue'
+import { onClickOutside } from '@vueuse/core'
 import {
   gymGallary,
   afterschoolGallary,
@@ -44,12 +55,24 @@ import {
   WTPARTNERSHIPGallery,
   PersonalTrainingGallery
 } from '@/data/constants'
+
+const imageModal = ref(null)
+
+onClickOutside(imageModal, () => {
+  isModalOpen.value = false
+})
+const isModalOpen = ref(false)
+const selectedImage = ref('')
+const openModal = (image) => {
+  selectedImage.value = image
+  isModalOpen.value = true
+}
 const gallery = ref({})
 const gallaryNames = [
   'gymGallery',
   'afterSchoolGallery',
   'crossFitMembership',
- "PersonalTrainingGallery",
+  'PersonalTrainingGallery',
   'boxingGallery',
   'TaekwondoClubGallery',
   'WTPARTNERSHIPGallery'
@@ -74,12 +97,12 @@ const gallaryInfo = {
   boxingGallery: { head: 'Thai boxing Course Bagkok Thailand 2019', images: boxingGallery },
 
   WTPARTNERSHIPGallery: {
-    head:"International Instructor course South Korea muju 2018",
-    images:WTPARTNERSHIPGallery
+    head: 'International Instructor course South Korea muju 2018',
+    images: WTPARTNERSHIPGallery
   },
-  PersonalTrainingGallery:{
-    head:"Personal Training at home",
-    images:PersonalTrainingGallery
+  PersonalTrainingGallery: {
+    head: 'Personal Training at home',
+    images: PersonalTrainingGallery
   }
 }
 

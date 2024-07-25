@@ -7,11 +7,15 @@
       
    <div class="flex md:justify-center p-3 gap-2">   <img  class=" h-16 mb-5 w-auto" :src="ACTION_FITNESS_IMAGE" alt=""> <img class="h-16 w-56" :src="FITNESS_1" alt="">
    </div>
-      <p>Push <span class="relative text-primary-green">yourself 
+      <p>Push <span class="relative text-black  " style="text-shadow: 1px 1px 5px lime">yourself 
    </span></p>
-      <p> <span class="text-primary-green">harder</span> to become better </p>
+      <p> <span class=" text-black  " style="text-shadow: 1px 1px 5px lime">harder</span> to become better </p>
           
-      <div class="text-sm mt-7 tracking-wide flex justify-start gap-5 font-poppins"><a href="#services" class="px-4 py-2 bg-gray-900 text-white rounded-lg ">Our Services</a> <a href="#contact-us" class="px-4 py-2 bg-primary-green  text-white rounded-lg ">Contact Us</a></div>
+      <div class="text-sm mt-7 tracking-wide flex justify-start gap-5 font-poppins">
+        <router-link to="/services" class="bg-primary-green text-primary-green rounded-lg "><button class="bg-gray-900 mb-[2px] rounded-lg px-3 py-2 ">Our Services</button></router-link> 
+        <router-link to="/contact" class="bg-primary-red text-primary-red rounded-lg "><button class="bg-gray-900 mb-[2px] rounded-lg px-3 py-2 ">Contact Us</button></router-link> 
+        </div>
+
       </div>
      
     </div>

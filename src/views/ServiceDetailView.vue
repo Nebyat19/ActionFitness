@@ -31,7 +31,7 @@
         <div class="grid place-items-center">
           <button
             class="w-full p-2 bg-primary-red rounded-lg text-white mb-5 font-poppins"
-            @click="router.push('/services')"
+            @click="router.back()"
           >
             Go Back
           </button>
