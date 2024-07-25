@@ -7,9 +7,9 @@
       
    <div class="flex md:justify-center p-3 gap-2">   <img  class=" h-16 mb-5 w-auto" :src="ACTION_FITNESS_IMAGE" alt=""> <img class="h-16 w-56" :src="FITNESS_1" alt="">
    </div>
-      <p>Push <span class="relative text-black  " style="text-shadow: 1px 1px 5px lime">yourself 
+      <p>Push <span class="relative text-primary-green  " style="text-shadow: 1px 1px 5px  black">yourself 
    </span></p>
-      <p> <span class=" text-black  " style="text-shadow: 1px 1px 5px lime">harder</span> to become better </p>
+      <p> <span class=" text-primary-green  " style="text-shadow: 1px 1px 5px black">harder</span> to become better </p>
           
       <div class="text-sm mt-7 tracking-wide flex justify-start gap-5 font-poppins">
         <router-link to="/services" class="bg-primary-green text-primary-green rounded-lg "><button class="bg-gray-900 mb-[2px] rounded-lg px-3 py-2 ">Our Services</button></router-link> 
