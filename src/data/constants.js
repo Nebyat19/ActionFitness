@@ -1,8 +1,9 @@
 import HERO_IMAGE from '@/assets/images/heroImage-3.jpg'
 import ACTION_IMAGE from '@/assets/images/logos/actionBgRemoved.png'
 import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
+import FITNESS_1 from '@/assets/images/logos/FITNESS_1.png'
 
-export { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE }
+export { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE,FITNESS_1 }
 
 const gymInformation = {
   name: 'Action Fitness',

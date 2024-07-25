@@ -1,19 +1,17 @@
 <template>
   <main id="home">
-    <div class=" w-full h-[80vh] md:h-[100vh] relative grid place-items-center">
-      <img :src="HERO_IMAGE" class="w-full h-full  absolute object-cover" alt="">
-      <div class=" w-full h-full absolute bg-black opacity-50"></div>
-      <div>
-        <div class=" container mx-auto flex flex-col  items-center text-center justify-center h-full">
-          <div class="text-white text-center   z-0 flex justify-between items-center flex-col  ">
-           <div class="flex font-cursive flex-col md:flex-row gap-2 items-center justify-start text-primary-green text-[60px] md:text-[100px] font-bold  tracking-tighter"> <div class=" text-primary-green  p-3 bg-gray-50 bg-opacity-60 rounded-[30px]"><img class="h-20 w-auto" :src="ACTION_IMAGE" alt=""></div> Fitness  </div>
-            <p class="text-sm font-poppins md:text-lg flex justify-center items-center flex-col bg-opacity-10 bg-black p-3 ">Join Action Fitness for top-notch gym facilities, personal training, and wellness programs 
-              <button class="block bg-opacity-55 bg-primary-green text-sm hover:bg-primary-red text-white px-10 py-2 rounded-lg mt-4"><a href="#services">Get Started</a></button>
-       
-            </p>
-         </div>
-          </div>
+    <div class=" w-full h-[100vh] md:pt-10 relative grid place-items-center">
+      <img :src="HERO_IMAGE" class="w-full h-full   absolute object-cover" alt="">
+      <div class=" w-full h-full absolute bg-black opacity-60"></div>
+      <div class=" z-10 text-5xl md:text-6xl md:text-center text-gray-300 font-anton md:leading-normal leading-tight font-thin  mx-5 tracking-tight">
+      
+   <div class="flex md:justify-center p-3 gap-2">   <img  class=" h-16 mb-5 w-auto" :src="ACTION_FITNESS_IMAGE" alt=""> <img class="h-16 w-56" :src="FITNESS_1" alt="">
+   </div>
+      <p>Push <span class="relative text-primary-green">yourself 
+   </span></p>
+      <p> <span class="text-primary-green">harder</span> to become better </p>
           
+      <div class="text-sm mt-7 tracking-wide flex justify-start gap-5 font-poppins"><a href="#services" class="px-4 py-2 bg-gray-900 text-white rounded-lg ">Our Services</a> <a href="#contact-us" class="px-4 py-2 bg-primary-green  text-white rounded-lg ">Contact Us</a></div>
       </div>
      
     </div>
@@ -32,7 +30,7 @@
 </template>
 
 <script setup>
-import { HERO_IMAGE,ACTION_IMAGE } from '@/data/constants'
+import { HERO_IMAGE,ACTION_IMAGE,ACTION_FITNESS_IMAGE, FITNESS_1 } from '@/data/constants'
 import AboutUs from '@/components/AboutUs.vue'
 import Services from '@/components/Services.vue';
 import WhyUs from '@/components/WhyUs.vue';
