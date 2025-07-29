@@ -239,10 +239,12 @@ export { founderInfo }
 
 import trainerOne from '@/assets/images/trainers/trainer-1.jpg'
 import trainerTwo from '@/assets/images/trainers/trainer-2.jpg'
+import trainerThree from "@/assets/images/trainers/trainer-3.png"
 
 const trainesInfo = [
   { name: 'Abel Getahun', image: trainerOne, title: 'Trainer' },
-  { name: 'Surafel Matiyos', image: trainerTwo, title: 'Trainer' }
+  { name: 'Surafel Matiyos', image: trainerTwo, title: 'Trainer' },
+  { name: "Zekariyas Engedawork", image:trainerThree, title:"Taekwondo Coach"}
 ]
 
 export { trainesInfo }

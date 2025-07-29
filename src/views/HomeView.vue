@@ -1,37 +1,37 @@
 <template>
   <main id="home">
-    <div class="w-full h-[100vh] md:pt-10 relative grid place-items-center">
-      <img :src="HERO_IMAGE" class="w-full h-full absolute object-cover" alt="" />
-      <div class="w-full h-full absolute bg-black opacity-60"></div>
+    <div class="relative w-full h-[100vh] flex items-center justify-center overflow-hidden">
+      <img :src="HERO_IMAGE" class="w-full h-full absolute object-cover object-center" alt="" />
+      <!-- Gradient overlay -->
+      <div class="w-full h-full absolute bg-gradient-to-br from-black/80 via-black/60 to-primary-green/40"></div>
       <div
-        class="z-10 text-3xl md:text-6xl md:text-center text-gray-300 font-anton md:leading-normal leading-tight font-thin mx-5 tracking-tight"
+        class="relative z-10 flex flex-col md:flex-row items-center justify-center w-full h-full text-center md:text-left px-4 md:px-24 animate-fadein"
       >
-        <div class="flex md:justify-center p-3 gap-2">
-          <img class="h-12 mb-5 w-auto" :src="ACTION_IMAGE" alt="" />
-          <img class="h-12 w-44" :src="FITNESS_1" alt="" />
+        <!-- Logo Section -->
+        <div class="flex flex-col items-center md:items-start justify-center md:w-1/3 mb-8 md:mb-0">
+          <img class="h-20 w-auto drop-shadow-lg mb-4" :src="ACTION_IMAGE" alt="Action Logo" />
+          <img class="h-20 w-56 drop-shadow-lg" :src="FITNESS_1" alt="Fitness Logo" />
         </div>
-        <p>
-          Its time to take 
-          <span class="relative text-primary-green" style="text-shadow: 1px 1px 5px black"
-            > Action
-          </span>
-        </p>
-        <p>
-          <span class="text-primary-green" style="text-shadow: 1px 1px 5px black">Start</span> to
-          your training today! 
-        </p>
-
-        <div class="text-sm mt-7 tracking-wide flex justify-start gap-5 font-poppins">
-          <router-link to="/services" class="bg-primary-green text-primary-green rounded-lg"
-            ><button class="bg-gray-900 mb-[2px] rounded-lg px-3 py-2">
-              Our Services
-            </button></router-link
-          >
-          <router-link to="/contact" class="bg-primary-red text-primary-red rounded-lg"
-            ><button class="bg-gray-900 mb-[2px] rounded-lg px-3 py-2">
-              Contact Us
-            </button></router-link
-          >
+        <!-- Text & Buttons Section -->
+        <div class="flex flex-col items-center md:items-start justify-center md:w-2/3 gap-4">
+          <h1 class="text-4xl md:text-6xl font-extrabold font-anton text-white leading-tight drop-shadow-lg mb-2">
+            It’s time to take <span class="text-primary-green">Action</span>
+          </h1>
+          <h2 class="text-lg md:text-2xl font-semibold text-gray-200 mb-6 drop-shadow">
+            <span class="text-primary-green">Start</span> your training today!
+          </h2>
+          <div class="flex flex-col sm:flex-row gap-4 w-full md:justify-start justify-center">
+            <router-link to="/services">
+              <button class="px-8 py-3 rounded-lg bg-primary-green text-black font-bold text-lg shadow-lg transition hover:bg-green-500 hover:scale-105 duration-200 w-full sm:w-auto">
+                Our Services
+              </button>
+            </router-link>
+            <router-link to="/contact">
+              <button class="px-8 py-3 rounded-lg bg-primary-red text-white font-bold text-lg shadow-lg transition hover:bg-red-500 hover:scale-105 duration-200 w-full sm:w-auto">
+                Contact Us
+              </button>
+            </router-link>
+          </div>
         </div>
       </div>
     </div>
