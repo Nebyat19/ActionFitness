@@ -22,10 +22,10 @@ const gymInformation = {
   info: 'Action Fitness is a gym that offers personalized training programs to help you achieve your fitness goals.',
 
   socialMedia: {
-    facebook: 'https://www.facebook.com',
-    instagram: 'https://www.instagram.com',
+    facebook: 'https://www.facebook.com/share/1LSH1hrAu1/?mibextid=LQQJ4d',
+    instagram: 'https://www.instagram.com/actionfitness12?igsh=YTBuZ2EyNXRucGVu',
     linkedin: 'https://www.linkedin.com',
-    tiktok: 'https://www.tiktok.com'
+    tiktok: 'https://www.tiktok.com/@action_fitness_a.a?_t=ZM-8yR8MqoEXOq&_r=1'
   }
 }
 
