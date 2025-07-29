@@ -32,6 +32,18 @@
               </button>
             </router-link>
           </div>
+          <!-- Social Media Icons -->
+          <div class="flex gap-6 mt-6 justify-center md:justify-start">
+            <a :href="gymInformation.socialMedia.facebook" target="_blank" rel="noopener" aria-label="Facebook" class="text-gray-300 hover:text-primary-green transition text-3xl">
+              <FacebookIcon />
+            </a>
+            <a :href="gymInformation.socialMedia.instagram" target="_blank" rel="noopener" aria-label="Instagram" class="text-gray-300 hover:text-primary-green transition text-3xl">
+              <InstagramIcon />
+            </a>
+            <a :href="gymInformation.socialMedia.tiktok" target="_blank" rel="noopener" aria-label="TikTok" class="text-gray-300 hover:text-primary-green transition text-3xl">
+              <TiktokIcon />
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -53,7 +65,7 @@
 </template>
 
 <script setup>
-import { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE, FITNESS_1 } from '@/data/constants'
+import { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE, FITNESS_1, gymInformation } from '@/data/constants'
 import AboutUs from '@/components/AboutUs.vue'
 import Services from '@/components/Services.vue'
 import WhyUs from '@/components/WhyUs.vue'
@@ -61,4 +73,7 @@ import FollowUs from '@/components/FollowUs.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import Gallary from '@/components/Gallary.vue'
 import Founder from '@/components/Founder.vue'
+import TiktokIcon from '@/components/icons/TiktokIcon.vue'
+import FacebookIcon from '@/components/icons/FacebookIcon.vue'
+import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 </script>
