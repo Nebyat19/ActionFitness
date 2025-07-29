@@ -45,7 +45,7 @@ import BodyBuilding from '@/assets/images/services/BodyBuilding.jpg'
 import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'
 import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
 import groupFitness from '@/assets/images/services/groupfitness.png'
-import homeTraining from '@/assets/images/services/homeTraines.jpg'
+import homeTraining from '@/assets/images/services/homeTraines.png'
 import BodybuildingBlack from '@/assets/images/gallery/BodybuildingBlack.jpg'
 import BoxingBlack from '@/assets/images/gallery/BoxingBlack.jpg'
 export {
@@ -130,9 +130,9 @@ export { otherGalleryImages }
   'WTPARTNERSHIPGallery'
   */
 import PersonalTraining1 from '@/assets/images/gallery/PersonalTraining1.jpg'
-import PersonalTraining2 from '@/assets/images/gallery/PersonalTraining2.jpg'
-import PersonalTraining3 from '@/assets/images/gallery/PersonalTraining3.jpg'
-import PersonalTraining4 from '@/assets/images/gallery/PersonalTraining4.jpg'
+import PersonalTraining2 from '@/assets/images/gallery/PersonalTraining2.png'
+import PersonalTraining3 from '@/assets/images/gallery/PersonalTraining3.png'
+import PersonalTraining4 from '@/assets/images/gallery/PersonalTraining4.png'
 import PersonalTraining5 from '@/assets/images/gallery/PersonalTraining5.jpg'
 
 const PersonalTrainingGallery = [homeTraining,PersonalTraining1,PersonalTraining2,PersonalTraining3,PersonalTraining4, PersonalTraining5]
