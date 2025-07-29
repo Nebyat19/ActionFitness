@@ -2,9 +2,13 @@
   <main id="home" class="overflow-hidden">
     <!-- Premium Hero Section -->
     <div class="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      <img :src="HERO_IMAGE" class="w-full h-full absolute object-cover object-center" alt="Action Fitness Hero" />
-      <!-- Premium Gradient Overlay -->
-      <div class="w-full h-full absolute bg-gradient-to-br from-black/85 via-black/70 to-primary-green/30"></div>
+      <img :src="HERO_IMAGE_2" class="w-full h-full absolute object-cover object-center" alt="Action Fitness Hero" />
+      
+      <!-- Enhanced Premium Gradient Overlay -->
+      <div class="w-full h-full absolute bg-gradient-to-br from-black/90 via-black/75 to-primary-green/20"></div>
+      
+      <!-- Additional Background Pattern -->
+      <div class="absolute inset-0 bg-gradient-to-r from-primary-green/5 to-transparent opacity-30"></div>
       
       <!-- Premium Content Container -->
       <div class="relative z-10 flex flex-col md:flex-row items-center justify-center w-full h-full text-center md:text-left px-4 md:px-32 animate-fadein">
@@ -119,7 +123,7 @@
 </template>
 
 <script setup>
-import { HERO_IMAGE, ACTION_IMAGE, ACTION_FITNESS_IMAGE, FITNESS_1, gymInformation } from '@/data/constants'
+import { HERO_IMAGE_2, ACTION_IMAGE, ACTION_FITNESS_IMAGE, FITNESS_1, gymInformation } from '@/data/constants'
 import AboutUs from '@/components/AboutUs.vue'
 import Services from '@/components/Services.vue'
 import WhyUs from '@/components/WhyUs.vue'
