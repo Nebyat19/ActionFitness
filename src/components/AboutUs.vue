@@ -1,7 +1,7 @@
 <template>
   <section id="about-us" class="bg-white w-full p-10 md:p-24">
     <div class="container mx-auto flex flex-col justify-center items-center gap-5">
-      <h1 class="text-1xl md:text-4xl font-poppins font-bold tracking-tighter text-gray-900">
+      <h1 class="text-1xl md:text-4xl font-poppins font-bold tracking-tighter text-primary-green">
         Welcome to Action Fitness
       </h1>
       <p class="md:px-24 text-md font-poppins text-center text-gray-800">

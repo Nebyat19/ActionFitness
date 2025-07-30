@@ -294,3 +294,14 @@ import certificate10 from '@/assets/images/certificates/certificates10.jpg'
 import certificates11 from '@/assets/images/certificates/certificates11.jpg'
 
 export {certificate1, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate10, certificates11}
+
+//transformation videos 
+
+
+import transformation1 from '@/assets/videos/transformation-videos/transformation1.mp4'
+import transformation2 from '@/assets/videos/transformation-videos/transformation2.mp4'
+import transformation3 from '@/assets/videos/transformation-videos/transformation3.mp4'
+import transformation4 from '@/assets/videos/transformation-videos/transformation4.mp4'
+import transformation5 from '@/assets/videos/transformation-videos/transformation5.mp4'
+
+export {transformation1, transformation2, transformation3, transformation4, transformation5}

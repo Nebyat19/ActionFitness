@@ -1,7 +1,7 @@
 <template>
-  <main id="home" class="overflow-hidden">
+  <main id="home" class="overflow-hidden ">
     <!-- Premium Hero Section -->
-    <div class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+    <div class="relative mt-14 w-full h-[75vh] md:h-screen flex items-center justify-center overflow-hidden">
       <img :src="HERO_IMAGE_2" class="w-full h-full absolute object-cover object-center" alt="Action Fitness Hero" />
       
       <!-- Enhanced Premium Gradient Overlay -->
@@ -33,19 +33,14 @@
           </div>
           
           <!-- Premium CTA Buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 md:gap-6 w-full md:justify-start justify-center">
+          <div class="flex flex-col sm:flex-row  md:gap-6 w-full md:justify-start justify-center">
             <router-link to="/services">
               <button class="group relative px-6 md:px-10 py-3 md:py-4 rounded-xl bg-gradient-to-r from-primary-green to-green-500 text-black font-bold text-base md:text-lg shadow-2xl transition-all duration-300 hover:scale-105 hover:shadow-primary-green/25 overflow-hidden">
                 <span class="relative z-10">Explore Services</span>
                 <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-primary-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
             </router-link>
-            <router-link to="/contact">
-              <button class="group relative px-6 md:px-10 py-3 md:py-4 rounded-xl border-2 border-primary-red text-white font-bold text-base md:text-lg shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-primary-red hover:shadow-primary-red/25 overflow-hidden">
-                <span class="relative z-10">Get Started</span>
-                <div class="absolute inset-0 bg-primary-red opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
-            </router-link>
+          
           </div>
           
           <!-- Premium Social Media Section -->
@@ -68,7 +63,7 @@
     </div>
 
     <!-- Premium CTA Banner -->
-    <div class="relative w-full bg-gradient-to-r from-primary-red via-red-600 to-primary-red py-4 md:py-6 overflow-hidden">
+    <div class="relative w-full bg-gradient-to-r from-primary-green via-primary-green to-black  py-4 md:py-6 overflow-hidden">
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="relative z-10 flex flex-col md:flex-row gap-2 md:gap-4 justify-center items-center text-white px-4 md:px-6">
         <div class="flex items-center gap-2 md:gap-3">
@@ -78,7 +73,7 @@
         <span class="hidden md:block text-white/80">|</span>
         <span class="text-white/90 text-sm md:text-base">Tailored to your unique fitness journey</span>
         <router-link to="/contact">
-          <button class="px-4 md:px-6 py-1 md:py-2 bg-white text-primary-red font-bold rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm md:text-base">
+          <button class="px-4 md:px-6 py-1 md:py-2 bg-white text-primary-green font-bold rounded-lg hover:bg-gray-100 transition-colors duration-200 text-sm md:text-base">
             Start Today
           </button>
         </router-link>
@@ -106,6 +101,7 @@
   
   <Founder />
   <CertificatesSection/>
+  <PremiumTransformationVideos />
   <!-- Premium Section Separator -->
   <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
   
@@ -135,4 +131,5 @@ import TiktokIcon from '@/components/icons/TiktokIcon.vue'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import CertificatesSection from '@/components/CertificatesSection.vue'
+import PremiumTransformationVideos from '@/components/PremiumTransformationVideos.vue'
 </script>
