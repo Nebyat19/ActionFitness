@@ -82,11 +82,15 @@ import GALLERY_IMAGE_5 from '@/assets/images/gallery/gymGallary-5.jpg'
 import GALLERY_IMAGE_6 from '@/assets/images/gallery/gymGallary-6.jpg'
 import GALLERY_IMAGE_7 from '@/assets/images/gallery/gymGallary-7.jpg'
 import GALLERY_IMAGE_9 from '@/assets/images/gallery/gymGallary-9.jpg'
+import GALLERY_IMAGE_10 from '@/assets/images/gallery/gymGallary-10.png'
+import GALLERY_IMAGE_11 from "@/assets/images/gallery/gymGallary-11.jpg"
+import GALLERY_IMAGE_12 from "@/assets/images/gallery/gymGallary-12.jpg"
 
-const galleryImages = [GALLERY_IMAGE_1, GALLERY_IMAGE_5, GALLERY_IMAGE_6, GALLERY_IMAGE_9]
+const galleryImages = [GALLERY_IMAGE_12, GALLERY_IMAGE_10, GALLERY_IMAGE_11, GALLERY_IMAGE_1,GALLERY_IMAGE_5, GALLERY_IMAGE_6]
 
 const gymGallary = [
   ...galleryImages,
+  GALLERY_IMAGE_9,
   GALLERY_IMAGE_2,
   GALLERY_IMAGE_3,
   GALLERY_IMAGE_4,
