@@ -57,11 +57,11 @@
                 <div class="text-sm text-gray-300">Years Experience</div>
               </div>
               <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                <div class="text-2xl font-bold text-primary-green mb-2">500+</div>
+                <div class="text-2xl font-bold text-primary-green mb-2">50+</div>
                 <div class="text-sm text-gray-300">Clients Transformed</div>
               </div>
               <div class="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                <div class="text-2xl font-bold text-primary-green mb-2">15+</div>
+                <div class="text-2xl font-bold text-primary-green mb-2">20+</div>
                 <div class="text-sm text-gray-300">Certifications</div>
               </div>
             </div>
