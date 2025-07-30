@@ -4,6 +4,8 @@ import ACTION_IMAGE from '@/assets/images/logos/actionBgRemoved.png'
 import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
 import FITNESS_1 from '@/assets/images/logos/FITNESS_1.png'
 
+
+
 export { HERO_IMAGE, HERO_IMAGE_2, ACTION_IMAGE, ACTION_FITNESS_IMAGE,FITNESS_1 }
 
 const gymInformation = {
@@ -87,7 +89,7 @@ import GALLERY_IMAGE_11 from "@/assets/images/gallery/gymGallary-11.jpg"
 import GALLERY_IMAGE_12 from "@/assets/images/gallery/gymGallary-12.jpg"
 
 const galleryImages = [GALLERY_IMAGE_12, GALLERY_IMAGE_10, GALLERY_IMAGE_11, GALLERY_IMAGE_1,GALLERY_IMAGE_5, GALLERY_IMAGE_6]
-
+export {GALLERY_IMAGE_10}
 const gymGallary = [
   ...galleryImages,
   GALLERY_IMAGE_9,

@@ -1,7 +1,7 @@
 <template>
   <main id="home" class="overflow-hidden ">
     <!-- Premium Hero Section -->
-    <div class="relative mt-14 w-full h-[75vh] md:h-screen flex items-center justify-center overflow-hidden">
+    <div class="relative mt-14 w-full h-[95vh] md:h-screen flex items-center justify-center overflow-hidden">
       <img :src="HERO_IMAGE_2" class="w-full h-full absolute object-cover object-center" alt="Action Fitness Hero" />
       
       <!-- Enhanced Premium Gradient Overlay -->

@@ -12,12 +12,14 @@
       <div class="flex flex-col md:flex-row justify-between gap-10 mt-5">
         <div class="shadow-2xl  relative w-full md:w-1/2 h-64">
           <video
-            class="absolute border-2 border-gray-200 inset-0 h-full w-full object-cover"
-            :src="sampleVideo_2"
-            loop
-            controls
-            :poster="ACTION_FITNESS_IMAGE"
-          ></video>
+          class="absolute border-2 border-gray-200 inset-0 h-full w-full object-cover"
+          :src="sampleVideo_2"
+          loop
+          controls
+          :poster="GALLERY_IMAGE_10"  
+          preload="metadata"            
+          muted                        
+        ></video>
         </div>
         <p class="leading-9 md:text-md w-full md:w-1/2 text-gray-800 text-md">
           <span class="text-primary-green block mb-3 text-2xl"> Our Mission</span>
@@ -36,5 +38,5 @@
 </template>
 
 <script setup>
-import { sampleVideo_2 } from '@/data/constants'
+import { sampleVideo_2, GALLERY_IMAGE_10 } from '@/data/constants'
 </script>
