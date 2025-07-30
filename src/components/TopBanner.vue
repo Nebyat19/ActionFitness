@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-primary-red text-white py-1 px-4 text-center">
+  <div class="bg-primary-green text-white py-1 px-4 text-center">
     <div class="container mx-auto flex items-center justify-center gap-5">
       <p class="text-[10px]">
         🏆 Achieve your fitness goals with personalized training plans.
