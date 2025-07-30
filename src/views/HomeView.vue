@@ -105,7 +105,7 @@
   <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
   
   <Founder />
-  
+  <CertificatesSection/>
   <!-- Premium Section Separator -->
   <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
   
@@ -134,4 +134,5 @@ import Founder from '@/components/Founder.vue'
 import TiktokIcon from '@/components/icons/TiktokIcon.vue'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
+import CertificatesSection from '@/components/CertificatesSection.vue'
 </script>

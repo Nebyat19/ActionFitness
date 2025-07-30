@@ -278,3 +278,19 @@ const trainesInfo = [
 ]
 
 export { trainesInfo }
+
+
+//certificates
+import certificate1 from '@/assets/images/certificates/certificates1.jpg'
+import certificate2 from '@/assets/images/certificates/certificates2.jpg'
+import certificate3 from '@/assets/images/certificates/certificates3.jpg'
+import certificate4 from '@/assets/images/certificates/certificates4.jpg'
+import certificate5 from '@/assets/images/certificates/certificates5.jpg'
+import certificate6 from '@/assets/images/certificates/certificates6.jpg'
+import certificate7 from '@/assets/images/certificates/certificates7.jpg'
+import certificate8 from '@/assets/images/certificates/certificates8.jpg'
+import certificate9 from '@/assets/images/certificates/certificates9.jpg'
+import certificate10 from '@/assets/images/certificates/certificates10.jpg'
+import certificates11 from '@/assets/images/certificates/certificates11.jpg'
+
+export {certificate1, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate10, certificates11}
