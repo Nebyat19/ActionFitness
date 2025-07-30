@@ -89,8 +89,10 @@ import {
   BoxingBlack,
   groupFitness,
   HERO_IMAGE,
+  fatloss,
   BodybuildingBlack,
-  homeTraining
+  homeTraining,
+  personaltraining,
 } from '@/data/constants'
 
 const services = [
@@ -112,6 +114,7 @@ const services = [
     service: 'personal-training',
     name: 'Personal Training',
     description: 'Achieve your fitness goals with personalized one-on-one training sessions tailored to your needs.',
+    image:personaltraining,
     path: '/services/PersonalTraining'
   },
   {
@@ -153,6 +156,7 @@ const services = [
     service: 'fat-loss-training',
     name: 'Fat Loss Training',
     description: 'Specialized programs focused on fat loss and weight management with proven results.',
+    image: fatloss,
     path: '/services/FatLossTraining'
   },
   {

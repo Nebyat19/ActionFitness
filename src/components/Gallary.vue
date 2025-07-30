@@ -97,8 +97,36 @@
             </div>
           </div>
         </div>
-      </div>
 
+      <!-- Activities Gallery -->
+      <div v-if="activeCategory === 'Activities' || activeCategory === 'all'" class="space-y-8">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Special Events & Programs</h3>
+          <p class="text-gray-600">Behind the scenes of our special programs and events</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div v-for="item in otherGalleryImages" :key="item.title" 
+              class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+            <img 
+              :src="item.image" 
+              :alt="item.title"
+              class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+              @click="openLightbox(item.image)"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
+              <h4 class="text-xl font-bold mb-2">{{ item.title }}</h4>
+              <router-link :to="item.path" class="inline-block">
+                <button class="px-4 py-2 bg-primary-green text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200">
+                  View Gallery
+                </button>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
       <!-- Premium CTA Section -->
       <div class="text-center mt-16">
         <div class="bg-gradient-to-r from-primary-green to-green-600 rounded-2xl p-8 md:p-12 text-white">
@@ -139,7 +167,8 @@ const selectedImage = ref('')
 const categories = [
   { id: 'all', name: 'All Photos' },
   { id: 'gym', name: 'Gym Facilities' },
-  { id: 'other', name: 'Events & Programs' }
+  { id: 'Events & Programs', name: 'Events & Programs',},
+   { id: "Activities", name:"Activities"}
 ]
 
 const openLightbox = (image) => {

@@ -9,7 +9,7 @@ export { HERO_IMAGE, HERO_IMAGE_2, ACTION_IMAGE, ACTION_FITNESS_IMAGE,FITNESS_1 
 const gymInformation = {
   name: 'Action Fitness',
   location:
-    'Ayat Tafo Road, 500m past the cobblestone road near St. Gabriel Church, next to St. Gabriel Church',
+    'Ayat Tafo Road, 500m past the cobblestone road, next to St. Gabriel Church',
   openingHours: 'Mo-Sa 05:00 AM - 9:00 Pm, Su 05:00 AM - 12:00 AM',
 
   links: [
@@ -47,9 +47,14 @@ import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'
 import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
 import groupFitness from '@/assets/images/services/groupfitness.png'
 import homeTraining from '@/assets/images/services/homeTraines.png'
+import personaltraining from "@/assets/images/services/personaltraining.png"
+import fatloss from "@/assets/images/services/fatloss.png"
 import BodybuildingBlack from '@/assets/images/gallery/BodybuildingBlack.jpg'
 import BoxingBlack from '@/assets/images/gallery/BoxingBlack.jpg'
+
 export {
+  fatloss,
+  personaltraining,
   AFTER_SCHOOL_IMAGE_1,
   AFTER_SCHOOL_IMAGE_2,
   BoxingBlack,
@@ -63,7 +68,8 @@ export {
   taekwondo_2,
   sampleVideo_2,
   groupFitness,
-  homeTraining
+  homeTraining,
+
 }
 
 //gallery
@@ -96,8 +102,10 @@ import Other_GALLERY_IMAGE_3 from '@/assets/images/gallery/InternationalInstruct
 import Other_GALLERY_IMAGE_4 from '@/assets/images/gallery/MuayThai.jpg'
 // import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jpg'
 import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
+import activities1 from  "@/assets/images/gallery/activities1.png"
 
 const otherGalleryImages = [
+
   {
     image: Other_GALLERY_IMAGE_1,
     path: '/gallery/afterSchoolGallery',
@@ -119,10 +127,19 @@ const otherGalleryImages = [
     path: '/gallery/boxingGallery'
   },
   { image: homeTraining, title: 'Personal Training at Home', path: '/gallery/PersonalTrainingGallery' },
-  { image: Other_GALLERY_IMAGE_6, path: '/gallery/WTPARTNERSHIPGallery', title: 'WT PARTNERSHIP Taekwondo program 2018' }
+  { image: Other_GALLERY_IMAGE_6, path: '/gallery/WTPARTNERSHIPGallery', title: 'WT PARTNERSHIP Taekwondo program 2018' },
+  {
+    image: activities1,
+    path:"/gallery/activityGallary",
+    title:"Group Activities"
+   },
 ]
 
 export { otherGalleryImages }
+
+//Activities gallery
+
+
 
 /* 'gymGallery',
   'afterSchoolGallery',
@@ -193,6 +210,14 @@ const afterschoolGallary = [
 ]
 
 export { afterschoolGallary }
+
+//activityGallary
+//import activities1 from "@/assets/images/gallery/activities1.png";
+ import activities2 from "@/assets/images/gallery/activities2.png";
+ import activities3 from "@/assets/images/gallery/activities3.png";
+ import activities4 from "@/assets/images/gallery/activities4.png";
+const activityGallary = {activities1, activities2, activities3, activities4}
+export {activityGallary}
 //founder
 
 import FOUNDER_IMAGE from '@/assets/images/gallery/founder.jpg'

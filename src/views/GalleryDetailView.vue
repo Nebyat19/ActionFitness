@@ -53,7 +53,8 @@ import {
   crossFitMembershipGallary,
   boxingGallery,
   WTPARTNERSHIPGallery,
-  PersonalTrainingGallery
+  PersonalTrainingGallery,
+  activityGallary
 } from '@/data/constants'
 
 const imageModal = ref(null)
@@ -75,11 +76,17 @@ const gallaryNames = [
   'PersonalTrainingGallery',
   'boxingGallery',
   'TaekwondoClubGallery',
-  'WTPARTNERSHIPGallery'
+  'WTPARTNERSHIPGallery',
+  'activityGallary'
 ]
 
 /** title, description **/
 const gallaryInfo = {
+  activityGallary:{
+    head: 'activityGallary',
+    images: activityGallary,
+    desc: null
+  },
   gymGallery: {
     head: 'GYM Images',
     images: gymGallary,
