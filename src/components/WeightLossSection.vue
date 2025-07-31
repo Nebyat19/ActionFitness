@@ -61,10 +61,10 @@
   
                 <!-- Before/After Labels -->
                 <div class="absolute top-4 left-4 bg-gray-800/90 text-white px-3 py-1 rounded-full text-sm font-bold border border-gray-600">
-                <!-- {{ index!==1? "BEFORE" : "AFTER" }}   -->
+                {{ index!==1? "BEFORE" : "AFTER" }}  
                 </div>
                 <div class="absolute top-4 right-4 bg-primary-red/90 text-white px-3 py-1 rounded-full text-sm font-bold">
-                    <!-- {{ index!==1? "AFTER" : "BEFORE" }} -->
+                   {{ index!==1? "AFTER" : "BEFORE" }} 
                 </div>
   
                 <!-- Results Badge -->
