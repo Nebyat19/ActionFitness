@@ -294,6 +294,21 @@ import certificate8 from '@/assets/images/certificates/certificates8.jpg'
 import certificate9 from '@/assets/images/certificates/certificates9.jpg'
 import certificate10 from '@/assets/images/certificates/certificates10.jpg'
 import certificates11 from '@/assets/images/certificates/certificates11.jpg'
+import certificate12 from '@/assets/images/certificates/12.jpg'
+import certificate13 from '@/assets/images/certificates/13.jpg'
+import certificate14 from '@/assets/images/certificates/14.jpg'
+import certificate15 from '@/assets/images/certificates/15.jpg' 
+import certificate16 from '@/assets/images/certificates/16.jpg'
+import certificate17 from '@/assets/images/certificates/17.jpg'
+import certificate18 from '@/assets/images/certificates/18.jpg'
+import certificate19 from '@/assets/images/certificates/19.jpg'
+import certificate20 from '@/assets/images/certificates/20.jpg'
+import certificate21 from '@/assets/images/certificates/21.jpg'
+import certificate22 from '@/assets/images/certificates/22.jpg'
+import certificate23 from '@/assets/images/certificates/23.jpg'
+import certificate24 from '@/assets/images/certificates/24.jpg'
+
+export {certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24}
 
 export {certificate1, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate10, certificates11}
 

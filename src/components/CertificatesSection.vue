@@ -1,5 +1,5 @@
 <template>
-    <section id="Certifications" class="py-20 px-6 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
+    <section id="Certifications" class="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-10">
           <div class="absolute inset-0 bg-gradient-to-r from-primary-green/20 to-transparent"></div>
@@ -24,7 +24,7 @@
               class="flex-shrink-0 cursor-pointer group"
               @click="openModal(certificate, index)"
             >
-              <div class="w-72 h-96 bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <div class="w-80 h-96 bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <img 
                   :src="certificate" 
                   :alt="`Certificate ${index + 1}`"
@@ -70,7 +70,7 @@
   </template>
   
   <script>
-import { certificate1,certificates11, certificate10, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9 } from '@/data/constants'
+import { certificate1,certificates11, certificate10, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24 } from '@/data/constants'
 
   export default {
     name: 'CertificateScroll',
@@ -88,7 +88,8 @@ import { certificate1,certificates11, certificate10, certificate2, certificate3,
          certificate7,
          certificate8,
          certificates11,
-         certificate9
+         certificate9,
+         certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24
         
           // ... more certificates
         ],
