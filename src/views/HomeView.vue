@@ -101,6 +101,7 @@
   
   <Founder />
   <CertificatesSection/>
+  <WeightLossSection />
   <PremiumTransformationVideos />
   <!-- Premium Section Separator -->
   <div class="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
@@ -132,4 +133,5 @@ import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import CertificatesSection from '@/components/CertificatesSection.vue'
 import PremiumTransformationVideos from '@/components/PremiumTransformationVideos.vue'
+import WeightLossSection from '@/components/WeightLossSection.vue'
 </script>

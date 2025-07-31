@@ -307,3 +307,11 @@ import transformation4 from '@/assets/videos/transformation-videos/transformatio
 import transformation5 from '@/assets/videos/transformation-videos/transformation5.mp4'
 
 export {transformation1, transformation2, transformation3, transformation4, transformation5}
+
+
+//trasnformation images
+import transformationImage1 from '@/assets/images/transformations/1.png'
+import transformationImage2 from '@/assets/images/transformations/2.png'
+import transformationImage3 from '@/assets/images/transformations/3.png'
+
+export {transformationImage1, transformationImage2, transformationImage3}
