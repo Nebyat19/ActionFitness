@@ -6,7 +6,7 @@ import FITNESS_1 from '@/assets/images/logos/FITNESS_1.png'
 
 
 
-export { HERO_IMAGE, HERO_IMAGE_2, ACTION_IMAGE, ACTION_FITNESS_IMAGE,FITNESS_1 }
+export { HERO_IMAGE, HERO_IMAGE_2, ACTION_IMAGE, ACTION_FITNESS_IMAGE, FITNESS_1 }
 
 const gymInformation = {
   name: 'Action Fitness',
@@ -88,8 +88,8 @@ import GALLERY_IMAGE_10 from '@/assets/images/gallery/gymGallary-10.png'
 import GALLERY_IMAGE_11 from "@/assets/images/gallery/gymGallary-11.jpg"
 import GALLERY_IMAGE_12 from "@/assets/images/gallery/gymGallary-12.jpg"
 
-const galleryImages = [GALLERY_IMAGE_12, GALLERY_IMAGE_10, GALLERY_IMAGE_11, GALLERY_IMAGE_1,GALLERY_IMAGE_5, GALLERY_IMAGE_6]
-export {GALLERY_IMAGE_10}
+const galleryImages = [GALLERY_IMAGE_12, GALLERY_IMAGE_10, GALLERY_IMAGE_11, GALLERY_IMAGE_1, GALLERY_IMAGE_5, GALLERY_IMAGE_6]
+export { GALLERY_IMAGE_10 }
 const gymGallary = [
   ...galleryImages,
   GALLERY_IMAGE_9,
@@ -108,7 +108,7 @@ import Other_GALLERY_IMAGE_3 from '@/assets/images/gallery/InternationalInstruct
 import Other_GALLERY_IMAGE_4 from '@/assets/images/gallery/MuayThai.jpg'
 // import Other_GALLERY_IMAGE_5 from '@/assets/images/gallery/taekwondoGallary-1.jpg'
 import Other_GALLERY_IMAGE_6 from '@/assets/images/gallery/international.jpg'
-import activities1 from  "@/assets/images/gallery/activities1.png"
+import activities1 from "@/assets/images/gallery/activities1.png"
 
 const otherGalleryImages = [
 
@@ -136,9 +136,9 @@ const otherGalleryImages = [
   { image: Other_GALLERY_IMAGE_6, path: '/gallery/WTPARTNERSHIPGallery', title: 'WT PARTNERSHIP Taekwondo program 2018' },
   {
     image: activities1,
-    path:"/gallery/activityGallary",
-    title:"Group Activities"
-   },
+    path: "/gallery/activityGallary",
+    title: "Group Activities"
+  },
 ]
 
 export { otherGalleryImages }
@@ -159,7 +159,7 @@ import PersonalTraining3 from '@/assets/images/gallery/PersonalTraining3.png'
 import PersonalTraining4 from '@/assets/images/gallery/PersonalTraining4.png'
 import PersonalTraining5 from '@/assets/images/gallery/PersonalTraining5.jpg'
 
-const PersonalTrainingGallery = [homeTraining,PersonalTraining1,PersonalTraining2,PersonalTraining3,PersonalTraining4, PersonalTraining5]
+const PersonalTrainingGallery = [homeTraining, PersonalTraining1, PersonalTraining2, PersonalTraining3, PersonalTraining4, PersonalTraining5]
 export { PersonalTrainingGallery }
 
 import WTPARTNERSHIPGallery1 from '@/assets/images/gallery/WTPARTNERSHIPGallery1.jpg'
@@ -219,11 +219,11 @@ export { afterschoolGallary }
 
 //activityGallary
 //import activities1 from "@/assets/images/gallery/activities1.png";
- import activities2 from "@/assets/images/gallery/activities2.png";
- import activities3 from "@/assets/images/gallery/activities3.png";
- import activities4 from "@/assets/images/gallery/activities4.png";
-const activityGallary = {activities1, activities2, activities3, activities4}
-export {activityGallary}
+import activities2 from "@/assets/images/gallery/activities2.png";
+import activities3 from "@/assets/images/gallery/activities3.png";
+import activities4 from "@/assets/images/gallery/activities4.png";
+const activityGallary = { activities1, activities2, activities3, activities4 }
+export { activityGallary }
 //founder
 
 import FOUNDER_IMAGE from '@/assets/images/gallery/founder.jpg'
@@ -276,7 +276,7 @@ import trainerThree from "@/assets/images/trainers/trainer-3.png"
 const trainesInfo = [
   { name: 'Abel Getahun', image: trainerOne, title: 'Trainer' },
   { name: 'Surafel Matiyos', image: trainerTwo, title: 'Trainer' },
-  { name: "Zekariyas Engedawork", image:trainerThree, title:"Taekwondo Coach"}
+  { name: "Zekariyas Engedawork", image: trainerThree, title: "Taekwondo Coach" }
 ]
 
 export { trainesInfo }
@@ -297,7 +297,7 @@ import certificates11 from '@/assets/images/certificates/certificates11.jpg'
 import certificate12 from '@/assets/images/certificates/12.jpg'
 import certificate13 from '@/assets/images/certificates/13.jpg'
 import certificate14 from '@/assets/images/certificates/14.jpg'
-import certificate15 from '@/assets/images/certificates/15.jpg' 
+import certificate15 from '@/assets/images/certificates/15.jpg'
 import certificate16 from '@/assets/images/certificates/16.jpg'
 import certificate17 from '@/assets/images/certificates/17.jpg'
 import certificate18 from '@/assets/images/certificates/18.jpg'
@@ -308,9 +308,9 @@ import certificate22 from '@/assets/images/certificates/22.jpg'
 import certificate23 from '@/assets/images/certificates/23.jpg'
 import certificate24 from '@/assets/images/certificates/24.jpg'
 
-export {certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24}
+export { certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24 }
 
-export {certificate1, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate10, certificates11}
+export { certificate1, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate10, certificates11 }
 
 //transformation videos 
 
@@ -321,7 +321,7 @@ import transformation3 from '@/assets/videos/transformation-videos/transformatio
 import transformation4 from '@/assets/videos/transformation-videos/transformation4.mp4'
 import transformation5 from '@/assets/videos/transformation-videos/transformation5.mp4'
 
-export {transformation1, transformation2, transformation3, transformation4, transformation5}
+export { transformation1, transformation2, transformation3, transformation4, transformation5 }
 
 
 //trasnformation images
@@ -329,4 +329,4 @@ import transformationImage1 from '@/assets/images/transformations/1.png'
 import transformationImage2 from '@/assets/images/transformations/2.png'
 import transformationImage3 from '@/assets/images/transformations/3.png'
 
-export {transformationImage1, transformationImage2, transformationImage3}
+export { transformationImage1, transformationImage2, transformationImage3 }
