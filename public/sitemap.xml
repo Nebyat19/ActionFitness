@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.sitemaps.org/schemas/sitemap/0.9/image"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Homepage (Highest Priority) -->
+  <url>
+    <loc>https://actionfitnesscenter.com/</loc>
+    <lastmod>2024-06-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://actionfitnesscenter.com/gymImage.jpg</image:loc>
+      <image:caption>Action Fitness Center - Best Gym in Addis Ababa</image:caption>
+      <image:title>Action Fitness Center Facilities</image:title>
+    </image:image>
+  </url>
+
+  <!-- Key Pages -->
+  <url>
+    <loc>https://actionfitnesscenter.com/about-us</loc>
+    <lastmod>2024-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://actionfitnesscenter.com/founder.jpg</image:loc>
+      <image:caption>Master Eskender Worku - Founder of Action Fitness</image:caption>
+      <image:title>Founder Profile</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://actionfitnesscenter.com/services</loc>
+    <lastmod>2024-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://actionfitnesscenter.com/services"/>
+  </url>
+
+  <!-- Service Details -->
+  <url>
+    <loc>https://actionfitnesscenter.com/services/personal-training</loc>
+    <lastmod>2024-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://actionfitnesscenter.com/services/personal-training"/>
+  </url>
+
+  <url>
+    <loc>https://actionfitnesscenter.com/services/taekwondo</loc>
+    <lastmod>2024-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://actionfitnesscenter.com/services/taekwondo"/>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://actionfitnesscenter.com/gallery</loc>
+    <lastmod>2024-06-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://actionfitnesscenter.com/gallery"/>
+  </url>
+
+</urlset>
