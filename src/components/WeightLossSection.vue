@@ -92,8 +92,7 @@
                 {{ transformation?.title }}
               </h3>
               <p class="text-gray-300 text-sm leading-relaxed">
-                {{ transformation?.description || 'Incredible fat loss transformation through dedicated training and
-                nutrition' }}
+                {{ transformation?.description || 'Incredible fat loss transformation through dedicated training and nutrition' }}
               </p>
 
               <!-- Stats Row -->
@@ -184,8 +183,7 @@
           <div class="p-8 bg-gradient-to-r from-gray-900 to-black">
 
             <p class="text-gray-300 text-lg leading-relaxed mb-4">
-              {{ transformations[selectedTransformation].description || 'Incredible fat loss transformation through
-              dedicated training and nutrition' }}
+              {{ transformations[selectedTransformation].description || 'Incredible fat loss transformation through dedicated training and nutrition' }}
             </p>
             <div class="flex gap-4">
 

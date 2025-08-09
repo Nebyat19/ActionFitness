@@ -62,9 +62,9 @@
       ></span>
     </nav>
     <nav class="hidden md:flex">
-      <ul class="flex gap-5 text-sm font-poppins text-primary-red">
+      <ul class="flex gap-5 text-sm font-poppins  text-red-800">
         <li
-          class="hover:text-primary-green uppercase"
+          class="hover:text-primary-red uppercase"
           v-for="navlink in navigationLinks"
           :key="navlink.name"
         >
