@@ -250,7 +250,7 @@
         <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl border border-primary-red/30" @click.stop>
           
           <!-- Mobile Close Button -->
-          <div class="md:hidden sticky top-0 z-30 bg-gradient-to-r from-primary-red to-accent-orange p-4 flex justify-between items-center">
+          <div class="md:hidden sticky top-0 z-30 bg-gradient-to-r from-red-900 to-primary-green p-4 flex justify-between items-center">
             <h2 class="text-xl font-bold text-white">Certifications</h2>
             <button 
               @click="closeCertificationsModal"
@@ -286,7 +286,7 @@
                 <div class="w-4 h-4 bg-primary-red rounded-full mt-1 flex-shrink-0"></div>
                 <div>
                   <h4 class="text-white font-bold text-lg mb-1">{{ cert.title }}</h4>
-                  <p class="text-primary-red font-semibold mb-2">{{ cert.institution }}</p>
+                  <p class="text-primary-green font-semibold mb-2">{{ cert.institution }}</p>
                   <p class="text-gray-400 text-sm">{{ cert.description }}</p>
                 </div>
               </div>
