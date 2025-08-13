@@ -272,13 +272,47 @@ import trainerOne from '@/assets/images/trainers/trainer-1.jpg'
 import trainerTwo from '@/assets/images/trainers/trainer-2.jpg'
 import trainerThree from "@/assets/images/trainers/trainer-3.png"
 
-const trainesInfo = [
-  { name: 'Abel Getahun', image: trainerOne, title: 'Trainer' },
-  { name: 'Surafel Matiyos', image: trainerTwo, title: 'Trainer' },
-  { name: "Zekariyas Engedawork", image: trainerThree, title: "Taekwondo Coach" }
+const trainersInfo =  [
+  {
+    name: 'Abel Getahun',
+    image: trainerOne,
+    title: 'Taekwondo & Fitness Trainer',
+    rank: '3rd Dan Black Belt',
+    certifications: [
+      'Taekwondo 3rd Dan from World Taekwondo HQ Kukkiwon South Korea',
+      'Muay Thai or Thai Boxing Trainer Certification',
+      'Body Building and Weightlifting Trainer Certification from Addis Ababa Weight Lifting Federation',
+      'Fitness and Aerobics Trainer Certification from Addis Ababa Sports Commission'
+    ]
+  },
+  {
+    name: 'Zekarias Engedawork',
+    image: trainerTwo,
+    title: 'Taekwondo Coach & Fitness Trainer',
+    rank: '3rd Dan Black Belt',
+    certifications: [
+      'Taekwondo 3rd Dan from World Taekwondo HQ Kukkiwon South Korea',
+      'Taekwondo International Instructor Course Certification from WT Taekwondowon Muju Korea',
+      'Body Building and Weightlifting Trainer Certification from Addis Ababa Weight Lifting Federation',
+      'Fitness and Aerobics Trainer Certification from Addis Ababa Sports Commission'
+    ]
+  },
+  {
+    name: 'Surafel Matiwos',
+    image: trainerThree,
+    title: 'Taekwondo & Combat Sports Trainer',
+    rank: '2nd Dan Black Belt',
+    certifications: [
+      'Taekwondo 2nd Dan from World Taekwondo HQ Kukkiwon South Korea',
+      'Muay Thai or Thai Boxing Trainer Certification',
+      'Body Building and Weightlifting Trainer Certification from Addis Ababa Weight Lifting Federation',
+      'Fitness and Aerobics Trainer Certification from Addis Ababa Sports Commission'
+    ]
+  }
 ]
 
-export { trainesInfo }
+
+export { trainersInfo }
 
 
 //certificates
