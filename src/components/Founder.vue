@@ -78,7 +78,7 @@
                   Read Full Story
                   <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </span>
               </button>
@@ -96,28 +96,41 @@
     <!-- Full Story Modal -->
     <div 
       v-if="showStoryModal" 
-      class="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
+      class="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-2 md:p-4 backdrop-blur-sm"
       @click="closeStoryModal"
     >
       <div class="relative w-full max-w-6xl max-h-[95vh] overflow-auto">
-        <!-- Close Button -->
-        <button 
-          @click="closeStoryModal"
-          class="absolute -top-12 right-0 bg-primary-red hover:bg-red-600 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 shadow-lg"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-
         <!-- Modal Content -->
         <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl border border-primary-green/30" @click.stop>
           
-          <!-- Header Section -->
-          <div class="relative bg-gradient-to-r from-primary-green via-light-green to-primary-green p-8 md:p-12">
+          <!-- Mobile Close Button (inside modal) -->
+          <div class="md:hidden sticky top-0 z-30 bg-gradient-to-r from-primary-green via-light-green to-primary-green p-4 flex justify-between items-center">
+         
+            <button 
+              @click="closeStoryModal"
+              class="bg-black/20 hover:bg-black/40 text-black p-3 rounded-full transition-all duration-300 hover:scale-110"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Desktop Close Button (outside modal) -->
+          <button 
+            @click="closeStoryModal"
+            class="hidden md:block absolute -top-12 right-0 bg-primary-red hover:bg-red-600 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 shadow-lg"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+          
+          <!-- Header Section - hide on mobile since we have the sticky header -->
+          <div class=" md:block relative bg-gradient-to-r from-primary-green via-light-green to-primary-green p-8 md:p-12">
             <div class="flex flex-col md:flex-row items-center gap-8">
-              <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-black shadow-2xl">
-                <img :src="founderInfo.image" :alt="founderInfo.name" class="w-full h-full object-cover">
+              <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-black shadow-2xl">
+                <img :src="founderInfo.image" :alt="founderInfo.name" class="w-full h-full object-top object-cover">
               </div>
               <div class="text-center md:text-left">
                 <h2 class="text-4xl md:text-6xl font-black text-black mb-2">
@@ -134,10 +147,10 @@
           </div>
 
           <!-- Content Sections -->
-          <div class="p-8 md:p-12 space-y-12">
+          <div class="p-4 md:p-8 lg:p-12 space-y-8 md:space-y-12">
             
             <!-- Introduction -->
-            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-primary-green/20">
+            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-4 md:p-6 lg:p-8 border border-primary-green/20">
               <h3 class="text-3xl font-bold text-primary-green mb-6 flex items-center gap-3">
                 <div class="w-2 h-8 bg-gradient-to-b from-primary-green to-light-green rounded-full"></div>
                 About Master Eskender
@@ -151,7 +164,7 @@
             </div>
 
             <!-- Work Experience -->
-            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-accent-orange/20">
+            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-4 md:p-6 lg:p-8 border border-accent-orange/20">
               <h3 class="text-3xl font-bold text-accent-orange mb-8 flex items-center gap-3">
                 <div class="w-2 h-8 bg-gradient-to-b from-accent-orange to-accent-gold rounded-full"></div>
                 Professional Experience
@@ -171,7 +184,7 @@
             </div>
 
             <!-- Key Achievements -->
-            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-primary-red/20">
+            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-4 md:p-6 lg:p-8 border border-primary-red/20">
               <h3 class="text-3xl font-bold text-primary-red mb-8 flex items-center gap-3">
                 <div class="w-2 h-8 bg-gradient-to-b from-primary-red to-accent-orange rounded-full"></div>
                 Key Achievements
@@ -196,7 +209,7 @@
             </div>
 
             <!-- Education -->
-            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-8 border border-accent-gold/20">
+            <div class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-2xl p-4 md:p-6 lg:p-8 border border-accent-gold/20">
               <h3 class="text-3xl font-bold text-accent-gold mb-6 flex items-center gap-3">
                 <div class="w-2 h-8 bg-gradient-to-b from-accent-gold to-accent-orange rounded-full"></div>
                 Education & Qualifications
@@ -214,7 +227,7 @@
             </div>
 
             <!-- Call to Action -->
-            <div class="text-center bg-gradient-to-r from-primary-green via-light-green to-primary-green rounded-2xl p-8">
+            <div class="text-center bg-gradient-to-r from-primary-green via-light-green to-primary-green rounded-2xl p-4 md:p-6 lg:p-8">
               <h3 class="text-3xl font-bold text-black mb-4">Ready to Train with a Master?</h3>
               <p class="text-black/80 text-lg mb-6">Experience world-class training with over 10 years of expertise</p>
               <button class="bg-black text-primary-green font-bold py-4 px-8 rounded-full hover:bg-gray-900 transition-colors duration-300">
@@ -229,31 +242,44 @@
     <!-- Certifications Modal -->
     <div 
       v-if="showCertificationsModal" 
-      class="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-4 backdrop-blur-sm"
+      class="fixed inset-0 bg-black/95 flex items-center justify-center z-50 p-2 md:p-4 backdrop-blur-sm"
       @click="closeCertificationsModal"
     >
       <div class="relative w-full max-w-5xl max-h-[95vh] overflow-auto">
-        <!-- Close Button -->
-        <button 
-          @click="closeCertificationsModal"
-          class="absolute -top-12 right-0 bg-primary-red hover:bg-red-600 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 shadow-lg"
-        >
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
-
         <!-- Certifications Content -->
         <div class="bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl border border-primary-red/30" @click.stop>
           
-          <!-- Header -->
-          <div class="bg-gradient-to-r from-primary-red to-accent-orange p-8">
+          <!-- Mobile Close Button -->
+          <div class="md:hidden sticky top-0 z-30 bg-gradient-to-r from-primary-red to-accent-orange p-4 flex justify-between items-center">
+            <h2 class="text-xl font-bold text-white">Certifications</h2>
+            <button 
+              @click="closeCertificationsModal"
+              class="bg-black/20 hover:bg-black/40 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Desktop Close Button -->
+          <button 
+            @click="closeCertificationsModal"
+            class="hidden md:block absolute -top-12 right-0 bg-primary-red hover:bg-red-600 text-white p-3 rounded-full transition-all duration-300 hover:scale-110 z-20 shadow-lg"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+          
+          <!-- Header - adjust for mobile -->
+          <div class="hidden md:block bg-gradient-to-r from-primary-red to-accent-orange p-8">
             <h2 class="text-4xl font-black text-white text-center">Professional Certifications</h2>
             <p class="text-white/80 text-center mt-2">International and Local Qualifications</p>
           </div>
 
           <!-- Certifications Grid -->
-          <div class="p-8 space-y-6">
+          <div class="p-4 md:p-6 lg:p-8 space-y-4 md:space-y-6">
             <div v-for="(cert, index) in certifications" :key="index" 
                  class="bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700 hover:border-primary-red/50 transition-all duration-300">
               <div class="flex items-start gap-4">
@@ -416,4 +442,3 @@ export default {
   }
 }
 </script>
-
