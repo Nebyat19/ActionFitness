@@ -227,11 +227,10 @@ export { activityGallary }
 //founder
 
 import FOUNDER_IMAGE from '@/assets/images/gallery/founder.jpg'
-
 const founderInfo = {
   sub: 'Master',
   name: 'Eskender Worku',
-  title: 'CEO and Head Coach',
+  title: 'Founder & Master Trainer',
   image: [FOUNDER_IMAGE],
   Certifications: [
     '5th Degree Black Belt (DAN) - Certified Master from South Korea World Taekwondo Headquarters (HQ Kukkiwon)',
@@ -251,7 +250,7 @@ const founderInfo = {
   phone: '0910531281',
   email: 'eskender@gmail.com',
   address: 'Addis Ababa, Ethiopia',
-  info: 'Master Eskender Worku is the founder of Action Fitness. He has been in the fitness industry for over 10 years and has helped hundreds of people achieve their fitness goals.',
+  info: 'Master Eskender Worku is the founder of Action Fitness. He has been in the fitness industry for over 10 years and has helped hundreds of people achieve their fitness goals through premium training and expert guidance.',
   workExperience: [
     'Founder of Master Eskinder Taekwondo Club and Action Body Building and Fitness Center',
     'Instructor at Turkish Schools / Intellectual Schools for over five years',
