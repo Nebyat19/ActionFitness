@@ -165,9 +165,9 @@
             © {{ new Date().getFullYear() }} Action Fitness. All rights reserved.
           </p>
           <div class="flex gap-6 text-sm">
-            <a href="#" class="text-gray-400 hover:text-primary-green transition-colors duration-300">Privacy Policy</a>
+            <!-- <a href="#" class="text-gray-400 hover:text-primary-green transition-colors duration-300">Privacy Policy</a>
             <a href="#" class="text-gray-400 hover:text-primary-green transition-colors duration-300">Terms of Service</a>
-            <a href="#" class="text-gray-400 hover:text-primary-green transition-colors duration-300">Cookie Policy</a>
+            <a href="#" class="text-gray-400 hover:text-primary-green transition-colors duration-300">Cookie Policy</a> -->
           </div>
         </div>
       </div>
