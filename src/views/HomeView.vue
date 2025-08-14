@@ -63,7 +63,7 @@
     </div>
 
     <!-- Premium CTA Banner -->
-    <div class="relative w-full bg-gradient-to-r from-primary-green via-primary-green to-black  py-4 md:py-6 overflow-hidden">
+    <div class="md:-mt-32 relative w-full bg-gradient-to-r from-primary-green via-primary-green to-black  py-4 opacity-95 overflow-hidden">
       <div class="absolute inset-0 bg-black/20"></div>
       <div class="relative z-10 flex flex-col md:flex-row gap-2 md:gap-4 justify-center items-center text-white px-4 md:px-6">
         <div class="flex items-center gap-2 md:gap-3">
