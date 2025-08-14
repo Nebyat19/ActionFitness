@@ -287,7 +287,7 @@ const trainersInfo =  [
   },
   {
     name: 'Zekarias Engedawork',
-    image: trainerTwo,
+    image: trainerThree ,
     title: 'Taekwondo Coach & Fitness Trainer',
     rank: '3rd Dan Black Belt',
     certifications: [
@@ -299,7 +299,7 @@ const trainersInfo =  [
   },
   {
     name: 'Surafel Matiwos',
-    image: trainerThree,
+    image: trainerTwo,
     title: 'Taekwondo & Combat Sports Trainer',
     rank: '2nd Dan Black Belt',
     certifications: [
