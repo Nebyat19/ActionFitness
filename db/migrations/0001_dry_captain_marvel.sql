@@ -1,0 +1,1 @@
+ALTER TABLE "transformations" ADD COLUMN "description" text;

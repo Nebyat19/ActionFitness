@@ -1,0 +1,12 @@
+import { clearAuthCookie, requireSameOrigin } from '../_lib/auth.js'
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST')
+    return res.status(405).json({ error: 'Method not allowed' })
+  }
+  if (!requireSameOrigin(req, res)) return
+
+  clearAuthCookie(res)
+  return res.status(200).json({ ok: true })
+}

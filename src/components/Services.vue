@@ -152,95 +152,19 @@
 </template>
 
 <script setup>
-import {
-  AFTER_SCHOOL_IMAGE_1,
-  AFTER_SCHOOL_TAEKWONDO,
-  THAIBOXING,
-  nutritionalConsultant,
-  ACTION_FITNESS_IMAGE,
-  taekwondo,
-  BodyBuilding,
-  BoxingBlack,
-  groupFitness,
-  HERO_IMAGE,
-  fatloss,
-  BodybuildingBlack,
-  homeTraining,
-  personaltraining,
-} from '@/data/constants'
+import { computed } from 'vue'
+import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
+import { useContentStore } from '@/stores/content'
 
-const services = [
-  {
-    service: 'body-building',
-    name: 'Body Building',
-    description: 'Build muscle and strength with our comprehensive body building training programs designed for all levels.',
-    image: BodybuildingBlack,
-    path: '/services/BodyBuilding'
-  },
-  {
-    service: 'group-training',
-    name: 'Group Fitness Training',
-    description: 'Join our energetic group sessions led by certified trainers in a motivating community environment.',
-    image: groupFitness,
-    path: '/services/GroupFitnessTraining'
-  },
-  {
-    service: 'personal-training',
-    name: 'Personal Training',
-    description: 'Achieve your fitness goals with personalized one-on-one training sessions tailored to your needs.',
-    image: personaltraining,
-    path: '/services/PersonalTraining'
-  },
-  {
-    service: 'home-to-home-private-training',
-    name: 'Home Private Training',
-    description: 'Enjoy premium private training sessions at the convenience of your home with our expert trainers.',
-    image: homeTraining,
-    path: '/services/HomeToHomePrivateTraining'
-  },
-  {
-    service: 'boxing',
-    name: 'Boxing',
-    description: 'Master the art of boxing with our professional trainers and state-of-the-art boxing facilities.',
-    path: '/services/Boxing',
-    image: BoxingBlack
-  },
-  {
-    service: 'thai-boxing-and-kick-boxing',
-    name: 'Thai Boxing & Kickboxing',
-    description: 'Learn authentic Thai boxing and kickboxing techniques to enhance your fitness and self-defense skills.',
-    image: THAIBOXING,
-    path: '/services/ThaiBoxingAndKickBoxing'
-  },
-  {
-    service: 'nutritional-consultant',
-    name: 'Nutritional Consulting',
-    description: 'Get personalized nutrition advice and meal plans to complement your fitness journey and achieve optimal results.',
-    image: nutritionalConsultant,
-    path: '/services/NutritionalConsultant'
-  },
-  {
-    service: 'after-school-training-programs',
-    name: 'After School Programs',
-    description: 'Comprehensive training programs designed specifically for students to develop fitness and discipline.',
-    image: AFTER_SCHOOL_IMAGE_1,
-    path: '/services/AfterSchoolTrainingPrograms'
-  },
-  {
-    service: 'fat-loss-training',
-    name: 'Fat Loss Training',
-    description: 'Specialized programs focused on fat loss and weight management with proven results.',
-    image: fatloss,
-    path: '/services/FatLossTraining'
-  },
-  {
-    service: 'taekwondo',
-    name: 'Taekwondo',
-    description: 'Master the art of Taekwondo with our experienced instructors in a traditional yet modern setting.',
-    image: taekwondo,
-    path: '/services/Taekwondo'
-  }
-]
+const content = useContentStore()
+const services = computed(() =>
+  content.services.map((s) => ({
+    name: s.name,
+    description: s.shortDescription,
+    image: s.imageUrl,
+    path: `/services/${s.slug}`
+  }))
+)
 </script>
 
 <style scoped>

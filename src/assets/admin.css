@@ -1,0 +1,35 @@
+/* Shared styles for the /admin dashboard. Kept separate from base.css so the
+   public marketing site's styling stays untouched. */
+
+@layer components {
+  .admin-input {
+    @apply w-full border border-admin-line rounded-lg px-3 py-2 text-sm text-admin-ink bg-admin-surface
+      placeholder:text-admin-subtle
+      focus:outline-none focus:ring-2 focus:ring-admin-accent focus:border-transparent
+      transition-shadow;
+  }
+
+  .admin-btn {
+    @apply inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-medium
+      transition-colors disabled:opacity-50 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-admin-accent focus-visible:ring-offset-2;
+  }
+  .admin-btn-primary {
+    @apply admin-btn bg-admin-ink text-white hover:bg-black;
+  }
+  .admin-btn-secondary {
+    @apply admin-btn border border-admin-line text-admin-ink bg-admin-surface hover:bg-admin-canvas;
+  }
+  .admin-btn-danger {
+    @apply admin-btn border border-red-200 text-admin-danger bg-admin-surface hover:bg-admin-danger-surface;
+  }
+  .admin-btn-icon {
+    @apply w-8 h-8 inline-flex items-center justify-center rounded-lg border border-admin-line text-admin-muted
+      hover:bg-admin-canvas hover:text-admin-ink transition-colors disabled:opacity-30 disabled:pointer-events-none
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-admin-accent focus-visible:ring-offset-2;
+  }
+
+  .admin-card {
+    @apply bg-admin-surface rounded-xl border border-admin-line shadow-sm;
+  }
+}

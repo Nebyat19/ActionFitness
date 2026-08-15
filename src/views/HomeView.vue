@@ -45,15 +45,15 @@
           
           <!-- Premium Social Media Section -->
           <div class="flex gap-4 md:gap-8 mt-4 md:mt-8 justify-center md:justify-start">
-            <a :href="gymInformation.socialMedia.facebook" target="_blank" rel="noopener" aria-label="Facebook" 
+            <a v-if="gymInfo.facebook" :href="gymInfo.facebook" target="_blank" rel="noopener" aria-label="Facebook"
                class="group p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 hover:text-primary-green hover:bg-white/20 transition-all duration-300 hover:scale-110">
               <FacebookIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
-            <a :href="gymInformation.socialMedia.instagram" target="_blank" rel="noopener" aria-label="Instagram" 
+            <a v-if="gymInfo.instagram" :href="gymInfo.instagram" target="_blank" rel="noopener" aria-label="Instagram"
                class="group p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 hover:text-primary-green hover:bg-white/20 transition-all duration-300 hover:scale-110">
               <InstagramIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
-            <a :href="gymInformation.socialMedia.tiktok" target="_blank" rel="noopener" aria-label="TikTok" 
+            <a v-if="gymInfo.tiktok" :href="gymInfo.tiktok" target="_blank" rel="noopener" aria-label="TikTok"
                class="group p-2 md:p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 hover:text-primary-green hover:bg-white/20 transition-all duration-300 hover:scale-110">
               <TiktokIcon class="w-5 h-5 md:w-6 md:h-6" />
             </a>
@@ -120,7 +120,11 @@
 </template>
 
 <script setup>
-import { HERO_IMAGE_2, ACTION_IMAGE, ACTION_FITNESS_IMAGE, FITNESS_1, gymInformation } from '@/data/constants'
+import { computed } from 'vue'
+import HERO_IMAGE_2 from '@/assets/images/heroImage-2.jpg'
+import ACTION_IMAGE from '@/assets/images/logos/actionBgRemoved.png'
+import FITNESS_1 from '@/assets/images/logos/FITNESS_1.png'
+import { useContentStore } from '@/stores/content'
 import AboutUs from '@/components/AboutUs.vue'
 import Services from '@/components/Services.vue'
 import WhyUs from '@/components/WhyUs.vue'
@@ -134,4 +138,7 @@ import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import CertificatesSection from '@/components/CertificatesSection.vue'
 import PremiumTransformationVideos from '@/components/PremiumTransformationVideos.vue'
 import WeightLossSection from '@/components/WeightLossSection.vue'
+
+const content = useContentStore()
+const gymInfo = computed(() => content.gymInfo)
 </script>

@@ -14,5 +14,5 @@
     </section>
 </template>
 <script setup>
-import {taekwondo_2} from '@/data/constants'
+import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'
 </script>

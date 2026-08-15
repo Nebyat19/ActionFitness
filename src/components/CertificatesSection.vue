@@ -70,29 +70,17 @@
   </template>
   
   <script>
-import { certificate1,certificates11, certificate10, certificate2, certificate3, certificate4, certificate5, certificate6, certificate7, certificate8, certificate9, certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24 } from '@/data/constants'
+import { useContentStore } from '@/stores/content'
 
   export default {
     name: 'CertificateScroll',
+    computed: {
+      certificates() {
+        return useContentStore().certificates.map((c) => c.imageUrl)
+      }
+    },
     data() {
       return {
-        certificates: [
-          // Your certificate image paths here
-         certificate1,
-         certificate2,
-         certificate3,
-         certificate4,
-         certificate5,
-         certificate10,
-         certificate6,
-         certificate7,
-         certificate8,
-         certificates11,
-         certificate9,
-         certificate12, certificate13, certificate14, certificate15, certificate16, certificate17, certificate18, certificate19, certificate20, certificate21, certificate22, certificate23, certificate24
-        
-          // ... more certificates
-        ],
         selectedCertificate: null
       }
     },

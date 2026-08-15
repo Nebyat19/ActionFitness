@@ -299,14 +299,22 @@
 </template>
 
 <script>
-import { founderInfo } from '@/data/constants'
+import { useContentStore } from '@/stores/content'
 export default {
   name: 'FounderSection',
+  computed: {
+    // Core bio is admin-editable (Site Text -> Founder); the story/
+    // certifications modal content below stays hardcoded per the
+    // content-only migration scope.
+    founderInfo() {
+      const f = useContentStore().founder
+      return { name: f.name, sub: f.sub, title: f.title, info: f.info, image: f.imageUrl }
+    }
+  },
   data() {
     return {
       showStoryModal: false,
       showCertificationsModal: false,
-      founderInfo,
       workExperience: [
         {
           title: 'Co-owner and Founder',

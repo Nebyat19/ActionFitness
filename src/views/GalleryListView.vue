@@ -7,6 +7,5 @@
   </main>
 </template>
 <script setup>
-import { HERO_IMAGE } from '@/data/constants'
 import Gallary from '@/components/Gallary.vue'
 </script>

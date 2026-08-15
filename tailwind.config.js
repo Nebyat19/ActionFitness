@@ -19,7 +19,27 @@ export default {
         'dark-accent-gold': '#6d4c41',
         'dark-black': '#121212',
         'dark-light-green': '#9e9d24',
-        'dark-white': '#e0e0e0'
+        'dark-white': '#e0e0e0',
+        // Admin dashboard tokens — a calm control-panel palette, distinct
+        // from the public site's black/neon-green marketing look, tied to
+        // the brand via the same accent green.
+        admin: {
+          canvas: '#F6F6F3',
+          surface: '#FFFFFF',
+          ink: '#1C1E1B',
+          muted: '#6B6F66',
+          subtle: '#9A9D93',
+          line: '#E6E6E0',
+          sidebar: '#15171A',
+          'sidebar-line': '#262A2E',
+          'sidebar-hover': '#20232A',
+          'sidebar-text': '#B7BAB2',
+          accent: '#93B902',
+          'accent-ink': '#1C1E1B',
+          'accent-dark': '#7A9902',
+          danger: '#DC2626',
+          'danger-surface': '#FEF2F2'
+        }
       }
     },
     fontFamily: {

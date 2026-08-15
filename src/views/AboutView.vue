@@ -51,6 +51,6 @@
 </template>
 
 <script setup>
-import { ACTION_FITNESS_IMAGE } from '@/data/constants'
+import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
 
 </script>

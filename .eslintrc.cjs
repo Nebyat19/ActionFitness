@@ -10,5 +10,13 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 'latest'
-  }
+  },
+  overrides: [
+    {
+      // Serverless functions, DB layer, and one-off scripts run in Node, not
+      // the browser — they need `process`/`Buffer`/etc. recognized.
+      files: ['api/**/*.js', 'db/**/*.js', 'scripts/**/*.mjs', 'drizzle.config.js'],
+      env: { node: true }
+    }
+  ]
 }

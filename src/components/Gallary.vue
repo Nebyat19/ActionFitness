@@ -27,18 +27,18 @@
       <!-- Premium Gallery Grid -->
       <div class="space-y-12">
         <!-- Gym Gallery -->
-        <div v-if="activeCategory === 'gym' || activeCategory === 'all'" class="space-y-8">
+        <div v-if="gymCollection && (activeCategory === 'gym' || activeCategory === 'all')" class="space-y-8">
           <div class="text-center mb-8">
             <h3 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">GYM Gallery</h3>
             <p class="text-gray-600">State-of-the-art equipment and premium training spaces</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div v-for="(image, index) in galleryImages" :key="index"
+            <div v-for="(item, index) in gymCollection.items" :key="item.id"
               class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              <img :src="image" :alt="`Gym Image ${index + 1}`"
+              <img :src="item.mediaUrl" :alt="`Gym Image ${index + 1}`"
                 class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
-                @click="openLightbox(image)" />
+                @click="openLightbox(item.mediaUrl)" />
               <div
                 class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               </div>
@@ -51,7 +51,7 @@
           </div>
 
           <div class="text-center mt-8">
-            <router-link to="/gallery/gymGallery">
+            <router-link :to="`/gallery/${gymCollection.slug}`">
               <button
                 class="group relative px-8 py-4 bg-gradient-to-r from-primary-green to-green-600 text-white font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-green/25">
                 <span class="relative z-10 flex items-center justify-center gap-2">
@@ -77,15 +77,15 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div v-for="item in otherGalleryImages" :key="item.title"
+            <div v-for="collection in otherCollections" :key="collection.id"
               class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              <img :src="item.image" :alt="item.title"
+              <img :src="collection.items[0]?.mediaUrl" :alt="collection.title"
                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                @click="openLightbox(item.image)" />
+                @click="openLightbox(collection.items[0]?.mediaUrl)" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
               <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                <h4 class="text-xl font-bold mb-2">{{ item.title }}</h4>
-                <router-link :to="item.path" class="inline-block">
+                <h4 class="text-xl font-bold mb-2">{{ collection.title }}</h4>
+                <router-link :to="`/gallery/${collection.slug}`" class="inline-block">
                   <button
                     class="px-4 py-2 bg-primary-green text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200">
                     View Gallery
@@ -97,28 +97,18 @@
         </div>
 
         <!-- Activities Gallery -->
-        <div v-if="activeCategory === 'Activities' || activeCategory === 'all'" class="space-y-8">
+        <div v-if="activityCollection && (activeCategory === 'Activities' || activeCategory === 'all')" class="space-y-8">
           <div class="text-center mb-8">
-            <h3 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">Special Events & Programs</h3>
+            <h3 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4">{{ activityCollection.title }}</h3>
             <p class="text-gray-600">Behind the scenes of our special programs and events</p>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div v-for="item in otherGalleryImages" :key="item.title"
+            <div v-for="item in activityCollection.items" :key="item.id"
               class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              <img :src="item.image" :alt="item.title"
+              <img :src="item.mediaUrl" :alt="activityCollection.title"
                 class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                @click="openLightbox(item.image)" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-              <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
-                <h4 class="text-xl font-bold mb-2">{{ item.title }}</h4>
-                <router-link :to="item.path" class="inline-block">
-                  <button
-                    class="px-4 py-2 bg-primary-green text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200">
-                    View Gallery
-                  </button>
-                </router-link>
-              </div>
+                @click="openLightbox(item.mediaUrl)" />
             </div>
           </div>
         </div>
@@ -153,8 +143,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { galleryImages, otherGalleryImages } from '@/data/constants'
+import { computed, ref } from 'vue'
+import { useContentStore } from '@/stores/content'
+
+const content = useContentStore()
+const gymCollection = computed(() => content.galleryBySlug('gym-gallery'))
+const activityCollection = computed(() => content.galleryBySlug('activity-gallery'))
+const otherCollections = computed(() =>
+  content.gallery.filter((g) => g.slug !== 'gym-gallery' && g.slug !== 'activity-gallery')
+)
 
 const activeCategory = ref('all')
 const lightboxOpen = ref(false)

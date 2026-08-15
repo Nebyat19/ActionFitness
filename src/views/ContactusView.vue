@@ -71,7 +71,7 @@
 <script setup>
 import { ref } from 'vue';
 import ContactUs from '@/components/ContactUs.vue';
-import { ACTION_IMAGE } from '@/data/constants';
+import ACTION_IMAGE from '@/assets/images/logos/actionBgRemoved.png';
 
 const form = ref({
   name: '',

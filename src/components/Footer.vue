@@ -19,15 +19,15 @@
               {{ gymInformation.info }}
             </p>
             <div class="flex gap-4">
-              <a :href="socialLinks.facebook" target="_blank" rel="noopener" aria-label="Facebook" 
+              <a v-if="gymInformation.facebook" :href="gymInformation.facebook" target="_blank" rel="noopener" aria-label="Facebook"
                  class="group p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 hover:text-primary-green hover:bg-white/20 transition-all duration-300 hover:scale-110">
                 <FacebookIcon class="w-5 h-5" />
               </a>
-              <a :href="socialLinks.instagram" target="_blank" rel="noopener" aria-label="Instagram" 
+              <a v-if="gymInformation.instagram" :href="gymInformation.instagram" target="_blank" rel="noopener" aria-label="Instagram"
                  class="group p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 hover:text-primary-green hover:bg-white/20 transition-all duration-300 hover:scale-110">
                 <InstagramIcon class="w-5 h-5" />
               </a>
-              <a :href="socialLinks.tiktok" target="_blank" rel="noopener" aria-label="TikTok" 
+              <a v-if="gymInformation.tiktok" :href="gymInformation.tiktok" target="_blank" rel="noopener" aria-label="TikTok"
                  class="group p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-gray-300 hover:text-primary-green hover:bg-white/20 transition-all duration-300 hover:scale-110">
                 <TiktokIcon class="w-5 h-5" />
               </a>
@@ -43,7 +43,7 @@
               Quick Links
             </h3>
             <ul class="space-y-3">
-              <li v-for="link in gymInformation.links" :key="link.name">
+              <li v-for="link in quickLinks" :key="link.name">
                 <router-link 
                   :to="link.path" 
                   class="text-gray-300 hover:text-primary-green transition-colors duration-300 flex items-center gap-2 group"
@@ -176,10 +176,23 @@
 </template>
 
 <script setup>
-import { ACTION_FITNESS_IMAGE, gymInformation } from '@/data/constants'
+import { computed } from 'vue'
+import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
 import FacebookIcon from '@/components/icons/FacebookIcon.vue'
 import InstagramIcon from '@/components/icons/InstagramIcon.vue'
 import TiktokIcon from '@/components/icons/TiktokIcon.vue'
+import { useContentStore } from '@/stores/content'
 
-const socialLinks = gymInformation.socialMedia
+const content = useContentStore()
+const gymInformation = computed(() => content.gymInfo)
+
+const quickLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'About Us', path: '/about-us' },
+  { name: 'Services', path: '/services' },
+  { name: 'Trainers', path: '/trainers' },
+  { name: 'Gallery', path: '/gallery' },
+  { name: 'Locations', path: '/branches' },
+  { name: 'Contact', path: '/contact' }
+]
 </script>

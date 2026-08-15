@@ -7,27 +7,27 @@
         
         <!-- Hero Image Section -->
         <div class="relative h-80 md:h-96 overflow-hidden">
-          <img 
-            :src="service.image || '/placeholder.svg?height=400&width=800&text=Service+Image'" 
-            :alt="service.title" 
-            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
+          <img
+            :src="service.image || '/placeholder.svg?height=400&width=800&text=Service+Image'"
+            :alt="service.name"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-          
+
           <!-- Service Title Overlay -->
           <div class="absolute bottom-8 left-8 right-8">
             <div class="bg-primary-green text-black px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider inline-block mb-4">
               Premium Service
             </div>
             <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">
-              {{ service.title }}
+              {{ service.name }}
             </h1>
           </div>
         </div>
 
         <!-- Content Section -->
         <div class="p-8 md:p-12">
-          
+
           <!-- Service Description -->
           <div class="mb-12">
             <div class="flex items-center gap-4 mb-6">
@@ -40,17 +40,17 @@
           </div>
 
           <!-- Benefits Section -->
-          <div class="mb-12">
+          <div v-if="service.benefits && service.benefits.length" class="mb-12">
             <div class="flex items-center gap-4 mb-8">
               <div class="w-1 h-12 bg-primary-green rounded-full"></div>
               <h2 class="text-2xl font-bold text-white">
-                Benefits of Our {{ service.sub }} Program
+                Benefits of Our {{ service.name }} Program
               </h2>
             </div>
             
             <div class="grid md:grid-cols-2 gap-4">
-              <div 
-                v-for="(benefit, index) in service.benefits" 
+              <div
+                v-for="benefit in service.benefits"
                 :key="benefit"
                 class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-primary-green/50 transition-all duration-300 group"
               >
@@ -118,154 +118,38 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref } from 'vue'
+import { computed, watchEffect } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
-import { BodyBuilding,fatloss, personaltraining, homeTraining, AFTER_SCHOOL_IMAGE_1, ACTION_FITNESS_IMAGE, THAIBOXING, nutritionalConsultant } from '@/data/constants'
-
-const service = ref({})
-const ServiceList = ['BodyBuilding', 'GroupFitnessTraining', 'FatLossTraining', 'PersonalTraining', 'ThaiBoxingAndKickBoxing', 'AfterSchoolTrainingPrograms', 'HomeToHomePrivateTraining', 'Boxing', 'NutritionalConsultant']
-
-const router = useRouter()
-const route = useRoute()
+import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
+import { useContentStore } from '@/stores/content'
 
 defineProps({
   name: String
 })
 
-const ServiceInfo = {
-  GroupFitnessTraining: {
-    title: 'Group Fitness Training',
-    sub: 'Dynamic Group Workouts',
-    benefits: [
-      'Motivating group environment',
-      'Varied workout routines',
-      'Cost-effective fitness solution',
-      'Increased social interaction',
-      'Fun and engaging classes'
-    ],
-    description:
-      "Experience the energy and motivation of working out in a group with our Group Fitness Training sessions. Our dynamic group workouts are designed to provide a fun and engaging environment while helping you achieve your fitness goals. Enjoy varied workout routines, increase your social interaction, and benefit from a cost-effective fitness solution that keeps you motivated and on track.",
-    image: null
-  },
-  FatLossTraining: {
-    title: 'Fat Loss Training',
-    sub: 'Specialized Fat Loss Programs',
-    benefits: [
-      'Effective fat reduction',
-      'Improved metabolic rate',
-      'Enhanced body composition',
-      'Personalized nutrition and exercise plans',
-      'Supportive and motivating environment'
-    ],
-    description:
-      "Join our specialized programs focused on fat loss and weight management. Our Fat Loss Training service offers tailored exercise routines and nutrition guidance to help you achieve your fat loss goals. With a focus on effective fat reduction and improved metabolic rate, you'll receive personalized plans and support to enhance your body composition and reach your fitness objectives.",
-    image: fatloss
-  },
-  PersonalTraining: {
-    title: 'Personal Training',
-    sub: 'One-on-One Personal Training',
-    benefits: [
-      'Customized workout plans',
-      'Individualized attention',
-      'Enhanced motivation and accountability',
-      'Expert guidance and support',
-      'Faster achievement of fitness goals'
-    ],
-    description:
-      "Achieve your fitness goals with one-on-one personal training sessions. Our personal training service offers customized workout plans tailored to your specific needs and goals. With individualized attention and expert guidance, you'll receive the motivation and support needed to maximize your results and reach your fitness objectives more efficiently.",
-    image: personaltraining
-  },
-  AfterSchoolTrainingPrograms: {
-    title: 'After School Training Programs',
-    sub: 'Student Training Programs',
-    benefits: [
-      'Structured training schedule',
-      'Development of athletic skills',
-      'Improved physical fitness',
-      'Supportive learning environment',
-      'Enhanced teamwork and discipline'
-    ],
-    description:
-      "Enroll in our comprehensive training programs designed for students. Our After School Training Programs offer a structured schedule that focuses on developing athletic skills, improving physical fitness, and fostering teamwork. Designed to fit into the school routine, these programs provide a supportive environment where students can enhance their abilities and stay active after school.",
-    image: AFTER_SCHOOL_IMAGE_1 
-  },
-  HomeToHomePrivateTraining: {
-    title: 'Home to Home Private Training',
-    sub: 'Private Home Training',
-    benefits: [
-      'Convenient training at your home',
-      'Personalized workout plans',
-      'Flexible scheduling',
-      'One-on-one attention from trainers',
-      'Comfortable and private training environment'
-    ],
-    description:
-      "Enjoy private training sessions at the convenience of your home. Our Home to Home Private Training service offers personalized workout plans tailored to your fitness goals, all within the comfort of your own space. Experience flexible scheduling and dedicated attention from our expert trainers, designed to fit your lifestyle and preferences.",
-    image: homeTraining
-  },
-  NutritionalConsultant: {
-    title: 'Nutritional Consultant',
-    sub: 'Nutrition Advice',
-    benefits: [
-      'Personalized nutrition plans',
-      'Improved dietary habits',
-      'Enhanced fitness performance',
-      'Better overall health',
-      'Guidance on healthy eating'
-    ],
-    description:
-      "Get personalized nutrition advice to help you achieve your fitness goals. Our nutritional consulting service provides tailored dietary plans and expert guidance to optimize your nutrition, enhance your performance, and support your overall health. Whether you're looking to improve your diet, manage weight, or boost energy, our professional consultants are here to assist you.",
-    image: nutritionalConsultant 
-  },
-  Boxing: {
-    title: 'Boxing',
-    sub: 'Boxing',
-    benefits: [
-      'Enhanced boxing techniques',
-      'Increased physical fitness',
-      'Improved hand-eye coordination',
-      'Boosted confidence',
-      'Better defensive skills'
-    ],
-    description:
-      "Improve your boxing skills with our professional boxing classes. Our training program focuses on developing advanced boxing techniques, enhancing your fitness, and building your confidence in the ring. Whether you're a novice or an experienced boxer, our expert trainers will help you reach your full potential.",
-    image: ACTION_FITNESS_IMAGE 
-  },
-  BodyBuilding: {
-    title: 'Body Building',
-    sub: 'Body Building',
-    benefits: [
-      'Increased muscle mass',
-      'Improved strength and endurance',
-      'Enhanced physical appearance',
-      'Boosted metabolism',
-      'Reduced risk of injury'
-    ],
-    description:
-      "Our Body Building service is designed to help you achieve your fitness goals through tailored workout plans, professional guidance, and a supportive environment. Whether you're looking to build muscle, enhance your physique, or improve overall strength, our expert trainers are here to assist you every step of the way.",
-    image: BodyBuilding
-  },
-  ThaiBoxingAndKickBoxing: {
-    title: 'Thai Boxing and Kick Boxing',
-    sub: 'Thai Boxing & Kick Boxing',
-    benefits: [
-      'Enhanced self-defense skills',
-      'Increased cardiovascular fitness',
-      'Improved flexibility and agility',
-      'Boosted mental toughness',
-      'Better coordination and balance'
-    ],
-    description:
-      "Get trained in Thai boxing and kick boxing techniques to enhance your self-defense skills. Our program focuses on developing striking techniques, conditioning, and practical self-defense strategies. Whether you're a beginner or looking to refine your skills, our experienced trainers will guide you through every step of your training.",
-    image: THAIBOXING
-  }
-}
+const router = useRouter()
+const route = useRoute()
+const content = useContentStore()
 
-onBeforeMount(() => {
-  if (!ServiceList.includes(route.params.name)) {
-    router.push('/services')
-  } else {
-    service.value = ServiceInfo[route.params.name]
+const found = computed(() => content.serviceBySlug(route.params.name))
+const service = computed(() =>
+  found.value
+    ? {
+        name: found.value.name,
+        description: found.value.longDescription || found.value.shortDescription,
+        benefits: found.value.benefits,
+        image: found.value.imageUrl
+      }
+    : {}
+)
+
+// Real slug-backed lookup — redirects to the list page for an unknown/
+// removed slug instead of the old hardcoded allow-list. watchEffect (rather
+// than onBeforeMount) so navigating directly between two service detail
+// pages re-checks too, since Vue Router reuses this component instance.
+watchEffect(() => {
+  if (content.loaded && !found.value) {
+    router.replace('/services')
   }
 })
 </script>

@@ -171,8 +171,11 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { gymInformation } from '@/data/constants'
+import { ref, computed } from 'vue'
+import { useContentStore } from '@/stores/content'
+
+const content = useContentStore()
+const gymInformation = computed(() => content.gymInfo)
 
 const form = ref({
   name: '',

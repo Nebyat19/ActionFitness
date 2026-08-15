@@ -27,19 +27,11 @@
 </template>
 
 <script setup>
-import { onBeforeMount, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import FullScreenImageModal from '@/components/FullScreenImageModal.vue'
 import { onClickOutside } from '@vueuse/core'
-import {
-  gymGallary,
-  afterschoolGallary,
-  crossFitMembershipGallary,
-  boxingGallery,
-  WTPARTNERSHIPGallery,
-  PersonalTrainingGallery,
-  activityGallary
-} from '@/data/constants'
+import { useContentStore } from '@/stores/content'
 
 const imageModal = ref(null)
 
@@ -52,50 +44,6 @@ const openModal = (image) => {
   selectedImage.value = image
   isModalOpen.value = true
 }
-const gallery = ref({})
-const gallaryNames = [
-  'gymGallery',
-  'afterSchoolGallery',
-  'crossFitMembership',
-  'PersonalTrainingGallery',
-  'boxingGallery',
-  'TaekwondoClubGallery',
-  'WTPARTNERSHIPGallery',
-  'activityGallary'
-]
-
-/** title, description **/
-const gallaryInfo = {
-  activityGallary: {
-    head: 'activityGallary',
-    images: activityGallary,
-    desc: null
-  },
-  gymGallery: {
-    head: 'GYM Images',
-    images: gymGallary,
-    desc: null
-  },
-  afterSchoolGallery: {
-    head: 'After school Training programs',
-    images: afterschoolGallary,
-    desc: null
-  },
-  crossFitMembership: {
-    head: 'CrossFit Membership Course Bangkok Thailand 2019',
-    images: crossFitMembershipGallary
-  },
-  boxingGallery: { head: 'Thai boxing Course Bagkok Thailand 2019', images: boxingGallery },
-
-  WTPARTNERSHIPGallery: {
-    head: 'International Instructor course South Korea muju 2018',
-    images: WTPARTNERSHIPGallery
-  },
-  PersonalTrainingGallery: {
-    head: 'Personal Training at home',
-    images: PersonalTrainingGallery
-  }
-}
 
 defineProps({
   name: String
@@ -103,13 +51,19 @@ defineProps({
 
 const router = useRouter()
 const route = useRoute()
+const content = useContentStore()
 
-onBeforeMount(() => {
-  const name = route.params.name
-  if (!gallaryNames.includes(name)) {
+const found = computed(() => content.galleryBySlug(route.params.name))
+const gallery = computed(() =>
+  found.value
+    ? { head: found.value.title, images: found.value.items.map((i) => i.mediaUrl), desc: found.value.description }
+    : {}
+)
+
+// Real slug-backed lookup — replaces the old hardcoded allow-list + object.
+watchEffect(() => {
+  if (content.loaded && !found.value) {
     router.push('/')
-  } else {
-    gallery.value = gallaryInfo[name]
   }
 })
 </script>

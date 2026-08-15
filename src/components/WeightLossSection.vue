@@ -203,31 +203,19 @@
 </template>
 
 <script>
-import { transformationImage1, transformationImage2, transformationImage3 } from '@/data/constants'
+import { useContentStore } from '@/stores/content'
 export default {
   name: 'WeightLossSection',
+  computed: {
+    transformations() {
+      return useContentStore().transformationImages.map((t) => ({
+        image: t.imageUrl,
+        description: t.description
+      }))
+    }
+  },
   data() {
     return {
-      transformations: [
-        {
-          image: transformationImage1, // Your before/after image
-
-          description: 'Amazing weight loss journey with sustainable results and improved health',
-
-        },
-        {
-          image: transformationImage2,
-
-          description: 'Complete lifestyle transformation through proper nutrition and training',
-
-        },
-        {
-          image: transformationImage3,
-
-          description: 'Dramatic fat loss while maintaining muscle mass and gaining confidence',
-
-        }
-      ],
       selectedTransformation: null
     }
   },

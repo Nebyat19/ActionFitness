@@ -221,38 +221,20 @@
   </template>
   
   <script>
-  import {transformation1, transformation2, transformation3, transformation4, transformation5} from '@/data/constants'
+  import { useContentStore } from '@/stores/content'
   export default {
     name: 'PremiumTransformationVideos',
+    computed: {
+      videos() {
+        return useContentStore().transformationVideos.map((t) => ({
+          src: t.videoUrl,
+          title: t.title,
+          description: t.description
+        }))
+      }
+    },
     data() {
       return {
-        videos: [
-            {
-        src:transformation1,
-        title: 'Incredible Results',
-        description: 'From struggle to strength - witness this amazing fitness journey'
-      },
-      {
-        src: transformation2, 
-        title: 'Body Transformation',
-        description: 'Real dedication leads to real results - see the proof'
-      },
-      {
-        src: transformation3,
-        title: 'Success Story', 
-        description: 'Hard work pays off - watch this inspiring transformation'
-      },
-      {
-        src:transformation4,
-        title: 'Fitness Journey',
-        description: 'Commitment and consistency create incredible changes'
-      },
-      {
-        src:transformation5,
-        title: 'Life Changed',
-        description: 'More than just physical - a complete lifestyle transformation'
-      }
-        ],
         selectedVideo: null
       }
     },

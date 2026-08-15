@@ -22,7 +22,10 @@
           stroke-linejoin="round"
         ></path>
       </svg>
-      <span class="text-sm flex gap-2">Addis Ababa, Ethiopia |  <a :href="'tel:'+gymInfo.phone"> {{ gymInfo.phone }}</a></span>
+      <span class="text-sm flex gap-2 items-center">
+        <span class="hidden sm:inline">{{ gymInfo.location }} |</span>
+        <a :href="'tel:'+gymInfo.phone">{{ gymInfo.phone }}</a>
+      </span>
     </span>
   </div>
   <header
@@ -75,9 +78,9 @@
   </header>
 </template>
 <script setup>
-import { gymInformation } from '@/data/constants'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { onClickOutside } from '@vueuse/core'
+import { useContentStore } from '@/stores/content'
 const showMenu = ref(false)
 
 const navBar = ref(null)
@@ -91,9 +94,10 @@ const navigationLinks = [
   { name: 'Services', path: '/services' },
   { name: 'Trainers', path: '/trainers' },
   { name: 'Gallery', path: '/gallery' },
-  { name: 'Contact', path: '/contact' },
-
+  { name: 'Locations', path: '/branches' },
+  { name: 'Contact', path: '/contact' }
 ]
 
-const gymInfo = gymInformation
+const content = useContentStore()
+const gymInfo = computed(() => content.gymInfo)
 </script>

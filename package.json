@@ -5,13 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "node --env-file=.env scripts/dev-api-server.mjs",
+    "dev:full": "npm run dev:api & npm run dev",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:seed-admin": "node --env-file=.env scripts/seed-admin.mjs",
+    "migrate:content": "node --env-file=.env scripts/migrate-content.mjs"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@vercel/blob": "^2.8.0",
     "@vueuse/core": "^10.11.0",
+    "bcryptjs": "^3.0.3",
+    "drizzle-orm": "^0.45.2",
+    "jose": "^6.2.9",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
     "vue-router": "^4.3.3"
@@ -21,10 +33,13 @@
     "@vitejs/plugin-vue": "^5.0.5",
     "@vue/eslint-config-prettier": "^9.0.0",
     "autoprefixer": "^10.4.19",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.31.10",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "postcss": "^8.4.39",
     "prettier": "^3.2.5",
+    "sharp": "^0.35.3",
     "tailwindcss": "^3.4.6",
     "vite": "^5.3.1"
   }

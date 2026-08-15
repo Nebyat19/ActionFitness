@@ -236,18 +236,29 @@
 
 <script>
 import ContactUs from '@/components/ContactUs.vue'
-import  { HERO_IMAGE, trainersInfo, ACTION_FITNESS_IMAGE} from '@/data/constants'
-
+import HERO_IMAGE from '@/assets/images/heroImage-3.jpg'
+import ACTION_FITNESS_IMAGE from '@/assets/images/logos/ActionFitnessBgRemoved.png'
+import { useContentStore } from '@/stores/content'
 
 export default {
   name: 'TrainersPage',
   components: {
     ContactUs
   },
+  computed: {
+    trainersInfo() {
+      return useContentStore().trainers.map((t) => ({
+        name: t.name,
+        image: t.imageUrl,
+        title: t.title,
+        rank: t.rank,
+        certifications: t.certifications
+      }))
+    }
+  },
   data() {
     return {
       selectedTrainer: null,
-      trainersInfo,
       HERO_IMAGE,
       ACTION_FITNESS_IMAGE
     }

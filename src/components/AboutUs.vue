@@ -122,6 +122,7 @@
 </template>
 
 <script setup>
-import { sampleVideo_2, GALLERY_IMAGE_10 } from '@/data/constants'
+import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
+import GALLERY_IMAGE_10 from '@/assets/images/gallery/gymGallary-10.png'
 </script>
 
