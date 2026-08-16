@@ -1,17 +1,18 @@
 <template>
-    <section id="why-us" class=" relative w-full h-52">
-        
-        <img class=" -z-50 fixed w-full h-full inset-0 object-cover" :src="taekwondo_2" alt="">
- <div class=" absolute bg-gray-950 bg-opacity-50 w-full h-full inset-0"></div>
-        <div class=" z-10 py-5 md:py-10 mx-auto flex flex-col items-center justify-center">
-            <h1 class="z-10 text-4xl md:text-4xl font-bebas font-bold  tracking-tighter text-primary-green mt-8"></h1>
-            
-            <div class="flex">
-                <p class=" font-poppins text-md font-serif z-10 text-center text-white  md:text-xl  mt-5 ">We are a team of fitness enthusiasts who are passionate about helping you achieve your fitness goals.</p>
-            
-            </div>
-        </div>
-    </section>
+  <section id="why-us" class="relative w-full min-h-[320px] md:min-h-[400px] flex items-center overflow-hidden">
+    <img class="absolute inset-0 w-full h-full object-cover" :src="taekwondo_2" alt="" />
+    <div class="absolute inset-0 bg-black/70"></div>
+
+    <div class="relative z-10 w-full py-16 px-6 flex flex-col items-center text-center">
+      <span class="site-eyebrow mb-5">Why Us</span>
+      <h2 class="font-anton text-3xl md:text-5xl text-white tracking-tight max-w-3xl">
+        Discipline, expertise, and a team that shows up for you
+      </h2>
+      <p class="font-poppins text-white/80 md:text-lg mt-5 max-w-xl">
+        We are a team of fitness enthusiasts who are passionate about helping you achieve your fitness goals.
+      </p>
+    </div>
+  </section>
 </template>
 <script setup>
 import taekwondo_2 from '@/assets/images/services/taekwondo-2.jpg'

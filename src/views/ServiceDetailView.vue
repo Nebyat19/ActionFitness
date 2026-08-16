@@ -1,9 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black py-12 px-6 pt-36">
+  <div class="min-h-screen bg-black py-12 px-6 pt-36">
     <div class="max-w-5xl mx-auto mt-10">
-      
-      <!-- Enhanced Service Card -->
-      <div class="bg-gradient-to-br from-gray-900 to-black shadow-2xl rounded-3xl overflow-hidden border border-gray-800">
+      <div class="site-card overflow-hidden">
         
         <!-- Hero Image Section -->
         <div class="relative h-80 md:h-96 overflow-hidden">
@@ -16,10 +14,8 @@
 
           <!-- Service Title Overlay -->
           <div class="absolute bottom-8 left-8 right-8">
-            <div class="bg-primary-green text-black px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wider inline-block mb-4">
-              Premium Service
-            </div>
-            <h1 class="text-4xl md:text-6xl font-black text-white leading-tight">
+            <span class="site-eyebrow mb-4">Premium Service</span>
+            <h1 class="font-anton text-4xl md:text-6xl text-white leading-tight">
               {{ service.name }}
             </h1>
           </div>
@@ -52,11 +48,11 @@
               <div
                 v-for="benefit in service.benefits"
                 :key="benefit"
-                class="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-primary-green/50 transition-all duration-300 group"
+                class="site-card-hover p-6 group"
               >
                 <div class="flex items-start gap-4">
-                  <div class="w-8 h-8 bg-primary-green rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="w-8 h-8 bg-primary-green/10 border border-primary-green/30 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-4 h-4 text-primary-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
                   </div>
@@ -83,34 +79,14 @@
 
       <!-- Additional Info Cards -->
       <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700 text-center">
-          <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        <div v-for="perk in perks" :key="perk.title" class="site-card-hover p-6 text-center">
+          <div class="w-12 h-12 bg-primary-green/10 border border-primary-green/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-6 h-6 text-primary-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="perk.icon"></path>
             </svg>
           </div>
-          <h4 class="text-lg font-bold text-white mb-2">Flexible Schedule</h4>
-          <p class="text-gray-400 text-sm">Train at times that work for you</p>
-        </div>
-
-        <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700 text-center">
-          <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z"></path>
-            </svg>
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">Certified Trainers</h4>
-          <p class="text-gray-400 text-sm">Expert guidance from professionals</p>
-        </div>
-
-        <div class="bg-gray-800/30 rounded-xl p-6 border border-gray-700 text-center">
-          <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h4 class="text-lg font-bold text-white mb-2">Proven Results</h4>
-          <p class="text-gray-400 text-sm">Achieve your fitness goals faster</p>
+          <h4 class="text-lg font-bold text-white mb-2">{{ perk.title }}</h4>
+          <p class="text-gray-400 text-sm">{{ perk.description }}</p>
         </div>
       </div>
     </div>
@@ -152,6 +128,24 @@ watchEffect(() => {
     router.replace('/services')
   }
 })
+
+const perks = [
+  {
+    title: 'Flexible Schedule',
+    description: 'Train at times that work for you',
+    icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
+  },
+  {
+    title: 'Certified Trainers',
+    description: 'Expert guidance from professionals',
+    icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z'
+  },
+  {
+    title: 'Proven Results',
+    description: 'Achieve your fitness goals faster',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z'
+  }
+]
 </script>
 
 <style scoped>

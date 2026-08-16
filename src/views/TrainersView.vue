@@ -1,30 +1,17 @@
 <template>
   <div class="bg-black min-h-screen ">
-    <!-- Hero Section -->
-    <div class="relative bg-gradient-to-br from-black via-gray-900 to-black text-white h-96 flex flex-col justify-center items-center overflow-hidden">
-      <!-- Background Pattern -->
-      <div class="absolute inset-0 opacity-10">
-        <div class="absolute top-20 left-10 w-32 h-32 bg-primary-green/20 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-20 right-10 w-40 h-40 bg-primary-red/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      </div>
-      
-      <div class="relative z-10 text-center mt-60">
-        <div class="inline-block mb-6">
-          <span class="bg-gradient-to-r from-primary-red to-accent-orange text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
-            Our Team
-          </span>
-        </div>
-        <h1 class="text-5xl md:text-7xl font-black mb-6 font-anton">
-          Meet Our 
-          <span class="bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
-            Expert Trainers
-          </span>
-        </h1>
-        <div class="w-24 h-1 bg-gradient-to-r from-primary-green to-light-green mx-auto rounded-full"></div>
-        <p class="text-gray-300 text-xl mt-6 max-w-3xl mx-auto">
-          World-class certified professionals dedicated to your fitness journey
-        </p>
-      </div>
+    <!-- Hero -->
+    <div class="relative bg-gradient-to-br from-black via-gray-900 to-black text-white py-32 md:py-40 flex flex-col justify-center items-center text-center px-6">
+      <span class="site-eyebrow mb-6">Our Team</span>
+      <h1 class="site-heading mb-6">
+        Meet Our
+        <span class="bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
+          Expert Trainers
+        </span>
+      </h1>
+      <p class="site-subtext text-lg md:text-xl max-w-2xl">
+        World-class certified professionals dedicated to your fitness journey
+      </p>
     </div>
 
     <!-- Trainers Grid -->
@@ -38,23 +25,21 @@
             :style="{ animationDelay: `${index * 200}ms` }"
             @click="openTrainerModal(trainer, index)"
           >
-            <!-- Enhanced Trainer Card -->
-            <div class="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl border border-gray-800 hover:border-primary-green/50 transition-all duration-500">
-              
+            <!-- Trainer Card -->
+            <div class="site-card-hover overflow-hidden">
+
               <!-- Trainer Image -->
               <div class="relative h-96 overflow-hidden">
-                <img 
-                  :src="trainer.image" 
+                <img
+                  :src="trainer.image"
                   :alt="trainer.name"
-                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                  class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
-                
-                <!-- Gradient Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
-                
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+
                 <!-- Rank Badge -->
                 <div class="absolute top-4 right-4">
-                  <div class="bg-gradient-to-r from-accent-gold to-accent-orange text-black px-3 py-1 rounded-full text-sm font-black uppercase tracking-wide shadow-lg">
+                  <div class="bg-black/70 border border-white/10 text-primary-green px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
                     {{ trainer.rank }}
                   </div>
                 </div>
@@ -75,26 +60,25 @@
                   {{ trainer.name }}
                 </h2>
                 <p class="text-primary-green font-semibold text-lg mb-4 flex items-center gap-2">
-                  <svg class="w-5 h-5 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
                   </svg>
                   {{ trainer.title }}
                 </p>
-                
+
                 <!-- Key Certifications Preview -->
                 <div class="space-y-2 mb-6">
-                  <div v-for="cert in trainer.certifications.slice(0, 2)" :key="cert" 
+                  <div v-for="cert in trainer.certifications.slice(0, 2)" :key="cert"
                        class="flex items-center gap-2 text-gray-400 text-sm">
-                    <div class="w-2 h-2 bg-primary-red rounded-full"></div>
+                    <div class="w-1.5 h-1.5 bg-primary-green rounded-full shrink-0"></div>
                     <span>{{ cert }}</span>
                   </div>
-                  <div v-if="trainer.certifications.length > 2" class="text-accent-orange text-sm font-semibold">
+                  <div v-if="trainer.certifications.length > 2" class="text-primary-green text-sm font-semibold">
                     +{{ trainer.certifications.length - 2 }} more certifications
                   </div>
                 </div>
 
-                <!-- View Details Button -->
-                <button class="w-full bg-gradient-to-r from-primary-green to-light-green text-black font-bold py-3 px-6 rounded-xl hover:shadow-lg hover:shadow-primary-green/25 transition-all duration-300 group-hover:scale-105">
+                <button class="site-btn-primary w-full">
                   View Full Profile
                 </button>
               </div>
@@ -104,26 +88,21 @@
       </div>
     </div>
 
-    <!-- Call to Action Section -->
+    <!-- CTA -->
     <div class="py-20 px-4">
-      <div class="max-w-6xl mx-auto text-center">
-        <div class="relative bg-gradient-to-r from-primary-red via-accent-orange to-accent-gold rounded-3xl p-1">
-          <div class="bg-black rounded-3xl p-12 md:p-16">
-            <h3 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-              Train with the
-              <br>
-              <span class="bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
-                BEST TEAM
-              </span>
-            </h3>
-            <p class="text-gray-300 text-xl mb-10 max-w-3xl mx-auto">
-              Our certified trainers bring years of international experience and expertise to help you achieve your fitness goals.
-            </p>
-            <button class="bg-gradient-to-r from-primary-green to-light-green text-black font-black py-5 px-10 rounded-full text-lg uppercase tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary-green/30">
-              Start Training Today
-            </button>
-          </div>
-        </div>
+      <div class="max-w-5xl mx-auto text-center site-card p-12 md:p-16">
+        <h3 class="text-3xl md:text-5xl font-anton text-white mb-6 leading-tight">
+          Train with the
+          <span class="block bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
+            Best Team
+          </span>
+        </h3>
+        <p class="site-subtext text-lg max-w-2xl mx-auto mb-10">
+          Our certified trainers bring years of international experience and expertise to help you achieve your fitness goals.
+        </p>
+        <router-link to="/contact">
+          <button class="site-btn-primary text-base px-10 py-4">Start Training Today</button>
+        </router-link>
       </div>
     </div>
 
@@ -200,32 +179,26 @@
             </div>
 
             <!-- Call to Action -->
-            <div class="mt-8 text-center bg-gradient-to-r from-primary-red to-accent-orange rounded-2xl p-4 md:p-6 lg:p-8">
-              <h3 class="text-3xl font-bold text-white mb-4">Ready to Train?</h3>
-              <p class="text-white/80 text-lg mb-6">Experience professional training with certified expertise</p>
-              <button class="bg-white text-primary-red font-bold  px-8 rounded-full hover:bg-gray-100 transition-colors duration-300">
-                <a href="tel:+251910531281"> <p>Give us a call</p>
-                <div class="text-black text-sm m-2">
-                  <p>(+251)9 1053 1281</p>
-             
-                </div>
+            <div class="mt-8 text-center bg-primary-green rounded-2xl p-6 md:p-8">
+              <h3 class="text-3xl font-bold text-black mb-2">Ready to Train?</h3>
+              <p class="text-black/70 mb-6">Experience professional training with certified expertise</p>
+              <a :href="`tel:${gymPhone}`" class="inline-block bg-black text-white font-bold py-3 px-8 rounded-full hover:bg-gray-900 transition-colors duration-300">
+                Give us a call — {{ gymPhone }}
               </a>
-
-              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Action Fitness Logo Section -->
-    <div class="relative bg-gradient-to-br from-gray-900 to-black py-20 overflow-hidden">
+    <!-- Divider -->
+    <div class="relative bg-black py-16 overflow-hidden">
       <div class="absolute inset-0 opacity-20">
         <img class="w-full h-full object-cover" :src="HERO_IMAGE" alt="" />
       </div>
       <div class="relative z-10 flex justify-center items-center">
-        <div class="bg-gradient-to-r from-black to-gray-900 p-8 rounded-full shadow-2xl border-4 border-black">
-          <img class="h-32 w-auto" :src="ACTION_FITNESS_IMAGE" alt="Action Fitness">
+        <div class="bg-black p-6 rounded-full border border-gray-800">
+          <img class="h-24 w-auto" :src="ACTION_FITNESS_IMAGE" alt="Action Fitness">
         </div>
       </div>
     </div>
@@ -254,6 +227,9 @@ export default {
         rank: t.rank,
         certifications: t.certifications
       }))
+    },
+    gymPhone() {
+      return useContentStore().gymInfo.phone
     }
   },
   data() {

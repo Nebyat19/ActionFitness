@@ -1,30 +1,17 @@
 <template>
     <section class="py-20 bg-black relative overflow-hidden">
-      <!-- Animated Background Elements -->
-      <div class="absolute inset-0">
-        <div class="absolute top-20 left-10 w-32 h-32 bg-primary-green/10 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-20 right-10 w-40 h-40 bg-primary-red/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-light-green/10 rounded-full blur-2xl animate-pulse delay-500"></div>
-      </div>
-  
       <div class="container mx-auto px-4 relative z-10">
-        <!-- Enhanced Section Header -->
+        <!-- Section Header -->
         <div class="text-center mb-16">
-          <div class="inline-block mb-6">
-            <span class="bg-gradient-to-r from-primary-red to-accent-orange text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
-              Real Results
+          <span class="site-eyebrow mb-6">Real Results</span>
+          <h2 class="site-heading mb-6">
+            <span class="bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
+              Epic
             </span>
-          </div>
-          <h2 class="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            <span class="bg-gradient-to-r from-light-green via-primary-green to-primary-red bg-clip-text text-transparent">
-              EPIC
-            </span>
-            <br>
-            <span class="text-white">Transformations</span>
+            Transformations
           </h2>
-          <p class="text-gray-300 text-xl max-w-4xl mx-auto leading-relaxed">
-            Watch real people achieve extraordinary results. These aren't just transformations – they're 
-            <span class="text-primary-green font-semibold">life-changing journeys</span> that prove anything is possible.
+          <p class="site-subtext text-xl max-w-3xl mx-auto">
+            Watch real people achieve extraordinary results — life-changing journeys that prove anything is possible.
           </p>
         </div>
   
@@ -37,9 +24,9 @@
             @click="openModal(video, index)"
             :style="{ animationDelay: `${index * 100}ms` }"
           >
-            <!-- Enhanced Video Container -->
-            <div class="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl overflow-hidden shadow-2xl hover:shadow-primary-green/20 transition-all duration-500 border border-gray-800 hover:border-primary-green/50">
-              
+            <!-- Video Container -->
+            <div class="site-card-hover overflow-hidden">
+
               <!-- Video Element -->
               <div class="aspect-[9/16] relative overflow-hidden">
                 <video 
@@ -56,53 +43,27 @@
                   Your browser does not support the video tag.
                 </video>
   
-                <!-- Animated Play Button Overlay -->
-                <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all duration-500">
-                  <div class="relative">
-                    <!-- Pulsing Ring -->
-                    <div class="absolute inset-0 bg-primary-green rounded-full animate-ping opacity-30"></div>
-                    <div class="absolute inset-0 bg-primary-green rounded-full animate-pulse opacity-50"></div>
-                    
-                    <!-- Play Button -->
-                    <div class="relative bg-gradient-to-r from-primary-green to-light-green rounded-full p-6 group-hover:scale-110 transition-all duration-300 shadow-2xl">
-                      <svg class="w-8 h-8 text-black ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                      </svg>
-                    </div>
+                <!-- Play Button Overlay -->
+                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-all duration-500">
+                  <div class="bg-primary-green rounded-full p-5 group-hover:scale-110 transition-transform duration-300">
+                    <svg class="w-7 h-7 text-black ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
                   </div>
                 </div>
-  
-                <!-- Premium Info Overlay -->
+
+                <!-- Info Overlay -->
                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6">
-                  <div class="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 v-if="video.title" class="text-white font-bold text-lg mb-2 leading-tight">
-                      {{ video.title }}
-                    </h3>
-                    <p class="text-gray-300 text-sm mb-3">
-                      {{ video.description || `Transformation Story ${index + 1}` }}
-                    </p>
-                    
-                    <!-- Stats Badge -->
-                    <div v-if="video.stats" class="flex flex-wrap gap-2">
-                      <span class="bg-primary-red/90 text-white px-3 py-1 rounded-full text-xs font-bold">
-                        {{ video.stats }}
-                      </span>
-                    </div>
-                  </div>
+                  <h3 v-if="video.title" class="text-white font-bold text-lg leading-tight">
+                    {{ video.title }}
+                  </h3>
+                  <p class="text-gray-300 text-sm mt-1">
+                    {{ video.description || `Transformation Story ${index + 1}` }}
+                  </p>
                 </div>
-  
-                <!-- Success Badge with Animation -->
-                <div class="absolute top-4 right-4">
-                  <div class="relative">
-                    <div class="absolute inset-0 bg-accent-gold rounded-full animate-ping opacity-40"></div>
-                    <div class="relative bg-gradient-to-r from-accent-gold to-accent-orange text-black px-3 py-1 rounded-full text-xs font-black uppercase tracking-wide shadow-lg">
-                      Success
-                    </div>
-                  </div>
-                </div>
-  
+
                 <!-- Video Number -->
-                <div class="absolute top-4 left-4 bg-black/70 text-primary-green border border-primary-green/50 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
+                <div class="absolute top-4 left-4 bg-black/70 text-primary-green border border-white/10 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
                   {{ index + 1 }}
                 </div>
               </div>
@@ -110,40 +71,27 @@
           </div>
         </div>
   
-        <!-- Enhanced Call to Action -->
+        <!-- CTA -->
         <div class="text-center">
-          <div class="relative bg-gradient-to-r from-primary-red via-accent-orange to-accent-gold rounded-3xl p-1 max-w-5xl mx-auto">
-            <div class="bg-black rounded-3xl p-12 md:p-16">
-              <div class="mb-8">
-                <div class="inline-block bg-gradient-to-r from-light-green to-primary-green text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider mb-6">
-                  Your Turn
-                </div>
-                <h3 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
-                  Ready to Become a
-                  <br>
-                  <span class="bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
-                    SUCCESS STORY?
-                  </span>
-                </h3>
-                <p class="text-gray-300 text-xl mb-10 max-w-3xl mx-auto">
-                  Join these incredible transformations and write your own success story. 
-                  Your journey to greatness starts with a single decision.
-                </p>
-              </div>
-              
-              <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <button class="group relative bg-gradient-to-r from-primary-green to-light-green text-black font-black py-5 px-10 rounded-full text-lg uppercase tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-primary-green/30">
-                  <span class="relative z-10">Start Your Transformation</span>
-                  <div class="absolute inset-0 bg-gradient-to-r from-light-green to-primary-green rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
-                
-             
-              </div>
-            </div>
+          <div class="site-card max-w-4xl mx-auto p-12 md:p-16">
+            <span class="site-eyebrow mb-6">Your Turn</span>
+            <h3 class="text-3xl md:text-5xl font-anton text-white mb-6 leading-tight">
+              Ready to Become a
+              <span class="block bg-gradient-to-r from-primary-green to-light-green bg-clip-text text-transparent">
+                Success Story?
+              </span>
+            </h3>
+            <p class="site-subtext text-lg max-w-2xl mx-auto mb-10">
+              Join these incredible transformations and write your own success story. Your journey to greatness
+              starts with a single decision.
+            </p>
+            <router-link to="/contact">
+              <button class="site-btn-primary text-base px-10 py-4">Start Your Transformation</button>
+            </router-link>
           </div>
         </div>
       </div>
-  
+
       <!-- Premium Full Screen Video Modal -->
       <div 
         v-if="selectedVideo !== null" 

@@ -1,47 +1,44 @@
 <template>
-    <section id="Certifications" class="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute inset-0 bg-gradient-to-r from-primary-green/20 to-transparent"></div>
-        </div>
+    <section id="Certifications" class="py-20 bg-black relative overflow-hidden">
       <div class="container mx-auto px-4">
         <!-- Section Header -->
         <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          <span class="site-eyebrow mb-6">Credentials</span>
+          <h2 class="text-3xl md:text-5xl font-anton text-white">
             Professional <span class="text-primary-green">Certifications</span>
           </h2>
-          <p class="text-gray-300 text-lg">
+          <p class="text-gray-400 mt-4">
             Scroll to view all certifications →
           </p>
         </div>
-  
+
         <!-- Horizontal Scroll Container -->
         <div class="overflow-x-auto scrollbar-hide">
           <div class="flex gap-6 pb-4" style="width: max-content;">
-            <div 
-              v-for="(certificate, index) in certificates" 
+            <div
+              v-for="(certificate, index) in certificates"
               :key="index"
               class="flex-shrink-0 cursor-pointer group"
               @click="openModal(certificate, index)"
             >
-              <div class="w-80 h-96 bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                <img 
-                  :src="certificate" 
+              <div class="w-80 h-96 site-card-hover overflow-hidden">
+                <img
+                  :src="certificate"
                   :alt="`Certificate ${index + 1}`"
-                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
             </div>
           </div>
         </div>
-  
+
         <!-- Scroll Hint -->
         <div class="text-center mt-6">
           <p class="text-gray-500 text-sm">click any certificate to view larger</p>
         </div>
       </div>
-  
+
       <!-- Simple Modal -->
       <div 
         v-if="selectedCertificate !== null" 

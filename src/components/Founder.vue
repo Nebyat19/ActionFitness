@@ -1,19 +1,13 @@
 <template>
-  <section id="founder"
-    class="py-20 px-6 bg-gradient-to-br from-gray-900 via-black to-gray-900 relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-green/20 to-transparent"></div>
-    </div>
-
+  <section id="founder" class="py-20 px-6 bg-black relative overflow-hidden">
     <div class="max-w-7xl mx-auto relative z-10">
-      <!-- Premium Header -->
+      <!-- Header -->
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-6xl font-black text-white mb-6 font-anton">
-          Meet Our <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-primary-green to-light-green">Founder</span>
+        <span class="site-eyebrow mb-6">Leadership</span>
+        <h2 class="site-heading mb-6">
+          Meet Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-green to-light-green">Founder</span>
         </h2>
-        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+        <p class="site-subtext text-lg md:text-xl max-w-3xl mx-auto">
           The visionary behind Action Fitness, dedicated to transforming lives through premium fitness training.
         </p>
       </div>
@@ -69,22 +63,15 @@
               </div>
             </div>
 
-            <!-- Premium CTA -->
-            <div class="flex flex-col sm:flex-row gap-4">
-              <button
-                @click="openStoryModal"
-                class="group relative px-8 py-4 bg-gradient-to-r from-primary-green to-light-green text-black font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-green/25 hover:scale-105">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                  Read Full Story
-                  <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </span>
+            <!-- CTA -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button @click="openStoryModal" class="site-btn-primary">
+                Read Full Story
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
               </button>
-              <button
-                @click="openCertificationsModal"
-                class="px-8 py-4 border-2 border-primary-red text-primary-red font-bold rounded-xl hover:bg-primary-red hover:text-white transition-all duration-300 hover:scale-105">
+              <button @click="openCertificationsModal" class="site-btn-secondary">
                 View Certifications
               </button>
             </div>

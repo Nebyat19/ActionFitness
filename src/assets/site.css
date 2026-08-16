@@ -1,0 +1,50 @@
+/* Shared refinements for the public marketing site. Keeps the existing
+   black + primary-green/red brand identity but disciplines how it's used:
+   one eyebrow-badge style instead of a different loud gradient pill per
+   section, one card treatment instead of a repeated glassmorphism pattern,
+   and a consistent button/CTA language. This is a refresh of the existing
+   system, not a new one — admin.css stays fully separate. */
+@layer components {
+  /* Small uppercase label above a section heading. Outlined rather than a
+     filled gradient pill — calmer, reads as one considered system instead
+     of a different candy color per section. */
+  .site-eyebrow {
+    @apply inline-flex items-center gap-2 border border-primary-green/40 text-primary-green
+      px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.15em];
+  }
+
+  /* One dark card treatment, used everywhere a "premium card" pattern
+     previously repeated its own gradient fill + corner accents. */
+  .site-card {
+    @apply bg-gray-900/70 border border-gray-800 rounded-2xl transition-colors duration-300;
+  }
+  .site-card-hover {
+    @apply site-card hover:border-primary-green/40;
+  }
+
+  .site-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full
+      bg-primary-green text-black font-bold text-sm uppercase tracking-wide
+      transition-all duration-300 hover:bg-light-green hover:-translate-y-0.5;
+  }
+  .site-btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full
+      border border-gray-700 text-white font-bold text-sm uppercase tracking-wide
+      transition-all duration-300 hover:border-primary-green hover:text-primary-green;
+  }
+
+  /* Section heading — one consistent scale/weight instead of ad-hoc sizes
+     (some sections used text-4xl, others text-7xl, some Anton, some not). */
+  .site-heading {
+    @apply font-anton text-4xl sm:text-5xl md:text-6xl text-white leading-[1.05];
+  }
+  .site-subtext {
+    @apply text-gray-400 text-base sm:text-lg leading-relaxed;
+  }
+
+  /* Consistent section divider, subtle on both dark and light backgrounds
+     (previously a fixed light-gray line regardless of what it sat between). */
+  .site-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent;
+  }
+}

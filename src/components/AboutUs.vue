@@ -7,20 +7,13 @@
     </div>
 
     <div class="container mx-auto relative z-10">
-      <!-- Clean Header -->
+      <!-- Header -->
       <div class="text-center mb-16">
-        <div class="inline-block mb-6">
-          <span class="bg-primary-green text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wider">
-            About Us
-          </span>
-        </div>
-        <h1 class="text-4xl md:text-7xl font-black text-white mb-6 leading-tight">
-          Welcome to 
-          <span class="text-primary-green text-md">
-            Action Fitness
-          </span>
+        <span class="site-eyebrow mb-6">About Us</span>
+        <h1 class="site-heading mb-6">
+          Welcome to <span class="text-primary-green">Action Fitness</span>
         </h1>
-        <p class="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed">
+        <p class="site-subtext text-xl max-w-3xl mx-auto">
           Where your health and fitness journey begins. Located in Addis Ababa, Ethiopia, we offer a
           range of services designed to meet your individual needs and help you achieve your personal
           fitness goals.
@@ -49,8 +42,8 @@
 
         <!-- Mission Section -->
         <div class="w-full lg:w-1/2">
-          <div class="bg-gray-800/30 rounded-2xl p-8 md:p-10 border border-gray-700">
-            
+          <div class="site-card p-8 md:p-10">
+
             <!-- Mission Header -->
             <div class="mb-8">
               <div class="flex items-center gap-4 mb-4">
@@ -74,46 +67,27 @@
         </div>
       </div>
 
-      <!-- Simple Values Section -->
+      <!-- Values -->
       <div class="mt-20">
         <div class="text-center mb-12">
-          <h3 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 class="text-3xl md:text-4xl font-bold text-white font-anton">
             Why Choose Action Fitness?
           </h3>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Professional Team -->
-          <div class="bg-gray-800/30 rounded-xl p-8 border border-gray-700 text-center group hover:bg-gray-800/50 transition-all duration-300">
-            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div
+            v-for="value in values"
+            :key="value.title"
+            class="site-card-hover p-8 text-center group"
+          >
+            <div class="w-12 h-12 bg-primary-green/10 border border-primary-green/30 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-green/20 transition-colors">
+              <svg class="w-6 h-6 text-primary-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" :d="value.icon"></path>
               </svg>
             </div>
-            <h4 class="text-xl font-bold text-white mb-4">Professional Team</h4>
-            <p class="text-gray-400 leading-relaxed">Certified trainers and nutritional consultants with years of experience</p>
-          </div>
-
-          <!-- Personalized Programs -->
-          <div class="bg-gray-800/30 rounded-xl p-8 border border-gray-700 text-center group hover:bg-gray-800/50 transition-all duration-300">
-            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-              </svg>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-4">Personalized Programs</h4>
-            <p class="text-gray-400 leading-relaxed">Customized fitness and nutrition plans tailored to your individual goals</p>
-          </div>
-
-          <!-- Holistic Approach -->
-          <div class="bg-gray-800/30 rounded-xl p-8 border border-gray-700 text-center group hover:bg-gray-800/50 transition-all duration-300">
-            <div class="w-12 h-12 bg-primary-green rounded-full flex items-center justify-center mx-auto mb-6">
-              <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-              </svg>
-            </div>
-            <h4 class="text-xl font-bold text-white mb-4">Holistic Approach</h4>
-            <p class="text-gray-400 leading-relaxed">Combining physical training, mental well-being, and nutritional guidance</p>
+            <h4 class="text-lg font-bold text-white mb-3">{{ value.title }}</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">{{ value.description }}</p>
           </div>
         </div>
       </div>
@@ -124,5 +98,23 @@
 <script setup>
 import sampleVideo_2 from '@/assets/images/services/sampleVideo-2.mp4'
 import GALLERY_IMAGE_10 from '@/assets/images/gallery/gymGallary-10.png'
+
+const values = [
+  {
+    title: 'Professional Team',
+    description: 'Certified trainers and nutritional consultants with years of experience',
+    icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
+  },
+  {
+    title: 'Personalized Programs',
+    description: 'Customized fitness and nutrition plans tailored to your individual goals',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'
+  },
+  {
+    title: 'Holistic Approach',
+    description: 'Combining physical training, mental well-being, and nutritional guidance',
+    icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z'
+  }
+]
 </script>
 

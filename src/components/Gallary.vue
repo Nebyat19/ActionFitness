@@ -1,24 +1,26 @@
 <template>
   <section id="gallery" class="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
     <div class="max-w-7xl mx-auto">
-      <!-- Premium Gallery Header -->
+      <!-- Header -->
       <div class="text-center mb-16">
-        <h2 class="text-4xl md:text-6xl font-black text-gray-900 mb-6 font-anton">
-          Our <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-primary-green to-green-600">Gallery</span>
+        <span class="inline-flex items-center gap-2 border border-primary-green text-primary-green px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] mb-6">
+          Gallery
+        </span>
+        <h2 class="text-4xl md:text-6xl font-black text-gray-900 font-anton leading-[1.05]">
+          Our <span class="text-primary-green">Gallery</span>
         </h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-6">
           Explore our state-of-the-art facilities and see the transformation stories of our members.
         </p>
       </div>
 
-      <!-- Premium Category Tabs -->
-      <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
         <button v-for="category in categories" :key="category.id" @click="activeCategory = category.id" :class="[
-          'px-6 py-3 rounded-full font-semibold transition-all duration-300',
+          'px-5 py-2.5 rounded-full font-semibold text-sm transition-all duration-300',
           activeCategory === category.id
-            ? 'bg-gradient-to-r from-primary-green to-green-600 text-white shadow-lg'
-            : 'bg-white text-gray-600 border-2 border-gray-200 hover:border-primary-green hover:text-primary-green'
+            ? 'bg-primary-green text-black'
+            : 'bg-white text-gray-600 border border-gray-200 hover:border-primary-green hover:text-primary-green'
         ]">
           {{ category.name }}
         </button>
@@ -51,20 +53,11 @@
           </div>
 
           <div class="text-center mt-8">
-            <router-link :to="`/gallery/${gymCollection.slug}`">
-              <button
-                class="group relative px-8 py-4 bg-gradient-to-r from-primary-green to-green-600 text-white font-bold rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary-green/25">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                  View All Gym Photos
-                  <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                    stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                  </svg>
-                </span>
-                <div
-                  class="absolute inset-0 bg-gradient-to-r from-green-600 to-primary-green opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                </div>
-              </button>
+            <router-link :to="`/gallery/${gymCollection.slug}`" class="site-btn-primary">
+              View All Gym Photos
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
             </router-link>
           </div>
         </div>
@@ -86,8 +79,7 @@
               <div class="absolute inset-0 flex flex-col justify-end p-6 text-white">
                 <h4 class="text-xl font-bold mb-2">{{ collection.title }}</h4>
                 <router-link :to="`/gallery/${collection.slug}`" class="inline-block">
-                  <button
-                    class="px-4 py-2 bg-primary-green text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-200">
+                  <button class="px-4 py-2 bg-primary-green text-black text-sm font-semibold rounded-full hover:bg-light-green transition-colors duration-200">
                     View Gallery
                   </button>
                 </router-link>
@@ -113,14 +105,13 @@
           </div>
         </div>
       </div>
-      <!-- Premium CTA Section -->
+      <!-- CTA -->
       <div class="text-center mt-16">
-        <div class="bg-gradient-to-r from-primary-green to-green-600 rounded-2xl p-8 md:p-12 text-white">
-          <h3 class="text-2xl md:text-4xl font-bold mb-4">Ready to Join Our Community?</h3>
-          <p class="text-lg mb-8 opacity-90">Experience our premium facilities and expert training firsthand.</p>
+        <div class="bg-primary-green rounded-2xl p-8 md:p-12">
+          <h3 class="text-2xl md:text-4xl font-bold text-black mb-4">Ready to Join Our Community?</h3>
+          <p class="text-black/70 text-lg mb-8">Experience our premium facilities and expert training firsthand.</p>
           <router-link to="/contact">
-            <button
-              class="px-8 py-4 bg-white text-primary-green font-bold rounded-xl hover:bg-gray-100 transition-colors duration-200 shadow-lg">
+            <button class="px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gray-900 transition-colors duration-200">
               Schedule a Tour
             </button>
           </router-link>
@@ -160,8 +151,8 @@ const selectedImage = ref('')
 const categories = [
   { id: 'all', name: 'All Photos' },
   { id: 'gym', name: 'Gym Facilities' },
-  { id: 'Events & Programs', name: 'Events & Programs', },
-  { id: "Activities", name: "Activities" }
+  { id: 'other', name: 'Events & Programs' },
+  { id: 'Activities', name: 'Activities' }
 ]
 
 const openLightbox = (image) => {
