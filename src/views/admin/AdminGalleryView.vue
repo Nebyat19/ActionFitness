@@ -15,7 +15,7 @@ import AdminIcon from '@/components/admin/AdminIcon.vue'
 
 const fields = [
   { key: 'title', label: 'Title', type: 'text', required: true },
-  { key: 'slug', label: 'Slug (used in the URL)', type: 'text', required: true, placeholder: 'e.g. gym-gallery' },
+  { key: 'slug', label: 'Slug (used in the URL — auto-filled from the title, edit to customize)', type: 'text' },
   { key: 'description', label: 'Description', type: 'textarea' },
   { key: 'isActive', label: 'Visible on site', type: 'boolean', default: true }
 ]

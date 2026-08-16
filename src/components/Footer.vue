@@ -73,7 +73,7 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-gray-300 text-sm leading-relaxed">{{ gymInformation.location }}</p>
+                  <p class="text-gray-300 text-sm leading-relaxed">{{ primaryBranch?.address }}</p>
                 </div>
               </div>
               
@@ -132,7 +132,7 @@
                 </div>
                 <span class="text-white font-semibold">Today's Schedule</span>
               </div>
-              <p class="text-gray-300 text-sm leading-relaxed">{{ gymInformation.openingHours }}</p>
+              <p class="text-gray-300 text-sm leading-relaxed">{{ primaryBranch?.openingHours }}</p>
             </div>
           </div>
         </div>
@@ -185,6 +185,7 @@ import { useContentStore } from '@/stores/content'
 
 const content = useContentStore()
 const gymInformation = computed(() => content.gymInfo)
+const primaryBranch = computed(() => content.primaryBranch)
 
 const quickLinks = [
   { name: 'Home', path: '/' },

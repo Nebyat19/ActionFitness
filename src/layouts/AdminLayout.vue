@@ -60,7 +60,6 @@
             <AdminNavLink to="/admin/transformations" label="Transformations" icon="refresh" @navigate="drawerOpen = false" />
             <AdminNavLink to="/admin/site-content" label="Site Text" icon="document" @navigate="drawerOpen = false" />
             <AdminNavLink to="/admin/media" label="Media Library" icon="photo" @navigate="drawerOpen = false" />
-            <AdminNavLink to="/admin/users" label="Users" icon="users" @navigate="drawerOpen = false" />
           </nav>
 
           <div class="px-3 py-4 border-t border-admin-sidebar-line">

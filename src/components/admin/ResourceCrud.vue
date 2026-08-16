@@ -130,6 +130,44 @@ const { items: mediaItems } = useMediaLibrary()
 
 const listFields = computed(() => props.fields)
 
+// Auto-fills `slug` from the name/title field so nobody has to hand-type a
+// URL slug — only while creating (editing an existing item never silently
+// rewrites its slug, since that would break any link already pointing at
+// it), and only until the user actually types into the slug field themselves.
+function slugify(text) {
+  return (text || '')
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+const slugSourceField = computed(() => listFields.value.find((f) => f.key === 'name' || f.key === 'title'))
+const hasSlugField = computed(() => listFields.value.some((f) => f.key === 'slug'))
+let slugEdited = false
+let settingSlugProgrammatically = false
+
+watch(
+  () => (slugSourceField.value ? form.value[slugSourceField.value.key] : null),
+  (val) => {
+    if (!hasSlugField.value || slugEdited || editing.value?.id) return
+    settingSlugProgrammatically = true
+    form.value.slug = slugify(val)
+    settingSlugProgrammatically = false
+  },
+  { flush: 'sync' }
+)
+
+watch(
+  () => form.value.slug,
+  () => {
+    if (settingSlugProgrammatically) return
+    slugEdited = true
+  },
+  { flush: 'sync' }
+)
+
 function itemLabel(item) {
   const key = props.labelKey || ['name', 'title', 'slug'].find((k) => item[k])
   return item[key] || `#${item.id}`
@@ -167,12 +205,14 @@ function emptyForm() {
 
 function openCreate() {
   formError.value = ''
+  slugEdited = false
   form.value = emptyForm()
   editing.value = { id: null }
 }
 
 function openEdit(item) {
   formError.value = ''
+  slugEdited = true
   const out = {}
   for (const field of listFields.value) {
     if (field.type === 'string-list') out[field.key] = (item[field.key] || []).join('\n')
@@ -193,6 +233,11 @@ function serializeForm() {
     } else {
       out[field.key] = form.value[field.key]
     }
+  }
+  // Safety net alongside the live auto-fill watcher above, in case a slug
+  // still reaches save empty (e.g. the name field was filled by autofill/paste).
+  if (hasSlugField.value && !out.slug && slugSourceField.value) {
+    out.slug = slugify(form.value[slugSourceField.value.key])
   }
   return out
 }

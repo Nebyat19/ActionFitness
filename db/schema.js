@@ -55,6 +55,12 @@ export const branches = pgTable('branches', {
   address: text('address').notNull(),
   phone: text('phone'),
   openingHours: text('opening_hours'),
+  imageMediaId: integer('image_media_id').references(() => media.id),
+  // The branch whose address/phone/hours populate the header, footer, and
+  // contact page — those show one location, not a list, once there's more
+  // than one branch. Exactly one row should have this set; if none do, the
+  // frontend falls back to the first branch.
+  isPrimary: boolean('is_primary').notNull().default(false),
   sortOrder: integer('sort_order').notNull().default(0),
   isActive: boolean('is_active').notNull().default(true)
 }, (table) => ({

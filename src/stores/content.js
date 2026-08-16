@@ -14,6 +14,13 @@ export const useContentStore = defineStore('content', {
   getters: {
     loaded: (state) => state.data !== null,
     branches: (state) => state.data?.branches ?? [],
+    // The branch whose address/phone/hours represent "the gym" in shared
+    // chrome (header/footer/contact) — falls back to the first branch if
+    // none is explicitly marked primary.
+    primaryBranch: (state) => {
+      const list = state.data?.branches ?? []
+      return list.find((b) => b.isPrimary) ?? list[0] ?? null
+    },
     services: (state) => state.data?.services ?? [],
     trainers: (state) => state.data?.trainers ?? [],
     gallery: (state) => state.data?.gallery ?? [],

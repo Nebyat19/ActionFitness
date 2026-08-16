@@ -23,8 +23,8 @@
         ></path>
       </svg>
       <span class="text-sm flex gap-2 items-center">
-        <span class="hidden sm:inline">{{ gymInfo.location }} |</span>
-        <a :href="'tel:'+gymInfo.phone">{{ gymInfo.phone }}</a>
+        <span class="hidden sm:inline">{{ primaryBranch?.address }} |</span>
+        <a :href="'tel:'+primaryBranch?.phone">{{ primaryBranch?.phone }}</a>
       </span>
     </span>
   </div>
@@ -99,5 +99,5 @@ const navigationLinks = [
 ]
 
 const content = useContentStore()
-const gymInfo = computed(() => content.gymInfo)
+const primaryBranch = computed(() => content.primaryBranch)
 </script>

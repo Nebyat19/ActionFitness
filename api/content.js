@@ -24,11 +24,7 @@ export default async function handler(req, res) {
       collectionItems,
       siteContentRows
     ] = await Promise.all([
-      db
-        .select()
-        .from(schema.branches)
-        .where(eq(schema.branches.isActive, true))
-        .orderBy(asc(schema.branches.sortOrder), asc(schema.branches.id)),
+      selectWithMedia('branches', schema.branches, { image: 'imageMediaId' }, eq(schema.branches.isActive, true)),
 
       selectWithMedia(
         'services',

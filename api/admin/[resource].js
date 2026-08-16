@@ -19,7 +19,17 @@ import { requireAuth, requireSameOrigin } from '../_lib/auth.js'
 const RESOURCES = {
   branches: {
     table: schema.branches,
-    fields: ['slug', 'name', 'address', 'phone', 'openingHours', 'sortOrder', 'isActive'],
+    fields: [
+      'slug',
+      'name',
+      'address',
+      'phone',
+      'openingHours',
+      'imageMediaId',
+      'isPrimary',
+      'sortOrder',
+      'isActive'
+    ],
     required: ['slug', 'name', 'address']
   },
   services: {

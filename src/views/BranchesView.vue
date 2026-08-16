@@ -28,8 +28,15 @@
         <div
           v-for="branch in content.branches"
           :key="branch.id"
-          class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl border border-gray-800 hover:border-primary-green/50 p-8 transition-all duration-500 hover:-translate-y-1"
+          class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl border border-gray-800 hover:border-primary-green/50 overflow-hidden transition-all duration-500 hover:-translate-y-1"
         >
+          <img
+            v-if="branch.imageUrl"
+            :src="branch.imageUrl"
+            :alt="branch.name"
+            class="w-full h-56 object-cover"
+          />
+          <div class="p-8">
           <h2 class="text-2xl font-bold text-white mb-6 group-hover:text-primary-green transition-colors duration-300">
             {{ branch.name }}
           </h2>
@@ -74,6 +81,7 @@
               </div>
               <span class="text-gray-300">{{ branch.openingHours }}</span>
             </div>
+          </div>
           </div>
         </div>
       </div>

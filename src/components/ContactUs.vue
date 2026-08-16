@@ -35,7 +35,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-semibold text-white mb-2">Location</h4>
-                  <p class="text-gray-300 leading-relaxed">{{ gymInformation.location }}</p>
+                  <p class="text-gray-300 leading-relaxed">{{ primaryBranch?.address }}</p>
                 </div>
               </div>
 
@@ -82,7 +82,7 @@
                 </div>
                 <div>
                   <h4 class="text-lg font-semibold text-white mb-2">Opening Hours</h4>
-                  <p class="text-gray-300">{{ gymInformation.openingHours }}</p>
+                  <p class="text-gray-300">{{ primaryBranch?.openingHours }}</p>
                 </div>
               </div>
             </div>
@@ -176,6 +176,7 @@ import { useContentStore } from '@/stores/content'
 
 const content = useContentStore()
 const gymInformation = computed(() => content.gymInfo)
+const primaryBranch = computed(() => content.primaryBranch)
 
 const form = ref({
   name: '',

@@ -6,7 +6,11 @@
       copy elsewhere on the site aren't editable here yet — those still require a code change.
     </p>
     <div class="flex flex-col gap-6 max-w-2xl">
-      <SiteContentBlock content-key="gym_info" title="Gym info (used in header, footer, contact page)" :fields="gymInfoFields" />
+      <SiteContentBlock
+        content-key="gym_info"
+        title="Gym info (email, phone list, socials — address/hours are set per-branch under Branches)"
+        :fields="gymInfoFields"
+      />
       <SiteContentBlock content-key="founder" title="Founder bio (used on the homepage founder section)" :fields="founderFields" />
     </div>
   </div>
@@ -19,10 +23,7 @@ import SiteContentBlock from '@/components/admin/SiteContentBlock.vue'
 
 const gymInfoFields = [
   { key: 'name', label: 'Gym name', type: 'text', required: true },
-  { key: 'location', label: 'Primary address', type: 'textarea' },
-  { key: 'openingHours', label: 'Opening hours', type: 'text' },
   { key: 'email', label: 'Email', type: 'text' },
-  { key: 'phone', label: 'Primary phone', type: 'text' },
   { key: 'phones', label: 'All phone numbers (one per line)', type: 'string-list' },
   { key: 'info', label: 'Short blurb (footer/contact)', type: 'textarea' },
   { key: 'facebook', label: 'Facebook URL', type: 'text' },

@@ -229,7 +229,7 @@ export default {
       }))
     },
     gymPhone() {
-      return useContentStore().gymInfo.phone
+      return useContentStore().primaryBranch?.phone
     }
   },
   data() {

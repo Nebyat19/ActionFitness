@@ -24,6 +24,7 @@ import { ALLOWED_CONTENT_TYPES, MAX_UPLOAD_BYTES } from '../_lib/blob.js'
 import { r2, R2_BUCKET, publicUrlFor } from '../_lib/r2.js'
 
 const REFERENCING_TABLES = [
+  { table: schema.branches, column: 'imageMediaId', label: 'branches' },
   { table: schema.services, column: 'imageMediaId', label: 'services' },
   { table: schema.services, column: 'videoMediaId', label: 'services' },
   { table: schema.trainers, column: 'imageMediaId', label: 'trainers' },
