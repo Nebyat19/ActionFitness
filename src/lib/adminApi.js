@@ -1,7 +1,6 @@
 // Thin fetch wrapper for the authenticated /api/admin/* and /api/auth/*
 // endpoints. Cookies (the session JWT) travel automatically via
 // credentials: 'include' since everything is same-origin.
-import { upload } from '@vercel/blob/client'
 
 async function request(path, { method = 'GET', body } = {}) {
   const res = await fetch(`/api${path}`, {
@@ -58,20 +57,40 @@ export const adminApi = {
   }
 }
 
-// Uploads a file straight from the browser to Vercel Blob (never through our
-// own serverless function — needed so video uploads aren't capped by a
-// function's request-body size limit), then registers the resulting media
-// row. `onUploadProgress` is optional, forwarded straight to @vercel/blob.
+// Uploads a file straight from the browser to R2 via a presigned URL (never
+// through our own serverless function — needed so video uploads aren't
+// capped by a function's request-body size limit), then registers the
+// resulting media row. `onUploadProgress`, if given, is called with
+// `{ loaded, total }` as the PUT progresses.
 export async function uploadMedia(file, { altText, onUploadProgress } = {}) {
-  const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_')
-  const pathname = `media/${Date.now()}-${safeName}`
-
-  const blob = await upload(pathname, file, {
-    access: 'public',
-    handleUploadUrl: '/api/admin/media',
-    onUploadProgress
+  const { uploadUrl, publicUrl, pathname } = await request('/admin/media', {
+    method: 'POST',
+    body: { type: 'request-upload-url', filename: file.name, contentType: file.type, size: file.size }
   })
 
+  await putWithProgress(uploadUrl, file, onUploadProgress)
+
   const kind = file.type.startsWith('video/') ? 'video' : 'image'
-  return adminApi.media.register({ blobUrl: blob.url, blobPathname: blob.pathname, kind, altText })
+  return adminApi.media.register({ blobUrl: publicUrl, blobPathname: pathname, kind, altText })
+}
+
+// fetch() has no upload progress event, so XHR is needed to drive the
+// progress bar during large video uploads.
+function putWithProgress(url, file, onUploadProgress) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+    xhr.open('PUT', url)
+    xhr.setRequestHeader('Content-Type', file.type)
+    if (onUploadProgress) {
+      xhr.upload.addEventListener('progress', (e) => {
+        if (e.lengthComputable) onUploadProgress({ loaded: e.loaded, total: e.total })
+      })
+    }
+    xhr.addEventListener('load', () => {
+      if (xhr.status >= 200 && xhr.status < 300) resolve()
+      else reject(new Error(`Upload failed (${xhr.status})`))
+    })
+    xhr.addEventListener('error', () => reject(new Error('Upload failed')))
+    xhr.send(file)
+  })
 }

@@ -75,6 +75,18 @@ export default async function handler(req, res) {
     const siteContent = {}
     for (const row of siteContentRows) siteContent[row.key] = row.value
 
+    // founder.imageMediaId is a media table id (set via the admin's media
+    // picker) — resolve it to a URL here since the founder section renders
+    // straight from this object rather than joining media itself.
+    if (siteContent.founder?.imageMediaId) {
+      const [img] = await db
+        .select({ blobUrl: schema.media.blobUrl })
+        .from(schema.media)
+        .where(eq(schema.media.id, siteContent.founder.imageMediaId))
+        .limit(1)
+      if (img) siteContent.founder = { ...siteContent.founder, imageUrl: img.blobUrl }
+    }
+
     res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300')
     return res.status(200).json({
       branches,

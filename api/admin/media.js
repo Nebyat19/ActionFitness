@@ -1,27 +1,27 @@
-// Media library: issues scoped client-upload tokens (files go straight from
-// the admin's browser to Blob, never through this function — needed since
-// video files can exceed serverless request-body limits), registers the
-// resulting media row, lists the library, and deletes (blocking delete of
-// anything still referenced elsewhere).
+// Media library: issues presigned R2 upload URLs (files go straight from the
+// admin's browser to R2, never through this function — needed since video
+// files can exceed serverless request-body limits), registers the resulting
+// media row, lists the library, and deletes (blocking delete of anything
+// still referenced elsewhere).
 //
-// POST   /api/admin/media   { type: 'blob.generate-client-token', ... } -> token
-//        (this shape is sent automatically by @vercel/blob/client's upload())
+// POST   /api/admin/media   { type: 'request-upload-url', filename, contentType, size }
+//        -> { uploadUrl, publicUrl, pathname }
 // POST   /api/admin/media   { blobUrl, blobPathname, kind, altText }    -> create row
-//        (sent by our own admin UI right after upload() resolves — this is
-//        the source of truth for the DB row rather than Blob's completion
-//        webhook, because that webhook can't reach `vercel dev` locally
-//        without a public tunnel. Trade-off: if the tab closes between
-//        upload finishing and this call, the blob is orphaned in storage
-//        with no DB row — harmless, just needs a manual cleanup in the
-//        Vercel dashboard if it ever happens.)
+//        (sent by our own admin UI right after the PUT to `uploadUrl`
+//        resolves — this is the source of truth for the DB row since R2
+//        has no completion webhook we could use instead. Trade-off: if the
+//        tab closes between upload finishing and this call, the object is
+//        orphaned in storage with no DB row — harmless, just needs a manual
+//        cleanup in the Cloudflare dashboard if it ever happens.)
 // GET    /api/admin/media          -> list
 // DELETE /api/admin/media?id=1     -> delete (blocked if still referenced)
-import { del } from '@vercel/blob'
-import { handleUpload } from '@vercel/blob/client'
+import { PutObjectCommand, DeleteObjectCommand } from '@aws-sdk/client-s3'
+import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { eq, desc } from 'drizzle-orm'
 import { db, schema } from '../_lib/db.js'
 import { requireAuth, requireSameOrigin } from '../_lib/auth.js'
 import { ALLOWED_CONTENT_TYPES, MAX_UPLOAD_BYTES } from '../_lib/blob.js'
+import { r2, R2_BUCKET, publicUrlFor } from '../_lib/r2.js'
 
 const REFERENCING_TABLES = [
   { table: schema.services, column: 'imageMediaId', label: 'services' },
@@ -54,22 +54,35 @@ async function route(req, res) {
   if (req.method === 'POST') {
     if (!requireSameOrigin(req, res)) return
 
-    // Client upload token request (forwarded from @vercel/blob/client's upload()).
-    if (req.body?.type === 'blob.generate-client-token') {
+    // Presigned upload URL request (sent by uploadMedia() before the PUT).
+    if (req.body?.type === 'request-upload-url') {
+      const { filename, contentType, size } = req.body
+      if (!filename || !contentType || !size) {
+        return res.status(400).json({ error: 'filename, contentType and size are required' })
+      }
+      if (!ALLOWED_CONTENT_TYPES.includes(contentType)) {
+        return res.status(400).json({ error: `Content type not allowed: ${contentType}` })
+      }
+      if (size > MAX_UPLOAD_BYTES) {
+        return res.status(400).json({ error: 'File exceeds maximum upload size' })
+      }
+      const safeName = filename.replace(/[^a-zA-Z0-9.\-_]/g, '_')
+      const pathname = `media/${Date.now()}-${Math.random().toString(36).slice(2, 8)}-${safeName}`
       try {
-        const jsonResponse = await handleUpload({
-          body: req.body,
-          request: req,
-          onBeforeGenerateToken: async () => ({
-            allowedContentTypes: ALLOWED_CONTENT_TYPES,
-            maximumSizeInBytes: MAX_UPLOAD_BYTES,
-            addRandomSuffix: true
-          })
-        })
-        return res.status(200).json(jsonResponse)
+        const uploadUrl = await getSignedUrl(
+          r2,
+          new PutObjectCommand({
+            Bucket: R2_BUCKET,
+            Key: pathname,
+            ContentType: contentType,
+            ContentLength: size
+          }),
+          { expiresIn: 300 }
+        )
+        return res.status(200).json({ uploadUrl, publicUrl: publicUrlFor(pathname), pathname })
       } catch (err) {
-        console.error('[api/admin/media] token generation failed', err)
-        return res.status(400).json({ error: err.message })
+        console.error('[api/admin/media] presign failed', err)
+        return res.status(500).json({ error: 'Failed to create upload URL' })
       }
     }
 
@@ -111,14 +124,12 @@ async function route(req, res) {
     }
 
     try {
-      await del(mediaRow.blobUrl)
+      await r2.send(new DeleteObjectCommand({ Bucket: R2_BUCKET, Key: mediaRow.blobPathname }))
     } catch (err) {
-      // If it's already gone from Blob storage, don't block clearing the
-      // now-orphaned DB row over it — but surface any other failure.
-      if (err?.name !== 'BlobNotFoundError') {
-        console.error('[api/admin/media] blob delete failed', err)
-        return res.status(502).json({ error: 'Failed to delete file from storage, DB row left untouched' })
-      }
+      // R2's DeleteObject is idempotent (no error if already gone), so any
+      // failure here is a real problem — don't silently clear the DB row.
+      console.error('[api/admin/media] r2 delete failed', err)
+      return res.status(502).json({ error: 'Failed to delete file from storage, DB row left untouched' })
     }
     await db.delete(schema.media).where(eq(schema.media.id, mediaId))
     return res.status(200).json({ ok: true })
