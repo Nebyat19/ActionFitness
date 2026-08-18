@@ -26,7 +26,7 @@
     <section class="max-w-6xl mx-auto px-6 py-20">
       <div v-if="content.branches.length" class="grid gap-8 md:grid-cols-2">
         <div
-          v-for="branch in content.branches"
+          v-for="(branch, index) in content.branches"
           :key="branch.id"
           class="group bg-gradient-to-br from-gray-900 to-black rounded-3xl border border-gray-800 hover:border-primary-green/50 overflow-hidden transition-all duration-500 hover:-translate-y-1"
         >
@@ -38,7 +38,7 @@
           />
           <div class="p-8">
           <h2 class="text-2xl font-bold text-white mb-6 group-hover:text-primary-green transition-colors duration-300">
-            {{ branch.name }}
+            Branch {{ index + 1 }}: {{ branch.name }}
           </h2>
 
           <div class="space-y-5">

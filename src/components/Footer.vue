@@ -64,8 +64,8 @@
               Contact Info
             </h3>
             <div class="space-y-4">
-              <!-- Location -->
-              <div class="flex items-start gap-3">
+              <!-- Locations (one per branch) -->
+              <div v-for="(branch, index) in branches" :key="branch.id" class="flex items-start gap-3">
                 <div class="w-8 h-8 bg-primary-green rounded-lg flex items-center justify-center flex-shrink-0">
                   <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
@@ -73,10 +73,14 @@
                   </svg>
                 </div>
                 <div>
-                  <p class="text-gray-300 text-sm leading-relaxed">{{ primaryBranch?.address }}</p>
+                  <p class="text-white text-sm font-semibold">Branch {{ index + 1 }}: {{ branch.name }}</p>
+                  <p class="text-gray-300 text-sm leading-relaxed">{{ branch.address }}</p>
+                  <a v-if="branch.phone" :href="`tel:${branch.phone}`" class="text-gray-300 hover:text-primary-green text-sm transition-colors duration-300">
+                    {{ branch.phone }}
+                  </a>
                 </div>
               </div>
-              
+
               <!-- Phone Numbers -->
               <div class="flex items-start gap-3">
                 <div class="w-8 h-8 bg-primary-green rounded-lg flex items-center justify-center flex-shrink-0">
@@ -123,16 +127,18 @@
               <span class="w-8 h-1 bg-primary-green rounded-full"></span>
               Opening Hours
             </h3>
-            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="w-8 h-8 bg-primary-green rounded-lg flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
+            <div class="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 space-y-4">
+              <div v-for="(branch, index) in branches" :key="branch.id">
+                <div class="flex items-center gap-3 mb-1.5">
+                  <div class="w-8 h-8 bg-primary-green rounded-lg flex items-center justify-center shrink-0">
+                    <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <span class="text-white font-semibold">Branch {{ index + 1 }}: {{ branch.name }}</span>
                 </div>
-                <span class="text-white font-semibold">Today's Schedule</span>
+                <p v-if="branch.openingHours" class="text-gray-300 text-sm leading-relaxed pl-11">{{ branch.openingHours }}</p>
               </div>
-              <p class="text-gray-300 text-sm leading-relaxed">{{ primaryBranch?.openingHours }}</p>
             </div>
           </div>
         </div>
@@ -185,7 +191,7 @@ import { useContentStore } from '@/stores/content'
 
 const content = useContentStore()
 const gymInformation = computed(() => content.gymInfo)
-const primaryBranch = computed(() => content.primaryBranch)
+const branches = computed(() => content.branches)
 
 const quickLinks = [
   { name: 'Home', path: '/' },
