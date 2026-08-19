@@ -102,6 +102,11 @@ const routes = [
         name: 'admin-site-content',
         component: () => import('@/views/admin/AdminSiteContentView.vue')
       },
+      {
+        path: 'site-images',
+        name: 'admin-site-images',
+        component: () => import('@/views/admin/AdminSiteImagesView.vue')
+      },
       { path: 'media', name: 'admin-media', component: () => import('@/views/admin/AdminMediaView.vue') },
       { path: 'users', name: 'admin-users', component: () => import('@/views/admin/AdminUsersView.vue') }
     ]

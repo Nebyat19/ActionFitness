@@ -2,7 +2,7 @@
   <main id="home" class="overflow-hidden ">
     <!-- Premium Hero Section -->
     <div class="relative mt-14 w-full h-[95vh] md:h-screen flex items-center justify-center overflow-hidden">
-      <img :src="HERO_IMAGE_2" class="w-full h-full absolute object-cover object-center" alt="Action Fitness Hero" />
+      <img :src="heroImage" class="w-full h-full absolute object-cover object-center" alt="Action Fitness Hero" />
       <div class="w-full h-full absolute bg-gradient-to-t from-black via-black/70 to-black/40"></div>
 
       <!-- Premium Content Container -->
@@ -130,4 +130,7 @@ import WeightLossSection from '@/components/WeightLossSection.vue'
 
 const content = useContentStore()
 const gymInfo = computed(() => content.gymInfo)
+// Falls back to the bundled default hero image until the owner picks one
+// under Admin > Site Images.
+const heroImage = computed(() => content.siteImages.homeHeroImageUrl || HERO_IMAGE_2)
 </script>

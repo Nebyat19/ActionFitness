@@ -59,6 +59,7 @@
             <AdminNavLink to="/admin/certificates" label="Certificates" icon="badge" @navigate="drawerOpen = false" />
             <AdminNavLink to="/admin/transformations" label="Transformations" icon="refresh" @navigate="drawerOpen = false" />
             <AdminNavLink to="/admin/site-content" label="Site Text" icon="document" @navigate="drawerOpen = false" />
+            <AdminNavLink to="/admin/site-images" label="Site Images" icon="landscape" @navigate="drawerOpen = false" />
             <AdminNavLink to="/admin/media" label="Media Library" icon="photo" @navigate="drawerOpen = false" />
           </nav>
 

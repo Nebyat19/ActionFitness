@@ -194,7 +194,7 @@
     <!-- Divider -->
     <div class="relative bg-black py-16 overflow-hidden">
       <div class="absolute inset-0 opacity-20">
-        <img class="w-full h-full object-cover" :src="HERO_IMAGE" alt="" />
+        <img class="w-full h-full object-cover" :src="heroImage" alt="" />
       </div>
       <div class="relative z-10 flex justify-center items-center">
         <div class="bg-black p-6 rounded-full border border-gray-800">
@@ -230,12 +230,16 @@ export default {
     },
     gymPhone() {
       return useContentStore().primaryBranch?.phone
+    },
+    // Falls back to the bundled default hero image until the owner picks
+    // one under Admin > Site Images.
+    heroImage() {
+      return useContentStore().siteImages.trainersHeroImageUrl || HERO_IMAGE
     }
   },
   data() {
     return {
       selectedTrainer: null,
-      HERO_IMAGE,
       ACTION_FITNESS_IMAGE
     }
   },

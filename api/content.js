@@ -3,7 +3,7 @@
 // Vercel's edge so Neon's autosuspend cold-start and free-tier compute don't
 // get hit on every visitor. 60s cache keeps admin edits showing up quickly
 // without re-querying Neon on every single page load.
-import { eq, asc } from 'drizzle-orm'
+import { eq, asc, inArray } from 'drizzle-orm'
 import { alias } from 'drizzle-orm/pg-core'
 import { db, schema } from './_lib/db.js'
 
@@ -81,6 +81,24 @@ export default async function handler(req, res) {
         .where(eq(schema.media.id, siteContent.founder.imageMediaId))
         .limit(1)
       if (img) siteContent.founder = { ...siteContent.founder, imageUrl: img.blobUrl }
+    }
+
+    // site_images.*MediaId fields are media table ids too (admin's Site
+    // Images page) — resolve each to a `...Url` string the way founder's
+    // photo is resolved above.
+    if (siteContent.site_images) {
+      const mediaIdKeys = Object.keys(siteContent.site_images).filter((k) => k.endsWith('MediaId'))
+      const ids = mediaIdKeys.map((k) => siteContent.site_images[k]).filter(Boolean)
+      if (ids.length) {
+        const rows = await db.select({ id: schema.media.id, blobUrl: schema.media.blobUrl }).from(schema.media).where(inArray(schema.media.id, ids))
+        const urlById = new Map(rows.map((r) => [r.id, r.blobUrl]))
+        const resolved = { ...siteContent.site_images }
+        for (const key of mediaIdKeys) {
+          const id = siteContent.site_images[key]
+          if (id && urlById.has(id)) resolved[key.replace(/MediaId$/, 'Url')] = urlById.get(id)
+        }
+        siteContent.site_images = resolved
+      }
     }
 
     res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=300')

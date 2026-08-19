@@ -28,6 +28,10 @@ export const useContentStore = defineStore('content', {
     transformations: (state) => state.data?.transformations ?? [],
     gymInfo: (state) => state.data?.siteContent?.gym_info ?? {},
     founder: (state) => state.data?.siteContent?.founder ?? {},
+    // Page-hero/background images, editable from the admin's Site Images
+    // page. Public components should fall back to their bundled default
+    // image when a field here is unset (nothing chosen yet in the admin).
+    siteImages: (state) => state.data?.siteContent?.site_images ?? {},
 
     transformationVideos: (state) =>
       (state.data?.transformations ?? []).filter((t) => t.videoUrl),
