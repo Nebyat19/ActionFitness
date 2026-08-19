@@ -143,11 +143,15 @@ async function toggleMedia(media) {
     if (existing) {
       await adminApi.remove('gallery-items', existing.id)
     } else {
-      const maxSortOrder = collectionItems.value.reduce((max, i) => Math.max(max, i.sortOrder ?? 0), -1)
+      // New photos default to the top of the collection rather than the
+      // bottom — that's usually the most recently added photo, and the one
+      // the admin wants visitors to see first.
+      const sortOrders = collectionItems.value.map((i) => i.sortOrder ?? 0)
+      const sortOrder = sortOrders.length ? Math.min(...sortOrders) - 1 : 0
       await adminApi.create('gallery-items', {
         collectionId: collectionId.value,
         mediaId: media.id,
-        sortOrder: maxSortOrder + 1
+        sortOrder
       })
     }
     await load()
