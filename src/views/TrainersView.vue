@@ -234,7 +234,7 @@ export default {
     // Falls back to the bundled default hero image until the owner picks
     // one under Admin > Site Images.
     heroImage() {
-      return useContentStore().siteImages.trainersHeroImageUrl || HERO_IMAGE
+      return useContentStore().siteImages.trainersHeroUrl || HERO_IMAGE
     }
   },
   data() {

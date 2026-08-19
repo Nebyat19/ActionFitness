@@ -132,5 +132,5 @@ const content = useContentStore()
 const gymInfo = computed(() => content.gymInfo)
 // Falls back to the bundled default hero image until the owner picks one
 // under Admin > Site Images.
-const heroImage = computed(() => content.siteImages.homeHeroImageUrl || HERO_IMAGE_2)
+const heroImage = computed(() => content.siteImages.homeHeroUrl || HERO_IMAGE_2)
 </script>
