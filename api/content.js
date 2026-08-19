@@ -1,9 +1,10 @@
 // Public, unauthenticated aggregate endpoint — the entire public site fetches
-// this ONCE instead of firing 8+ separate requests, and it's cached at
-// Vercel's edge so Neon's autosuspend cold-start and free-tier compute don't
-// get hit on every visitor. Short 10s cache (30s stale-while-revalidate
-// ceiling) keeps admin edits showing up almost immediately while still
-// absorbing repeat hits within that window without re-querying Neon.
+// this ONCE instead of firing 8+ separate requests. Deliberately uncached
+// (no-store) so admin edits are visible immediately everywhere — the
+// trade-off is every page load hits Neon directly, including any
+// autosuspend cold-start latency if the DB has been idle. Revisit with a
+// short s-maxage on api/content.js's Cache-Control if that latency becomes
+// a real problem at higher traffic.
 import { eq, asc, inArray } from 'drizzle-orm'
 import { alias } from 'drizzle-orm/pg-core'
 import { db, schema } from './_lib/db.js'
@@ -102,7 +103,7 @@ export default async function handler(req, res) {
       }
     }
 
-    res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=30')
+    res.setHeader('Cache-Control', 'no-store')
     return res.status(200).json({
       branches,
       services,
