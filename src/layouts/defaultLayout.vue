@@ -31,5 +31,10 @@ import Footer from '../components/Footer.vue'
 import { useContentStore } from '@/stores/content'
 
 const content = useContentStore()
-onMounted(() => content.fetchContent())
+// First visit: fetchContent() does the real load (with the loading screen
+// above). Coming back from a different top-level route (e.g. /admin, in the
+// same tab) remounts this layout without a full page reload — refreshContent()
+// re-fetches then, so admin edits show up instead of the stale snapshot
+// from before the edit.
+onMounted(() => (content.loaded ? content.refreshContent() : content.fetchContent()))
 </script>

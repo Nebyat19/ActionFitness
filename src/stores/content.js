@@ -44,6 +44,20 @@ export const useContentStore = defineStore('content', {
   actions: {
     async fetchContent() {
       if (this.loading || this.loaded) return
+      await this._load()
+    },
+    // Re-fetches even if content was already loaded, without dropping it
+    // from the screen while the request is in flight. defaultLayout.vue
+    // calls this on every mount — it only actually re-mounts when you leave
+    // the public route subtree and come back (e.g. the admin panel, in the
+    // same tab) — so an admin edit shows up on return instead of the
+    // stale pre-edit snapshot fetchContent()'s guard would otherwise keep
+    // serving for the rest of the tab's session.
+    async refreshContent() {
+      if (this.loading) return
+      await this._load()
+    },
+    async _load() {
       this.loading = true
       this.error = null
       try {
